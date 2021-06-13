@@ -1,0 +1,79 @@
+﻿@model List<Insurance.ViewModels.StaticContentView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Static Content
+            <small>List</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Content Management</a></li>
+            <li><a href="#">Manage Content</a></li>
+            <li class="active">List</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <a class="btn btn-success" href="/StaticContent/Create">Add Content</a>
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Page Name</th>
+                                    <th>Page Title</th>
+                                    <th>Last Modified</th>
+                                    <th>Modified By</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.PageName</td>
+                                        <td>@item.PageTitle</td>
+                                        <td>@item.LastModified</td>
+                                        <td>@item.ModifiedBy</td>
+                                        <td style="text-align:center">
+                                            <a href="/StaticContent/Edit/@item.Id" style="color: #00a65a;">Update</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+}
+
+

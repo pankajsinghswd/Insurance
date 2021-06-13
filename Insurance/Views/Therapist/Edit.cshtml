@@ -1,0 +1,165 @@
+﻿@model Insurance.ViewModels.TherapistProfileEditModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+
+    var photoPath = "/Content/userProfile/" + (string.IsNullOrEmpty(Model.ExistingPhotoPath) ? "avtar.png" : Model.ExistingPhotoPath);
+}
+
+<section class="section test-section" id="all-parent">
+
+
+    @using (Html.BeginForm("Edit", "Therapist", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.Id, new { id = Model.Id })
+        @Html.HiddenFor(x => x.ExistingPhotoPath, new { id = Model.ExistingPhotoPath })
+        @Html.HiddenFor(x => x.Email, new { id = Model.Email })
+        <div class="row appointment-profile-first">
+            <img src="@photoPath" />
+            <div class="appointment-profile-details">
+                <h4>@Model.FullName</h4>
+                <p>Specialist Therapist</p>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "form-group" })
+
+                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, new { @class = "form-group" })
+
+                        @Html.DropDownListFor(m => m.Gender, Model.GenderList, "Choose...", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpecialityIDs, htmlAttributes: new { @class = "form-group" })
+                        @Html.DropDownListFor(m => m.SpecialityIDs, Model.Speciality, "Choose...", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SpecialityIDs, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EducationId, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.DropDownListFor(m => m.EducationId, Model.Education, "Choose...", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EducationId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RegistrationCouncil, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.TextBoxFor(model => model.RegistrationCouncil, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RegistrationCouncil, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RegistrationNumber, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.TextBoxFor(model => model.RegistrationNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RegistrationNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RegistrationYear, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.TextBoxFor(model => model.RegistrationYear, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RegistrationYear, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ExperienceInYear, htmlAttributes: new { @class = "form-group" })
+
+                        @Html.DropDownListFor(m => m.ExperienceInYear, Model.Year, "Choose...", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ExperienceInYear, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="btnUpdate" class="btn btn-success">U P D A T E</button>
+            </div>
+        </div>
+    }
+
+
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('.custom-file-input').on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next('.custom-file-label').html(fileName);
+        });
+
+
+
+        $("#file").change(function () {
+            // Get uploaded file extension
+            var extension = $(this).val().split('.').pop().toLowerCase();
+            // Create array with the files extensions that we wish to upload
+            var validFileExtensions = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+            //Check file extension in the array.if -1 that means the file extension is not in the list.
+            if ($.inArray(extension, validFileExtensions) == -1) {
+                //$('#spnmsg').text("Failed!! Please upload jpg, jpeg, png, gif, bmp file only.").show();
+                swal("Failed!! Please upload jpg, jpeg, png, gif, bmp file only.");
+                // Clear fileuload control selected file
+                $(this).replaceWith($(this).val('').clone(true));
+                //Disable Submit Button
+                $('#btnUpdate').prop('disabled', true);
+            }
+            else {
+                // Check and restrict the file size to 51 KB. (1000 byte = 1Kb)
+                if ($(this).get(0).files[0].size > (51000)) {
+                    swal("Failed!! Max allowed file size is 50 kb");
+                    // Clear fileuload control selected file
+                    $(this).replaceWith($(this).val('').clone(true));
+                    //Disable Submit Button
+                    $('#btnUpdate').prop('disabled', true);
+                }
+                else {
+                    //Clear and Hide message span
+                    //$('#spnmsg').text('').hide();
+                    //Enable Submit Button
+                    $('#btnUpdate').prop('disabled', false);
+                }
+            }
+        });
+
+    });
+</script>

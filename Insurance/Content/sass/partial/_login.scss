@@ -1,0 +1,204 @@
+header{
+&.top-header{
+&.login-header{box-shadow:none;padding:0.8rem 0;}
+.navbar{
+.signup-login{padding-right:1.6rem;
+    a{font-family:$font-OpenSans-Bold;color:$color-black;}
+}
+}
+}
+}
+
+.login-container{
+section{
+&.section{
+.login-form-container{display:flex;align-items:center;justify-content:center;height:100vh;margin-top:-61px;flex-direction:column;
+h1{font-size:$font-size-headingextralarge;font-family:$font-OpenSans-Bold;}
+form{
+    & > label{margin-top:1.4rem;margin-bottom:0.3rem;}
+    label {display: block;
+    & > .name{font-family:$font-OpenSans-Bold;font-size:$font-size-form;margin-bottom:0.5rem;display:block;
+    & + input{width: 310px;padding: 0.7rem;border: 1px solid #e0e0e0;border-radius:0.15rem;line-height:1.6;outline:none;transition:$transition-300ms;
+    &:focus{outline:2px solid $color-blue;border-radius:0.15rem;}
+    }
+    } 
+    &.forget-password{margin-top: 0px;
+    a{color:$color-black;font-size:$font-size-small;}
+    .remember-checkbox{display:block;margin-top:1.1rem;display:block;
+        .custom-checkbox{display:inline;margin-bottom:0;margin-right: 0.9rem;
+    span{transition:$transition-200ms;height:13px;width:13px;line-height:15px;border:1px solid #ccc;border-radius:0.2rem;display:inline-block;position:relative;
+    }
+    input[type="checkbox"]{display:none;
+    &:checked{
+    & + span{border:1px solid $color-blue;
+    &::before{position:absolute;content:'';width:4px;height:7px;border:solid $color-blue;border-width:0 2px 2px 0;transform:rotate(45deg);left:3px;top:1px;}
+    }
+    }
+    }
+}
+&:hover{text-decoration:none;}
+}
+    }
+    }
+    button{
+        &.login-submit{background:$color-blue;border:0;color:$color-white; padding:0.7rem 3.3rem;border-radius:0.2rem;margin:1.7rem auto;
+            font-family:$font-OpenSans-Semibold;display:block;font-size:$font-size-form;
+            &:hover{
+                background-color: $color-sky-blue;
+                transition:$transition-200ms;
+            }
+        }
+    &.create-btn{padding:0.7rem 3.9rem;margin:3.5rem auto 2rem;}
+    }
+}
+.registration{font-size:$font-size-form - 0.05;margin-bottom: 0.2rem;margin-top:0.4rem;
+a{color:$color-black;font-family:$font-OpenSans-Bold;}
+&.policy{font-size:$font-size-small - 0.09; max-width: 295px;
+a{font-family:'OpenSans';color:$color-blue;}
+}
+}
+
+}
+}
+}
+}
+
+
+@media #{$min-largephone-and-max-tablet}{
+header{
+    &.login-header{
+         .navbar-light {
+             .navbar-brand {margin-right: 0rem;position: relative;}
+}
+}
+}
+}
+
+
+@media #{$min-table-and-max-smallscreen}{
+           
+        .login-container{
+        section{
+        &.section{
+        .login-form-container{margin-top:-66px;
+        h1{font-size:$font-size-headingextralarge - 0.2;}
+        form{
+            & > label{margin-top:1.2rem;margin-bottom:0.25rem;}
+            label {
+            & > .name{font-size:$font-size-form - 0.05;
+            & + input{width: 300px;line-height: 1.55;
+            }
+            } 
+            &.forget-password{
+            a{font-size:$font-size-small;}
+            }
+            }
+            button{
+                &.login-submit{padding:0.65rem 3.1rem;margin:1.5rem auto;font-size:$font-size-form;}
+                &.create-btn{margin:3rem auto 1.6rem;padding:0.7rem 3.9rem;}
+            }
+        }
+        .registration{font-size:$font-size-form - 0.05;margin-bottom: 0.2rem;margin-top:0.4rem;}
+        
+        }
+        }
+        }
+        }
+
+}
+@media #{$min-mobile-and-max-tablet}{
+
+    .login-container{
+        section{
+        &.section{
+        .login-form-container{margin-top:-59px;
+        h1{font-size:$font-size-headingextralarge - 0.4;}
+        form{
+            & > label{margin-top:1rem;margin-bottom:0.2rem;}
+            label {
+            & > .name{font-size:$font-size-form - 0.05;
+            & + input{width:290px;line-height: 1.5;
+            }
+            } 
+            &.forget-password{
+            a{font-size:$font-size-small;}
+            }
+            }
+            button{
+                &.login-submit{padding:0.60rem 2.9rem;margin:1.3rem auto;font-size:$font-size-form - 0.05;}
+                &.create-btn{margin:2.8rem auto 1.7rem; padding: 0.7rem 3.9rem;
+                }
+            }
+        }
+        .registration{font-size:$font-size-form - 0.1;margin-bottom: 0.2rem;margin-top:0.4rem;}
+        
+        }
+        }
+        }
+        }
+
+}
+
+@media #{$max-large-phone}{
+
+    header{
+        &.top-header{
+        .navbar{
+        .signup-login{padding-right:0rem;
+        }
+        }
+        }
+        }
+
+    .login-container{
+        section{
+        &.section{
+        .login-form-container{justify-content: flex-start;margin-top:0px;height:100%;}
+    }
+}
+} 
+}
+
+@media #{$max-mobile}{
+
+    header{
+        &.top-header{
+        .navbar{
+        .signup-login{padding-right:0rem;font-size:0.75rem;}
+        }
+        }
+        }
+
+    .login-container{
+        section{
+        &.section{
+        .login-form-container{padding-right: 31px;padding-left:10px;
+        h1{font-size:$font-size-headingextralarge - 0.8;}
+        form{
+            & > label{margin-top:0.6rem;margin-bottom:0.15rem;}
+            label {
+            & > .name{font-size:$font-size-form - 0.1;
+            & + input{width: 250px;line-height:1.5;padding:0.5rem;
+            }
+            } 
+            &.forget-password{
+            a{font-size:$font-size-small - 0.03;}
+            .remember-checkbox{margin-top: 0.4rem;
+                label{margin-right: 0.2rem;}
+            }
+        }
+            }
+            button{
+                &.login-submit{padding:0.55rem 2.6rem;margin:1rem auto;font-size:$font-size-form - 0.1;}
+                &.create-btn{margin:2.7rem auto 1.4rem;padding:0.7rem 3rem;}
+            }
+        }
+        .registration{font-size:$font-size-form - 0.1;margin-bottom: 0.2rem;margin-top:0.2rem;
+        // &.policy {max-width: 260px;}
+        }
+        
+        }
+        }
+        }
+        }
+}

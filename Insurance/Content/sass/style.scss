@@ -1,0 +1,75 @@
+@import 'partial/_variables.scss';
+
+@font-face{
+    font-family: 'OpenSans';
+    src: url(../fonts/OpenSans-Regular.ttf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'OpenSans-SemiBold';
+    src: url(../fonts/OpenSans-SemiBold.ttf);
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'OpenSans-Bold';
+    src: url(../fonts/OpenSans-Bold.ttf);
+    font-weight: normal;
+}
+
+html,*,body{margin:0px;padding:0px;}
+body{font-family:'OpenSans';font-size:$font-size-default;color:$color-black;}
+
+.drop__down{
+    &.hide{top:8rem!important;opacity:0;visibility:hidden;}
+}
+
+.userpeek-dropdowns-sub{position:relative;
+    .testedit-btn{border:0px;background:transparent;margin-left:auto;display:block;outline:none;
+    .dots{background:$color-black;height:6px;width:6px;border-radius:50%;display:inline-block;
+    &:nth-child(2){margin:0px 2px;}
+    }
+    }
+    .userpeek-dropdowns{position:absolute;width:157px;z-index:1;right:0rem;top:2rem;background:#fff;box-shadow:0px 3px 7px rgba(41, 59, 73, 0.41);display:none;
+    box-sizing:border-box;margin-right:-0.4rem;
+    ul{padding:0.6rem 0rem;margin:0px;
+    li{list-style:none;
+    a{color:$color-black;padding:0.6rem 1.7rem;display:block;font-family:$font-OpenSans-Bold;transition:$transition-300ms;
+    img{top:-2px;position:relative;margin-right:0.9rem;}
+    &:hover{background:#f3f3f3;text-decoration:none;} 
+    } 
+    }
+    }
+    &::before{content: "";position:absolute;width:0;height:0;margin-left:-0.5rem;top:0;right:-0.3rem;box-sizing:border-box;border:0.4rem solid black;
+border-color:transparent transparent #fff #fff;transform-origin:0 0;transform: rotate(135deg);box-shadow:-2px 2px 3px 0 rgba(41, 59, 73, 0.2);}
+    }
+}
+
+
+article{margin-top:1.6rem;}
+
+
+@media screen and (max-width:767px){
+    article {margin-top: 1.2rem;}
+}
+
+
+
+@import 'partial/_header.scss';
+@import 'partial/_sidebar.scss';
+@import 'partial/_dashboard.scss';
+@import 'partial/_login.scss';
+@import 'partial/_setuptest.scss';
+@import 'partial/_dashboard-test.scss';
+@import 'partial/_dashboard-instructions.scss';
+@import 'partial/_tester-dashboard.scss';
+@import 'partial/_tester-profile.scss';
+@import 'partial/_account.scss';
+@import 'partial/_videos.scss';
+@import 'partial/_video-info.scss';
+
+@import 'partial/_menu-mobile.scss';
+
+
+@media screen and (min-width:1600px){
+    .lg-screen-width{max-width:1400px;margin-left:auto;margin-right:auto;}
+    }

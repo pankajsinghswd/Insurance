@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Upcoming Appointments";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+}
+
+
+<section class="section test-section" id="all-parent">
+
+    <div class="test-create-btn">
+        <div class="row justify-content-center align-items-center create-row">
+            <div class="col create-new-column"></div>
+            <div class="col-sm-auto create-search-column">
+               
+            </div>
+        </div>
+    </div>
+    <div id="article">
+
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var today = new Date();
+        var dd = String(today.getDate() + 1).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '/' + mm + '/' + dd;
+
+        GetAnUpcomingAppointment(today);
+
+        $('#all-tests').removeAttr('class');
+        $('#all-tests').attr('class', 'menu-btn');
+        $('#running').removeAttr('class');
+        $('#running').attr('class', 'menu-btn');
+        
+        $('#draft').attr('class', 'menu-btn active');
+    });
+</script>
+

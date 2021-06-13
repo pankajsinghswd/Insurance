@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Insurance - Welcome</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+    <link href="~/Content/frontentCss/style.css" rel="stylesheet" />
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'></script>
+    <script src="~/Scripts/sweetalert.min.js"></script>
+</head>
+<body oncontextmenu='return false' class='snippet-body'>
+
+
+    <header id="header-sec" style="background-image: url(../../Content/images/header-bg-banner.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a target="_blank" href="/Account/Login"><!--<img src="~/Content/images/header-logo.png">--><h1>LOGO</h1></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a target="_blank" href="~/about-us.html"><h5>ABOUT US</h5></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a target="_blank" href="~/contact_us.html"><h5>CONTACT US</h5></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a target="_blank" href="~/privacy_policy.html"><h5>PRIVACY POLICY</h5></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a target="_blank" href="~/terms_conditions.html"><h5>TERMS</h5></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-logo">
+                        <a href="/Account/TherapistLogin"><h5>LOGIN</h5></a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="header-banner text-center">
+                        <h1>Welcome to Jambet!</h1>
+                        <p>
+                            Where practice management start's and your practice ends effortlessly!  Allowing practitioners to concentrate on healthcare.  Jambet is the solvent for physician's and independent contractors who want to work efficiently, while driving income and improving client experiences.
+                        </p>
+                        <img src="~/Content/images/header-banner.png" class="head-banner" alt="Search for doctor">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="make-appointment-sec">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+
+
+    <section id="we-spacialize-sec">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 text-center">
+                    <h2 class="title-h2 text-center">We Specialize In</h2>
+                </div>
+                <div class="col-md-12 col-sm-12" style="text-align:left;">
+                    <p>
+                        Jambet is a HIPAA compliant Internet-based enterprise clinical solution, designed to store data it will help the work-flow of contemporary healthcare organizations.
+                    </p>
+                    <p>As pioneers in laying benchmarks in the healthcare industry with our range of products and services such as Electronic Medical Records Software, Medical Billing, EMR Software, Medical Document Management, etc., the company strives to make a positive outlook on the way physicians' and clinicians perform their daily practice management operations.</p>
+                    <p>At, Jambet, we believe technology is the foundation for the healthcare industry of tomorrow.  To reduce paperwork, and compress medical records making for smoother transition to the future of medical practices.  Jambet specializes in medical billing </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="aboutus-sec">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Content/images/about-img.png" alt="#">
+                </div>
+                <div class="col-md-6 text-left">
+                    <div class="align-middle about-content">
+                        <h2 class="title-h2">About Us</h2>
+                        <p id="aboutUs">We are practitioners who worked long hours in the office 7 days a week.  Although we worked long hours in the office we spent 35% of our time working on something claim related.  Weather it was answering to insurance companies or following up on co-pays we were dedicating so much time to administrative practice we barely had time for clients, ourselves, and families.<br />    We wanted to find innovative ways to free up time and to focus on our practice.  After spending countless days working on a solution JamBet was created</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book-sec">
+        <a href="#make-appointment-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4 class="title-h3 text-center">Book Consultation now!</h4>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="appointment-alert" tabindex="-1" role="dialog" aria-labelledby="appointment-alert" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="btnClose" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="appointment-alert-content">
+                        <h2 id="hmsg"></h2>
+                        <img src="~/Content/images/alert.png" alt="#">
+                        <p>
+                            You will get notification on your email address / mobile <br>number <br>
+                            for appointments updates.
+                        </p>
+                        <p class="close p" data-dismiss="modal" aria-label="Close">Thanks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

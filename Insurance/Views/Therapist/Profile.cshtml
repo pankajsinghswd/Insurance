@@ -1,0 +1,81 @@
+﻿@model Insurance.ViewModels.ProfileDetailModel
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+}
+
+
+<section class="section test-section" id="all-parent">
+    <div class="test-create-btn">
+        <div class="row justify-content-center align-items-center create-row">
+            <div class="col create-new-column"></div>
+            <div class="col-sm-auto create-search-column">
+                <!--<label class="create-search-sub">
+                <input type="text" placeholder="Search for projects"/>
+                <a class="create-search"><i class="fa fa-search"></i></a>
+                </label>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="row appointment-profile-first">
+        <img src="@Model.ProfilePath" alt="#" />
+        <div class="appointment-profile-details">
+            <h4>@Model.FullName</h4>
+            <p>Specialist Therapist</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 profile_email">
+            <a href="mailto:@Model.Email"><i class="fas fa-envelope"></i> @Model.Email</a>
+        </div>
+        <div class="col-md-3 profile_phone">
+            <a href="tel:@Model.Mobile"><i class="fas fa-phone"></i> @Model.Mobile</a>
+        </div>
+
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col col-sm">
+            <div class="appointment-profile-meta">
+                <p class="profile-meta_head">TIMINGS</p>
+                <p class="profile_appoint-date"><span>@Model.Timing</span></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col col-sm">
+            <div class="appointment-profile-meta">
+                <p class="profile-meta_head">Consulataion fees</p>
+                <p class="profile_appoint-date"><span>@Model.ConsultationFee</span></p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col col-sm">
+            <div class="appointment-profile-meta">
+                <p class="profile-meta_head">About</p>
+                <p class="profile_appoint-date">
+                    <span>
+                        @Model.About
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col col-sm">
+            <div class="appointment-profile-btn">
+                <a href="/Therapist/Edit" class="btn btn-profile">EDIT</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+

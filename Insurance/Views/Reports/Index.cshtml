@@ -1,0 +1,216 @@
+﻿@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css">
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Registered Users
+            <small>List</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Reports</a></li>
+            <li><a href="#">Registered Users</a></li>
+            <li class="active">List</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- /.box -->
+                <div class="box">
+                    @*<div class="box-header">
+                        <h3 class="box-title">
+                        </h3>
+                    </div>*@
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table border="0" cellspacing="5" cellpadding="5" style="margin-bottom: 5px; position: absolute; left: 40%;">
+                            <tbody>
+                                <tr>
+                                    <td>From date:&nbsp;</td>
+                                    <td><input type="text" id="min" onchange="DateFilter();" name="min"></td>
+                                    <td>&nbsp;&nbsp;To date:&nbsp;</td>
+                                    <td><input type="text" id="max" onchange="DateFilter();" name="max">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Interest</th>
+                                    <th>CreatedOn</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Interest</td>
+                        <td>@(Convert.ToDateTime(item.RegisteredOn).ToString("MM-dd-yyyy")) </td>
+                        <td style="text-align:center">
+                            <a onclick="View('@item.Id')" style="color: #00a65a;">View more info</a>
+                            @*<a href="/Reports/EarnedUnitHistory/@item.Id" style="color: #00a65a;">View more info</a>*@
+                        </td>
+                    </tr>}
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    <div class="modal fade ashwini" id="view">
+        <div class="modal-dialog" style="width: 60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="btnClose" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">User Details</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <h4 class="modal-title">Personal information</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 15%;">
+                                    <img style="height: 200px; width: 200px; border-radius: 50%;" id="img" src="#" alt="Alternate Text" />
+                                </td>
+                                <td style="width:75%">
+                                    <table class="table table-striped ">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Full Name</b></td>
+                                                <td id="first"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Mobile</b></td>
+                                                <td id="Mobile"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Email</b></td>
+                                                <td id="Email"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Insurance Type</b></td>
+                                                <td id="insurancetype"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Interest</b></td>
+                                <td id="Interest"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h4 class="modal-title">User submitted information</h4>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnClosebutton" style="float:right" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</div>
+<!-- /.content-wrapper -->
+<style type="text/css">
+    #example1_filter {
+        position: absolute;
+        left: 61%;
+    }
+</style>
+@section Scripts
+{
+    <script src="~/Content/adminjs/manageusers.js"></script>
+    <script type="text/javascript">
+        var minDate, maxDate;
+        var table;
+        // Custom filtering function which will search data in column four between two values
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex) {
+                //debugger;
+                var min = minDate.val();
+                if (min != null) {
+                    min = minDate.val().setHours(0, 0, 0, 0);
+                    min = new Date(minDate.val());
+                }
+                var max = maxDate.val();
+                if (max != null) {
+                    max = maxDate.val().setHours(0, 0, 0, 0);
+                    max = new Date(maxDate.val());
+                }
+                var date = new Date(data[4]);
+                if (
+                    (min === null && max === null) ||
+                    (min === null && date <= max) ||
+                    (min <= date && max === null) ||
+                    (min <= date && date <= max)
+                ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        $(document).ready(function () {
+            /* $('#example1').DataTable()*/
+            // Create date inputs
+            minDate = new DateTime($('#min'), {
+                /*format: 'MMMM Do YYYY'*/
+                format: 'MM-DD-YYYY'
+            });
+            maxDate = new DateTime($('#max'), {
+                format: 'MM-DD-YYYY'
+            });
+            // DataTables initialisation
+            table = $('#example1').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            });
+            //table = $('#example').DataTable();
+            // Refilter the table
+            //$('#min, #max').bind('change', function () {
+            //    debugger;
+            //    table.draw();
+            //});
+        });
+        function DateFilter() {
+            table.draw();
+           
+        }
+    </script>
+}

@@ -1,0 +1,402 @@
+.tests-container{
+section{
+&.section{
+    .tabing{display:none;}
+    .col-container{display: flex;
+&.account-credit-container{max-width:850px;margin-left:4.5rem;
+ .col{flex: 1;
+     article{margin-top:0px;height:100%;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding:1.6rem 12% 1.8rem;
+
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+            height:auto;
+        }
+
+        &.flexibel{
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+            min-height:544px;
+            }
+        }
+
+        .head{text-align:center;border-bottom:1px solid #ddd;padding-bottom:0.9rem;margin-bottom:1.3rem;
+      h3{font-size: $font-size-medium + 0.15;
+      .professional-head{background:$color-blue;display:inline-block;color:$color-white;font-size:0.82rem;padding:0.23rem 0.8rem 0.2rem 0.8rem;
+        top:-2px;position:relative;border-radius:1rem;font-family:$font-OpenSans-Semibold;margin-left: 0.6rem;box-shadow: 0px 0px 8px #c5c5c5;}
+    & + p{color:$color-test-gray1;padding-top:0.6rem;}
+    }
+    }
+    .plan{padding-bottom:0.8rem;border-bottom:1px solid #ddd;margin-bottom:1.8rem;min-height:138px;
+    .left{width:40%;float:left;font-size:$font-size-medium - 0.15;font-family:$font-OpenSans-Bold;
+    .left-month{font-family:$font-OpenSans;}
+    }
+    .right{width:60%;float:right;text-align:right;
+    .price{display:block;font-family:$font-OpenSans-Bold;font-size:$font-size-headingextralarge - 0.1;line-height:1;
+    sup{font-size:$font-size-medium;}
+    }
+    .credit{display:block;color:$color-test-gray1;padding-top:0.6rem;}
+    }
+    .more{margin-top:1.6rem;color:$color-blue;
+        &.annually{
+    .monthly{color:$color-test-gray1;}
+    .switch {position:relative;display:inline-block;width:38px;height:16px;margin-bottom:0rem;top:-11px;margin-left:0.8rem;
+        margin-right:0.6rem;}
+    .switch input { opacity:0;width:0;height:0;}
+    .slider {position: absolute;cursor: pointer; top: 0;left: 0;right: 0;bottom: 0;background-color: #c6c2ff;-webkit-transition: .4s;
+        transition: .4s;}
+     .slider:before {
+        position: absolute;content: "";
+        height:22px;width:22px;left:0px;bottom:-3px;background-color:#6d62fc;-webkit-transition:.4s;transition:.4s;}
+     input:checked + .slider {background-color: #c6c2ff;}
+      input:focus + .slider {box-shadow: 0 0 1px #c6c2ff;}
+      input:checked + .slider:before {transform: translateX(16px);background:$color-blue;}
+      .slider.round {border-radius: 34px;}
+      .slider.round:before {border-radius: 50%;}
+      .fa-info-circle{margin-left:0.7rem;color:#c9c9c9;font-size:$font-size-medium - 0.1;bottom:-2px;position:relative;}
+
+}
+    }
+    }
+    .benefits{min-height:113px;
+        ul{max-width:215px;margin:0px auto;
+        li{list-style-image:url(../images/icons/tick.png);text-align:center;padding-bottom:0.9rem;font-family:$font-OpenSans-Semibold;color:$color-draft-gray;}
+        }
+    }
+    button{transition:$transition-200ms;
+    &.credit{width:100%;padding:0.6rem;font-size:$font-size-medium - 0.05;border:0px;border-radius:0.2rem;background:$color-blue;
+        color:$color-white;margin-bottom:1rem;
+    &:hover{background:$color-sky-blue}
+    }
+    &.credit-plan{width:100%;padding:0.7rem;font-size:$font-size-medium - 0.05;border:2px solid $color-blue;border-radius:0.2rem;
+        background:transparent;color:$color-blue;margin-bottom:1rem;font-family:$font-OpenSans-Semibold;
+    &:hover{background:$color-blue;color:$color-white;}
+    }    
+}
+    .plan-cancel{text-align:center;display:block;color:$color-test-gray1;}
+}
+}
+
+}
+}
+.allprice{margin-top:6rem;}
+
+.account-invoices-container{border:1px solid #e4e4e4;padding:1.5rem 2rem;background:#f9f9f9;margin-top:4.6rem;
+h4{font-size:0.95rem;font-family:"OpenSans-Bold";}
+.your-invoices{margin-bottom:0.8rem;
+.change{color:$color-blue;}
+}
+.mastercard{    margin-bottom: 2.4rem;
+.cardtype{display:inline-block;background:$color-draft-gray;padding:0.1rem 1rem;border-radius:1rem;font-size:0.8rem;
+    color:$color-white;margin-left:0.8rem;margin-right:1.3rem;}
+}
+.record{padding:0.5rem 0rem 0.5rem 0.2rem;background:$color-white;border:1px solid #e4e4e4;margin:0rem 0rem 1rem;
+.credit-name{padding-left:7%;}
+.price{padding-right:0.7rem;}
+.download{
+.fa-download{color:#363636;font-size:1.2rem;position:relative;bottom:-2px;}
+}
+}
+}
+.billing-container{border:1px solid #e4e4e4;padding:1.5rem 2rem;background:#f9f9f9;margin-top:4.6rem;
+h4{font-size:$font-size-medium;font-family:$font-OpenSans-Bold;}
+.billing-sub{padding-bottom:1.5rem;
+h5{margin:0.9rem 0rem 1.2rem;font-size:$font-size-medium;color:#919191;}
+label{margin-top:1rem;display:block;font-family:$font-OpenSans-Bold;margin-bottom:.3rem;
+&.optional{margin-bottom:-0.5rem;margin-top:0.25rem;font-family:$font-OpenSans;color:#919191;}
+}
+input{width:100%;max-width: 330px;padding: 0.7rem;border: 1px solid #ddd;border-radius: 0.15rem;font-size:$font-size-form;
+&::placeholder{color:$color-black;}
+}
+select.country{width:100%;max-width: 330px;padding:0.2rem  0.7rem;border: 1px solid #ddd;border-radius: 0.15rem;font-size:$font-size-form;}
+p{
+&.vat-info{color:#919191;margin:0rem;padding:0.45rem 0rem 0.7rem;color:$color-draft-gray;font-size:$font-size-small - 0.04;}
+}
+button{
+&.save{margin-top:1rem;margin-bottom:1.3rem;background:$color-blue;color:$color-white;border:0;border-radius:0.18rem;padding:0.5rem 1.8rem;
+    font-size:$font-size-form - 0.05rem;transition:$transition-200ms;
+&:hover{background:$color-sky-blue;}
+}
+}
+}
+}
+
+.detail-container{border:1px solid #e4e4e4;padding:1.5rem 2rem 2rem;background:#f9f9f9;margin-top:4.6rem;display:block;
+    h4{font-size:$font-size-medium;font-family:$font-OpenSans-Bold;margin-bottom:1.6rem;}
+    .detail-sub{padding-bottom:2rem;
+        label{display:block;}
+        input{width:100%;max-width: 330px;padding: 0.7rem;border: 1px solid #ddd;border-radius: 0.15rem;font-size:$font-size-form;
+        &::placeholder{color:$color-black;}
+    }
+p{
+    &.email-info{color:#848484;padding-top:0.4rem;padding-bottom:1rem;margin:0rem;}
+}
+button{
+&.update-btn{margin-top:0.8rem;margin-bottom:1.3rem;background:$color-blue;color:$color-white;border:0;border-radius:0.18rem;padding:0.6rem 1.6rem;
+    font-size:$font-size-form - 0.05rem;transition:$transition-200ms;}
+&:hover{background:$color-sky-blue;}
+}
+}
+a{
+    &.password{color:$color-blue;}
+    }
+}
+
+.account-wraper{
+.test-credit-modal{
+    .modal-dialog{margin:0px;left:50%;top:50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);
+    .modal-content {border:0px;border-radius:0px;
+        .modal-header {padding:1.5rem 1rem 0rem;display:block;border-bottom: 0rem;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;
+            h4 {font-family: "OpenSans-Bold";font-size: 1.65rem;text-align: center;}
+            .close {outline: none;right: 18px;position: absolute;top: 18px;opacity: 1;background: #bdbdbd;height: 20px;width: 20px;
+            line-height: 19px;vertical-align: top; text-align: center;border-radius: 50%;color: #fff;text-shadow: none;
+            margin: 0px;padding: 0px;font-size:$font-size-default;}
+            .credit-para{text-align:center;margin-bottom:0rem; padding-top: 0.3rem;
+                color: $color-test-gray1;font-size:$font-size-form;}
+                
+        }
+        .modal-body {padding:0.4rem 0.5rem 1rem;
+        form{
+            label{margin-bottom:0rem;}
+        &.credit-form{
+        label{
+        &.card-number{margin:1.2rem auto 0rem; width:100%;max-width:340px;display: block;
+        input{
+        width:100%;background:#fff;border:1px solid #c5c5c5;padding:0.7rem 0.7rem 0.7rem 2.4rem;border-radius:0.15rem;outline:none;
+        background:url(../images/icons/card.png)no-repeat;background-position:left 11px center;background-size:16px 13px;}
+        }
+        }
+        .expiry-year{display:flex;margin:0rem auto 0rem;width:100%;max-width:340px;
+            .year{width:50%;margin-top:1.2rem;
+             input{width:100%;background:#fff;border:1px solid #c5c5c5;padding:0.7rem 0.7rem 0.7rem 2.4rem;border-top-left-radius:0.15rem;border-bottom-left-radius:0.15rem;border-right:0px;outline:none;
+             background:url(../images/icons/credit_calender.png)no-repeat;background-position:left 11px center;background-size:13px 15px;}
+            }
+            .cvc{width:50%;margin-top:1.2rem;
+                input{width:100%;background:#fff;border:1px solid #c5c5c5;padding:0.7rem 0.7rem 0.7rem 2.4rem;border-top-right-radius:0.15rem;border-bottom-right-radius:0.15rem;outline:none;
+                    background:url(../images/icons/cvc.png)no-repeat;background-position:left 11px center;background-size:13px 15px;}        
+            }
+            }
+            .remember{display:block;margin:1.4rem auto 0rem;width:100%;max-width:340px;color:#606060;
+                .radio{position: relative;padding-right:0.6rem;
+                input{
+                &[type="checkbox"]{
+                display:none;
+                &:checked{
+                & + .radio-custom{
+                &::before{position:absolute;content:"";height:7px;width:4px;border-bottom:2px solid $color-blue;border-right:2px solid $color-blue;transform:rotate(45deg);top:2px;left:4px;}
+                }
+                }
+                }
+
+                }
+                .radio-custom{height:13px;width:13px;display:inline-block;border:1px solid #c5c5c5;background:#fff;border-radius:0.15rem;}
+                }
+                }
+                button{
+                &.pay-btn{box-shadow:0px 2px 15px rgba(0, 0, 0, 0.22);transition:$transition-300ms;display:block;margin:2.5rem auto 4rem;width:100%;max-width:340px;background:$color-blue;color:$color-white;border:0px;
+                border-radius:0.2rem;padding:0.7rem;font-size:$font-size-form;font-family:$font-OpenSans-Semibold;
+            &:hover{background:$color-sky-blue;}
+            }
+                }
+        }
+        }
+        }
+    }
+        
+}
+}
+}
+
+}
+}
+}
+
+@media #{$min-mobile}{
+    .tests-container{
+        section{
+        &.section{
+    .test-credit-modal{
+        .modal-dialog {max-width: 460px;}
+    }
+}
+}
+}
+}
+
+
+@media #{$min-large-phone}{
+  
+    .tests-container{
+        section{
+        &.section{
+            .col-container{display: flex;
+        &.account-credit-container{
+         .col{
+         &:nth-child(1){padding-right:19px;}
+         &:nth-child(2){padding-left:19px;}
+         }
+        }
+    }
+    .account-wraper{margin-top: 4.6rem;}
+}
+        }
+    }
+
+}
+
+@media #{$max-small-screen}{
+    .tests-container{
+         section{
+             &.section {
+                 .col-container{
+                     &.account-credit-container {margin-left:0;
+                        .col{
+                            &:nth-child(1){padding-right:13px;}
+                            &:nth-child(2){padding-left:13px;}
+                    }
+                }
+}
+.account-wraper{margin-top:3.6rem;}
+.account-invoices-container{margin-top:3.6rem;}
+.billing-container{margin-top:3.6rem;}
+.detail-container{margin-top:3.6rem;}
+}
+}
+}
+}
+
+@media #{$max-large-phone}{
+    .tests-container{
+        section{
+        &.section{
+            .col-container{flex-direction:column;
+
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                    display:block;
+                }
+
+                &.account-credit-container{
+                .col{
+                    article{margin-top:1rem; padding: 1.2rem 1.8rem 1.4rem;
+
+                        &.flexibel{
+                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                            min-height:auto;
+                        }   
+                    }
+
+                        .head{ padding-bottom:0.6rem;margin-bottom:1rem;
+                             h3{
+                                & + p {padding-top:0.4rem;}
+                    }
+                }
+                .plan {min-height: auto;margin-bottom:1.3rem;
+                    .right{
+                        .credit {padding-top:0.3rem;}
+            }
+            .more {margin-top: 1rem;}
+            }
+            .benefits{min-height: auto;padding-bottom:0.9rem;
+                ul{
+                    li {padding-bottom: 0.5rem;}
+            }    
+        }
+            }  
+                }
+                }
+            }
+            .allprice {margin-top:3rem;}
+            .account-wraper{margin-top:1rem;}
+            .billing-container{border:1px solid #e4e4e4;padding:1rem 1rem;background:#f9f9f9;margin-top:1rem;
+                .billing-sub{padding-bottom: 1.3rem;
+                    h4 {font-size:$font-size-medium - 0.15rem;}
+                    input {padding:0.5rem;font-size:$font-size-default;}
+                    h5 {margin:0.5rem 0rem 0.8rem;font-size:$font-size-medium - 0.15rem;}
+                    label {margin-top: 0.8rem;}
+                    button{
+                        &.save {margin-top: 0.5rem;margin-bottom: 0rem;}
+            }
+        }
+            } 
+            .account-invoices-container{margin-top:1.5rem;}
+            .billing-container{margin-top:1.5rem;}
+            .detail-container{margin-top:1.5rem;}            
+    }
+    }
+}
+}
+
+@media #{$max-mobile}{
+.tests-container {
+section{
+&.section {
+.col-container{
+&.account-credit-container {
+.col {padding-right:0px!important;padding-left:0px!important;
+article {
+.plan {
+.more{
+&.annually {
+.switch {margin-left: 0.2rem;margin-right: 0.2rem;}
+.fa-info-circle {margin-left: 0.2rem;}
+}
+}
+.right {
+    .price {font-size:1.8rem;}
+}
+}
+button.credit {margin-bottom: 0.5rem;}
+}
+}
+}
+}
+.account-invoices-container{
+    .record{
+    .date{display:block;}
+    .credit-name{display:block;padding-left:0px;}
+    }
+}
+.detail-container{padding:1rem 1rem 1.5rem;
+    h4 {font-size:$font-size-medium - 0.15rem;margin-bottom:1rem;}
+    .detail-sub{
+    input{padding:0.5rem;font-size:$font-size-default + 0.05rem;}
+    button{
+        &.update-btn {margin-top:0.5rem;margin-bottom:0rem;}
+    }
+}
+}
+
+.account-wraper {
+    .test-credit-modal {
+        .modal-dialog {padding:0.7rem;
+            .modal-content {
+                .modal-header {
+                    h4{font-size: 1.35rem;}
+                    .credit-para {padding-bottom: 0.1rem;}
+}
+.modal-body {padding: 0.2rem 1rem 1rem;
+    form{
+        &.credit-form {
+        label{
+            &.card-number {margin: 0.8rem auto 0rem;}
+}
+.expiry-year {
+    .cvc{margin-top:0.8rem;}
+}
+.expiry-year{
+    .year{margin-top:0.8rem;}
+}
+.remember{margin:1rem auto 0rem;}
+button{
+    &.pay-btn{margin:1.8rem auto 1.5rem;font-size: 0.95rem;}
+}
+}
+}
+}
+}
+}
+}
+}
+
+
+}
+}
+}
+}

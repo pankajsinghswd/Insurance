@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "Self Assignment";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+}
+
+<style>
+    .form-control {
+        height: 34px;
+        background-color: #ffffff
+    }
+</style>
+
+<section class="section test-section" id="all-parent">
+    <div class="test-create-btn">
+        <div class="row justify-content-center align-items-center create-row">
+            <div class="col create-new-column"></div>
+            <div class="col-sm-auto create-search-column">
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <fieldset>
+            <legend>Patient Details</legend>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td style="width:15%"><b>First Name</b></td>
+                        <td style="width:15%" id="first"></td>
+                        <td style="width:15%"><b>Middle Name</b></td>
+                        <td style="width:15%" id="middle"></td>
+                        <td style="width:15%"><b>Therapist Type</b></td>
+                        <td style="width:15%" id="therapistType"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Last Name</b></td>
+                        <td id="last"></td>
+                        <td><b>Gender</b></td>
+                        <td id="gender"></td>
+                        <td><b>Consultation Type</b></td>
+                        <td id="ConsultationType"></td>
+                    </tr>
+                    <tr>
+                        <td><b>DOB</b></td>
+                        <td id="dob"></td>
+                        <td><b>Father Name</b></td>
+                        <td id="fatherName"></td>
+                        <td><b>Requested Date</b></td>
+                        <td id="date"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Mother Name</b></td>
+                        <td id="motherName"></td>
+                        <td><b>Mobile</b></td>
+                        <td id="mobile"></td>
+                        <td><b>Email</b></td>
+                        <td id="email"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Address</b></td>
+                        <td colspan="5" id="address"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Assign Therapist</legend>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><b>Date</b></td>
+                        <td id="state">
+                            <input id="txtAppointmentDate" class="form-control" type="date" name="Date" value="" />
+                        </td>
+                        <td><b>From Time</b></td>
+                        <td>
+                            <select class="form-control" id="ddlFromTime">
+                                <option value="">Choose...</option>
+                            </select>
+                        </td>
+                        <td><b>To Time</b></td>
+                        <td>
+                            <select class="form-control" id="ddlToTime">
+                                <option value="">Choose...</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="errorMsg" colspan="6" style="text-align:center;color:red"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" id="btnAppoinmentSave" class="btn btn-success">S U B M I T</button>
+            <a href="/Therapist/SelfAssign" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</section>
+<script src="~/Content/frontentJs/AppointmentManagement.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#all-tests').removeAttr('class');
+        $('#running').removeAttr('class');
+        $('#all').removeAttr('class');
+        getUrlVars();
+
+
+            $('#txtAppointmentDate').change(function () {
+                if (WithoutTime(new Date($('#txtAppointmentDate').val())) < WithoutTime(new Date())) {
+                swal("Kindly select today date or further date.");
+                $('#txtAppointmentDate').val('');
+                return false;
+            }
+
+            var therapistId ='@Insurance.Utils.SessionHelper.AspnetUserId()';
+
+            if (therapistId != '') {
+                getTiming(therapistId, $('#txtAppointmentDate').val());
+                $('#btnSave').prop('disabled', false);
+                $('#errorMsg').html('');
+            }
+            else {
+                $('#btnSave').prop('disabled', true);
+                $('#errorMsg').html('Kindly select therapist first!');
+                return false;
+            }
+        });
+        $('#btnAppoinmentSave').click(function() {
+            if ($('#txtAppointmentDate').val() == '') {
+                swal("Date is required!");
+                return false;
+            }
+            if ($('#ddlFromTime').val() == '') {
+                swal("Select FromTime first!");
+                return false;
+            }
+            if ($('#ddlToTime').val() == '') {
+                swal("Select ToTime first!");
+                return false;
+            }
+            setAppointment();
+        });
+    });
+    function getUrlVars() {
+        var appointMentId = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+        DoAction(appointMentId);
+    }
+    function setAppointment() {
+        var model = {
+            AppointmentId: location.pathname.substring(location.pathname.lastIndexOf("/") + 1),
+            TherapistTo: '@Insurance.Utils.SessionHelper.AspnetUserId()',
+            AssignedDate: $('#txtAppointmentDate').val(),
+            FromTime: $('#ddlFromTime').val(),
+            ToTime: $('#ddlToTime').val(),
+            UpdatedBy: ""
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UpdateTherapistAgainstAppointment")',
+            dataType: 'json',
+            data: { model: model },
+            success: function (data) {
+                if (data == "Success") {
+                    swal("An email has been sent successfully.");
+                }
+                if (data == "Success") {
+                    setTimeout(function () {
+                        window.location.href = "/Therapist/SelfAssign";
+                    }, 3000);
+                }
+                else {
+                    $('#errorMsg').html('Something went wrong, Kindly try again!');
+                    return false;
+                }
+               },
+            error: function (ex) {
+
+            }
+        });
+    }
+    function WithoutTime(dateTime) {
+        var date = new Date(dateTime.getTime());
+        date.setHours(0, 0, 0, 0);
+        return date;
+    }
+</script>
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+/* color variable */
+$color-black:#000;
+$color-blue:#1200ff;
+$color-blue-border:#5a4efb;
+$color-blue-progress:#8c83ff;
+$color-white:#fff;
+$color-draft-gray:#5e5e5e;
+$color-dark-gray:#616161;
+$color-gray1:#8d8d8d;
+$color-gray2:#9f9f9f;
+$color-gray:#b7bec8;
+$color-light-gray:#dedede;
+$color-light-gray2:#dadada;
+$color-lime-green:#0ec600;
+$color-sky-blue:#038bff;
+$color-gray-bg:#f9f9f9;
+$color-test-gray1:#959595;
+$color-test-red:#ff0101;
+$color-btn-bg:#53545f;
+$color-gray-text:#919191;
+
+/* font variable */
+$font-OpenSans:'OpenSans';
+$font-OpenSans-Semibold:'OpenSans-SemiBold';
+$font-OpenSans-Bold:'OpenSans-Bold';
+$font-size-small:0.875rem;
+$font-size-default:0.9rem;
+$font-size-form:1rem;
+$font-size-medium:1.2rem;
+$font-size-headinglarge:1.6rem;
+$font-size-headingmedium:1.1rem;
+$font-size-headingextralarge:2.3rem;
+
+/* border variable */
+$border-radus-50per:50%;
+
+/* padding variable */
+$padding-none:0rem;
+$padding-x-1:0.5rem;
+
+/* transition variable */
+$transition-300ms:0.3s ease-in-out;
+$transition-200ms:0.2s ease-in-out;
+
+/* responsive breakpoints */
+$max-mobile: "screen and (max-width : 575px)";
+$min-mobile: "screen and (min-width : 576px)";
+$max-large-phone: "screen and (max-width : 767px)";
+$min-large-phone: "screen and (min-width : 768px)";
+$max-tablet: "screen and (max-width : 991px)";
+$min-tablet: "screen and (min-width : 992px)";
+$max-small-screen: "screen and (max-width : 1200px)";
+$min-small-screen: "screen and (min-width : 1200px)";
+$min-table-and-max-smallscreen:"screen and (min-width:992px) and (max-width:1199px)";
+$min-largephone-and-max-tablet:"screen and (min-width:768px) and (max-width:991px)";
+$min-mobile-and-max-tablet:"screen and (min-width:576px) and (max-width:991px)";
+
+
+
+
+
+

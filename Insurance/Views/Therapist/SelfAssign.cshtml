@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Self Assign Appointment";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+}
+
+
+<style>
+    .example-modal .modal {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .example-modal .modal {
+        background: transparent !important;
+    }
+
+    .form-control {
+        height: 34px;
+    }
+
+    .dataTables_info {
+        width: 200px;
+    }
+</style>
+
+<section class="section test-section" id="all-parent">
+    <div class="test-create-btn">
+        <div class="row justify-content-center align-items-center create-row">
+            <div class="col create-new-column"></div>
+            <div class="col-sm-auto create-search-column">
+
+            </div>
+        </div>
+    </div>
+    <div class="box-body" style="margin-top:5%">
+        <table id="myTable" class="table-striped" style="width:110%">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Therapist Type</th>
+                    <th>Request Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Gender</td>
+                        <td>@item.TherapistType</td>
+                        <td>@item.Date</td>
+                        <td>
+                            <a style="color: darkred;" href="/Therapist/Selfassignment/@item.Id">Assign Yourself</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+
+
+        $('#all-tests').removeAttr('class');
+        $('#all-tests').attr('class', 'menu-btn');
+        $('#running').removeAttr('class');
+        $('#running').attr('class', 'menu-btn');
+        $('#all').removeAttr('class');
+        $('#all').attr('class', 'menu-btn');
+
+        $('#all').attr('class', 'menu-btn active');
+
+    });
+    function selfAssign(id) {
+        alert(id);
+    }
+</script>
+
+
+
+

@@ -1,0 +1,77 @@
+﻿@model Insurance.ViewModels.StaticContentUpdate
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Static Content
+            <small>Advanced form element</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Static Content</a></li>
+            <li><a href="#">Manage Content</a></li>
+            <li class="active">Editors</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-body pad">
+                        @using (Html.BeginForm("Edit", "StaticContent", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group row">
+                                @Html.HiddenFor(x => x.Id, new { Id = Model.Id })
+                                @Html.HiddenFor(x => x.PageName, new { Id = Model.PageName })
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(model => model.PageTitle, new { @class = "form-group" })
+
+                                    @Html.TextBoxFor(m => m.PageTitle, new { @class = "form-control", @type = "Name", @placeholder = "Page Title" })
+                                    @Html.ValidationMessageFor(model => model.PageTitle, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-12">
+                                    @Html.LabelFor(model => model.PageContent, new { @class = "form-group" })
+
+                                    @Html.TextAreaFor(m => m.PageContent, new
+                                    {
+                                    rows = "20",
+                                    style = "resize:none;width:400px;",
+                                    placeholder = "Page Content",
+                                    @class = "form-control input-lg textarea-editor"
+                                    })
+                                    @Html.ValidationMessageFor(model => model.PageContent, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <a href="/StaticContent/Index" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts
+{
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.textarea-editor').summernote({
+                height: 300, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: true // set focus to editable area after initializing summernote
+            });
+        });
+    </script>
+}
+
+

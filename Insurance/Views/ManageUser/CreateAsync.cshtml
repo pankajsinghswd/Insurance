@@ -1,0 +1,93 @@
+﻿@model Insurance.ViewModels.UserCreateModel
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Register
+            <small>User</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> User Management</a></li>
+            <li><a href="#">Manage User</a></li>
+            <li class="active">Create</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="box">
+            <div class="box-body">
+                @using (Html.BeginForm("CreateAsync", "ManageUser", FormMethod.Post))
+                {
+    <div class="panel panel-primary">
+        <div class="panel-heading">Primary Details</div>
+        <div class="panel-body">
+            @Html.AntiForgeryToken()
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    @*@Html.LabelFor(m => m.FullName)*@
+                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @type = "Name", @placeholder = "Full Name" })
+                    @Html.ValidationMessageFor(a => a.FullName, string.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @*@Html.LabelFor(m => m.FullName)*@
+                    @Html.DropDownListFor(m => m.Gender, Model.GenderList, "Choose Gender", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    @*@Html.LabelFor(m => m.Email)*@
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "Email", @placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-6">
+                    @*@Html.LabelFor(m => m.Phone)*@
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @type = "Phone", @placeholder = "Phone Number" })
+                    @Html.ValidationMessageFor(a => a.Phone, string.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                    @*@Html.LabelFor(m => m.Password)*@
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "Password", @placeholder = "Password" })
+                    @Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-6">
+                    @*@Html.LabelFor(m => m.ConfirmPassword, new { })*@
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "Password", @placeholder = "Confirm Password" })
+                    @Html.ValidationMessageFor(a => a.ConfirmPassword, string.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="panel-heading" style="margin-top: -4%;">Additional Details</div>
+        <div class="panel-body">
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                        @Html.DropDownListFor(m => m.InsuranceTypeId, Model.InsuranceType, "Choose Insurance", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.InsuranceTypeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                    @Html.TextAreaFor(m => m.Interest, new { @class = "form-control", @type = "text", @placeholder = "About Interest" })
+                    @Html.ValidationMessageFor(a => a.Interest, string.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/ManageUser/Index" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>}
+            </div>
+        </div>
+    </section>
+</div>

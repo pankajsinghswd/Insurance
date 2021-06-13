@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Completed Appointments";
+    Layout = "~/Views/Shared/_LayoutTherapistWeb.cshtml";
+}
+
+<section class="section test-section" id="all-parent">
+
+    <div class="test-create-btn">
+        <div class="row justify-content-center align-items-center create-row">
+            <div class="col create-new-column"></div>
+            <div class="col-sm-auto create-search-column">
+                <label class="create-search-sub">
+                    <input type="text" id="txtSearch" placeholder="Universal Search..." />
+                    <a class="create-search" onclick="getAutoAppointment()"><i class="fa fa-search"></i></a>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div id="article">
+
+    </div>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //GetAnAppointment();
+        GetCompletedAppointment("Compleated");
+        $('#all-tests').removeAttr('class');
+        $('#all-tests').attr('class', 'menu-btn');
+        $('#running').removeAttr('class');
+        $('#running').attr('class', 'menu-btn active');
+    });
+</script>
+

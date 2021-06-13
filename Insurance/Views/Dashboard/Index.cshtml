@@ -1,0 +1,101 @@
+﻿@{ ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@Html.AntiForgeryToken()
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1 class="center-block text-center">
+            Welcome to the dashboard
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3 id="NoOfInsuranceType"></h3>
+                        <p>Number of Insurance type</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    @*<a href="/TherapistManage" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>*@
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3 id="NoOfUsers"></h3>
+                        <p>Number of user registered</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    @*<a href="/Home/PatientManagement" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>*@
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+            <!--<div class="small-box bg-green">
+            <div class="inner">
+                <h3 id="NoOfSchedules"></h3>
+                <p>Number of Schedules</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+                @*<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>*@
+            </div> -->
+        </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section Scripts
+{
+    @Scripts.Render("~/bundles/dashboard1")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            GetDashboardInpute();
+        });
+        function GetDashboardInpute() {
+            $.ajax({
+                url: "/Dashboard/GetDashboardData",
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                datatype: JSON,
+                success: function (result) {
+                    //var data = JSON.parse(result);
+                    $("#NoOfInsuranceType").append(result.NumberofInsuranceType);
+                    $("#NoOfUsers").append(result.NumberofUsers);
+                },
+                error: function (data) { }
+            });
+        }
+        //function GetDashboardInpute() {
+        //    $.ajax({
+        //        url: "/api/Insurance/GetDashboardData",
+        //        type: "GET",
+        //        contentType: "application/json; charset=utf-8",
+        //        datatype: JSON,
+        //        success: function (result) {
+        //            var data = JSON.parse(result);
+        //            $("#NoOfPatients").append(data.responseData.NumberofPatients);
+        //            $("#NoOfSchedules").append(data.responseData.NumberofSchedules);
+        //            $("#NoOfTherapist").append(data.responseData.NumberofTherapist);
+        //        },
+        //        error: function (data) { }
+        //    });
+        //}
+    </script>
+}
+

@@ -1,0 +1,76 @@
+﻿    <!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            @if (Insurance.Utils.SessionHelper.IsAdmin())
+            {
+                <li class="@Html.IsSelected(controller: "Dashboard") treeview">
+                    <a href="@Url.Action("Index", "Dashboard")">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="@Html.IsSelected(controller: "ManageUser") treeview">
+                    <a href="@Url.Action("Index", "ManageUser")">
+                        <i class="fa fa-database"></i> <span>User Management </span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("Index", "ManageUser")"><i class="fa fa-circle-o"></i>Manage User</a></li>
+                    </ul>
+                </li>
+                <li class="@Html.IsSelected(controller: "ManagePolicy") treeview">
+                    <a href="@Url.Action("Index", "ManagePolicy")">
+                        <i class="fa fa-files-o"></i> <span>Policy Type Management</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@Html.IsSelected(action: "Index")"><a href="@Url.Action("Index", "ManagePolicy")"><i class="fa fa-circle-o"></i> Manage Policy Type</a></li>
+                    </ul>
+                </li>
+                <li class="@Html.IsSelected(controller: "StaticContent") treeview">
+                    <a href="@Url.Action("Index", "StaticContent")">
+                        <i class="fa fa-edit"></i> <span>Content Management</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@Html.IsSelected(action: "Index")">
+                            <a href="@Url.Action("Index", "StaticContent")"><i class="fa fa-circle-o"></i> Manage Content </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="@Html.IsSelected(controller: "Reports") treeview">
+                    <a href="@Url.Action("Index", "Reports")">
+                        <i class="fa fa-laptop"></i> <span>Reports </span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@Html.IsSelected(action: "Index")">
+                            <a href="@Url.Action("Index", "Reports")"><i class="fa fa-circle-o"></i>Registered User</a>
+                        </li>
+                        @*<li class="@Html.IsSelected(action: "Index")">
+                            <a href="@Url.Action("AttendedAppointments", "Reports")"><i class="fa fa-circle-o"></i> Filter Data </a>
+                        </li>*@
+                    </ul>
+                </li>
+            }
+        </ul>
+    </section>
+</aside>

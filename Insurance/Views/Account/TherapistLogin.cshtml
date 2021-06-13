@@ -1,0 +1,44 @@
+﻿@model Insurance.Models.LoginViewModel
+@{
+    ViewBag.Title = "TherapistLogin";
+    Layout = "~/Views/Shared/_LayoutTherapist.cshtml";
+}
+
+@*<h2>TherapistLogin</h2>*@
+<div class="card card0">
+    <div class="d-flex flex-lg-row flex-column-reverse">
+        <div class="card card2">
+            <div class="my-auto mx-md-5 px-md-5 right">
+                <img src="~/Content/images/login-image.png" alt="Login Image">
+            </div>
+        </div>
+
+        <div class="card card1">
+            <div class="row justify-content-center my-auto">
+                <div class="col-md-12 col-12 my-5 login-box">
+                    <h3 class="mb-5 text-left heading">Welcome!</h3>
+                    <h6 class="msg-info">Login to Continue</h6>
+
+                    @using (Html.BeginForm("TherapistLogin", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "email", @placeholder = "Email" })
+                            @*@Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })*@
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password", @placeholder = "Password" })
+                            @*@Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })*@
+                            @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
+                        </div>
+                        <div class="row justify-content-center my-3 px-3"> <button type="submit" class="btn-block btn-color">Login</button> </div>
+                    }
+                    <!--<div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>-->
+                </div>
+            </div>
+            <!-- <div class="bottom text-center mb-5">
+                <p href="#" class="sm-text mx-auto mb-3">Don't have an account?<button class="btn btn-white ml-2">Create new</button></p>
+            </div>-->
+        </div>
+    </div>
+</div>

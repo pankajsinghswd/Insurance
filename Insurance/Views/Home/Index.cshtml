@@ -1,0 +1,365 @@
+﻿@model Insurance.ViewModels.AppointmentCreateViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="title-h2 text-center">Make an Appointment Today!</h2>
+    </div>
+    @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-row col-md-6">
+            <div class="form-group col-md-4">
+                <label for="inputAddress">Name</label>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @type = "First", @placeholder = "First" })
+                @Html.ValidationMessageFor(a => a.FirstName, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputAddress">&nbsp;</label>
+                @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", @type = "Middle", @placeholder = "Middle" })
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputAddress">&nbsp;</label>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @type = "Last", @placeholder = "Last" })
+                @Html.ValidationMessageFor(a => a.LastName, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Gender">Gender</label>
+                <select id="Gender" name="Gender" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputdob">DOB</label>
+                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @type = "Date", @placeholder = "DOB" })
+                @Html.ValidationMessageFor(a => a.DOB, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-12">
+                <label for="inputAddress">Address</label>
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @type = "Address", @placeholder = "Address" })
+                @Html.ValidationMessageFor(a => a.Address, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputtherepist">Type of Clinician Required</label>
+                @Html.DropDownListFor(m => m.TypeOfTherapist, new SelectList(Enumerable.Empty<SelectListItem>()), "Choose...", new { @class = "form-control", @onChange = "bindTherapist()" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputdob">Date</label>
+                @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @type = "Date", @placeholder = "Date", @onChange = "bindTherapist()" })
+                @Html.ValidationMessageFor(a => a.Date, string.Empty, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-row col-md-6">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Parents Name</label>
+                @Html.TextBoxFor(m => m.MotherName, new { @class = "form-control", @type = "Mother’s name", @placeholder = "Mother’s name" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputAddress">&nbsp;</label>
+                @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control", @type = "Father’s name", @placeholder = "Father’s name" })
+                @Html.ValidationMessageFor(a => a.FatherName, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputmobile">Mobile number</label>
+                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @type = "Mobile", @placeholder = "Enter mobile number" })
+                @Html.ValidationMessageFor(a => a.Mobile, string.Empty, new { @class = "text-danger", id = "lblMobile" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail">Email address</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "Email", @placeholder = "Enter Email" })
+                @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger", id = "lblEmail" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputCity">State</label>
+                @Html.DropDownListFor(m => m.State, new SelectList(Enumerable.Empty<SelectListItem>()), "Choose...", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputZip">Zip</label>
+                @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", @type = "ZipCode", @placeholder = "ZipCode" })
+                @Html.ValidationMessageFor(a => a.ZipCode, string.Empty, new { @class = "text-danger", id = "lblZipCode" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputZip">Therapist</label>
+                @Html.DropDownListFor(m => m.Therapist, new SelectList(Enumerable.Empty<SelectListItem>()), "Choose Therapist...", new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Therapist, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputtherepist">Type of Consultation</label>
+                @Html.DropDownListFor(m => m.TypeOfCunsultation, new SelectList(Enumerable.Empty<SelectListItem>()), "Choose...", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-row col-md-12 text-center">
+            @*<button type="submit" data-toggle="modal" data-target="#appointment-alert" class="btn btn-primary">Book Appointment</button>*@
+            <button type="submit" id="btnAlert" class="btn btn-primary">Book Appointment</button>
+        </div>
+    }
+</div>
+<style>
+    .border_red {
+        border-color: red !important;
+    }
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#Mobile").change(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Therapist/IsMobileValid",
+                data: '{mobile: "' + $('#Mobile').val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    $('#lblMobile').html('');
+                    if (response != true) {
+                        $('#Mobile').val('');
+                        $('#lblMobile').html(response);
+                    }
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+        });
+        $("#Email").change(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Therapist/IsEmailValid",
+                data: '{Email: "' + $('#Email').val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    $('#lblEmail').html('');
+                    if (response != true) {
+                        $('#Email').val('');
+                        $('#lblEmail').html(response);
+                    }
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+        });
+
+        $("#ZipCode").change(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Therapist/IsZipCodeValid",
+                data: '{ZipCode: "' + $('#ZipCode').val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    $('#lblZipCode').html('');
+                    if (response != true) {
+                        $('#ZipCode').val('');
+                        $('#lblZipCode').html(response);
+                    }
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+        });
+
+         if ('@Convert.ToString(ViewData["status"])' == 'Success') {
+            $("#hmsg").append("Your request is submitted successfully");
+
+            $("#appointment-alert").addClass("modal fade show");
+            $("#appointment-alert").css("padding-right", "17px");
+            $("#appointment-alert").css("display", "block");
+        }
+        else if ('@Convert.ToString(ViewData["status"])' == 'Duplicate') {
+            $("#hmsg").append("Your request is already submitted successfully");
+
+            $("#appointment-alert").addClass("modal fade show");
+            $("#appointment-alert").css("padding-right", "17px");
+            $("#appointment-alert").css("display", "block");
+        }
+        $('#btnClose').click(function () {
+            $("#appointment-alert").addClass("modal fade");
+            $("#appointment-alert").css("display", "none");
+
+            window.location.href = '/Account/Index';
+        });
+        GetTherapistType();
+        GetConsultationType();
+        GetState();
+
+        $('#btnAlert').click(function () {
+            if ($('#FirstName').val()=='') {
+                $('#FirstName').addClass('border_red');
+                return false;
+            }
+            if ($('#FatherName').val() == '') {
+                $('#FatherName').addClass('border_red');
+                return false;
+            }
+            if ($('#Gender').val() == 'Choose...') {
+                $('#Gender').addClass('border_red');
+                return false;
+            }
+            if ($('#DOB').val() == '') {
+                $('#DOB').addClass('border_red');
+                return false;
+            }
+            if ($('#Mobile').val() == '') {
+                $('#Mobile').addClass('border_red');
+                return false;
+            }
+            if ($('#Email').val() == '') {
+                $('#Email').addClass('border_red');
+                return false;
+            }
+            if ($('#Address').val() == '') {
+                $('#Address').addClass('border_red');
+                return false;
+            }
+            if ($('#State').val() == '') {
+                $('#State').addClass('border_red');
+                return false;
+            }
+            if ($('#ZipCode').val() == '') {
+                $('#ZipCode').addClass('border_red');
+                return false;
+            }
+            if ($('#TypeOfTherapist').val() == '') {
+                $('#TypeOfTherapist').addClass('border_red');
+                return false;
+            }
+            if ($('#Date').val() == '') {
+                $('#Date').addClass('border_red');
+                return false;
+            }
+            if ($('#Therapist').val() == '') {
+                $('#Therapist').addClass('border_red');
+                return false;
+            }
+            if ($('#TypeOfCunsultation').val() == '') {
+                $('#TypeOfCunsultation').addClass('border_red');
+                return false;
+            }
+        });
+
+        $("input").change(function () {
+            $('input').removeClass('border_red');
+        });
+        $("select").change(function () {
+            $('select').removeClass('border_red');
+        });
+
+    });
+
+
+
+    function GetConsultationType() {
+        $.ajax({
+            url: "/api/therapist/GetConsultationType",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            datatype: JSON,
+            success: function (result) {
+                var data = JSON.parse(result);
+                $(data.responseData).each(function () {
+                    $("#TypeOfCunsultation").append($("<option></option>").val(this.Id).html(this.Name));
+                });
+            },
+            error: function (data) { }
+        });
+    }
+    function GetState() {
+        $.ajax({
+            url: "/api/therapist/GetState",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            datatype: JSON,
+            success: function (result) {
+                var data = JSON.parse(result);
+                $(data.responseData).each(function () {
+                    $("#State").append($("<option></option>").val(this.Id).html(this.Name));
+                });
+            },
+            error: function (data) { }
+        });
+    }
+    function GetTherapistType() {
+        $.ajax({
+            url: "/api/therapist/GetSpecializations",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            datatype: JSON,
+            success: function (result) {
+                var data = JSON.parse(result);
+                $(data.responseData).each(function () {
+                    $("#TypeOfTherapist").append($("<option></option>").val(this.Id).html(this.Name));
+                });
+            },
+            error: function (data) { }
+        });
+    }
+    function bindTherapist() {
+        var typeOfTherapist = $('#TypeOfTherapist').val();
+        var date = $('#Date').val();
+
+        if (WithoutTime(new Date($('#Date').val())) < WithoutTime(new Date())) {
+            swal("Kindly select today date or further date.");
+            $('#Date').val('');
+            return false;
+        }
+
+        if (typeOfTherapist != '' && date != '') {
+            $('#Therapist').html("");
+            $("#Therapist").append($("<option></option>").val('').html('Choose Therapist...'));
+            getTherapistList(date, typeOfTherapist);
+        }
+    }
+    function getTherapistList(date, specializationId) {
+        $.ajax({
+            type: "POST",
+            url: "/Account/GetTherapist",
+            data: '{date: "' + date + '",specializationId: "' + specializationId + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response=='') {
+                    swal("No doctors are available on the selected date. Kindly selected another date.");
+                }
+                $(response).each(function () {
+                    $("#Therapist").append($("<option></option>").val(this.Value).html(this.Text));
+                });
+            },
+            failure: function (response) {
+
+            },
+            error: function (response) {
+
+            }
+        });
+    }
+    function WithoutTime(dateTime) {
+        var date = new Date(dateTime.getTime());
+        date.setHours(0, 0, 0, 0);
+        return date;
+    }
+</script>  
