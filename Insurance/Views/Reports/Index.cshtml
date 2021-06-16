@@ -42,10 +42,12 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Full Name</th>
+                                    <th>Full Name_en</th>
+                                    <th>Full Name_local</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
-                                    <th>Interest</th>
+                                    <th>Interest_en</th>
+                                    <th>Interest_local</th>
                                     <th>CreatedOn</th>
                                     <th>Action</th>
                                 </tr>
@@ -54,10 +56,12 @@
                                 @foreach (var item in Model)
                                 {
                     <tr>
-                        <td>@item.FullName</td>
+                        <td>@item.FullName_en</td>
+                        <td>@item.FullName_local</td>
                         <td>@item.Email</td>
                         <td>@item.PhoneNumber</td>
-                        <td>@item.Interest</td>
+                        <td>@item.Interest_en</td>
+                        <td>@item.Interest_local</td>
                         <td>@(Convert.ToDateTime(item.RegisteredOn).ToString("MM-dd-yyyy")) </td>
                         <td style="text-align:center">
                             <a onclick="View('@item.Id')" style="color: #00a65a;">View more info</a>
@@ -102,8 +106,12 @@
                                     <table class="table table-striped ">
                                         <tbody>
                                             <tr>
-                                                <td><b>Full Name</b></td>
-                                                <td id="first"></td>
+                                                <td><b>Full Name_en</b></td>
+                                                <td id="first_en"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Full Name_local</b></td>
+                                                <td id="first_local"></td>
                                             </tr>
                                             <tr>
                                                 <td><b>Mobile</b></td>
@@ -115,15 +123,23 @@
                                             </tr>
                                             <tr>
                                                 <td><b>Insurance Type</b></td>
-                                                <td id="insurancetype"></td>
+                                                <td id="insurancetype_en"></td>
                                             </tr>
+                                            @*<tr>
+                                                <td><b>Insurance Type_local</b></td>
+                                                <td id="insurancetype_local"></td>
+                                            </tr>*@
                                         </tbody>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
-                                <td><b>Interest</b></td>
-                                <td id="Interest"></td>
+                                <td><b>Interest_en</b></td>
+                                <td id="Interest_en"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Interest_local</b></td>
+                                <td id="Interest_local"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">

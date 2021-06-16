@@ -69,10 +69,12 @@ namespace Insurance.Controllers
                         CreateProfileViewModel create = new CreateProfileViewModel
                         {
                             Id = user.Id,
-                            FullName = model.FullName,
+                            FullName_en = model.FullName_en,
+                            FullName_local = model.FullName_local,
                             Gender = model.Gender,
                             InsuranceTypeId = model.InsuranceTypeId,
-                            Interest = model.Interest,
+                            Interest_en = model.Interest_en,
+                            Interest_local = model.Interest_local,
                             Password = model.ConfirmPassword
                         };
                         adminRepository.CreateProfile(create);

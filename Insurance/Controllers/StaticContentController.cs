@@ -33,8 +33,10 @@ namespace Insurance.Controllers
                 StaticContentUpdate data = new StaticContentUpdate
                 {
                     PageName = model.PageName,
-                    PageTitle = model.PageTitle,
-                    PageContent = model.PageContent,
+                    PageTitle_en = model.PageTitle_en,
+                    PageTitle_local = model.PageTitle_local,
+                    PageContent_en = model.PageContent_en,
+                    PageContent_local = model.PageContent_local,
                     AspNetUserId = SessionHelper.AspnetUserId()
                 };
                 int result = adminRepository.AddUpdateContent(data);

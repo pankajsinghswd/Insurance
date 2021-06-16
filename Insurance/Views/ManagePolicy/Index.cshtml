@@ -30,7 +30,8 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Name_en</th>
+                                    <th>Name_local</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -48,12 +49,13 @@
                                          photoPath = "/Content/userProfile/" + (string.IsNullOrEmpty(item.Image) ? "avtar.png" : item.Image);
                                     }
                                 <tr>
-                                    <td>@item.Name</td>
+                                    <td>@item.Name_en</td>
+                                    <td>@item.Name_local</td>
                                     <td><img style="height:70px; width:70px;" id="img" src="@photoPath" alt="Alternate Text" /> </td>
                                     <td style="text-align:center">
                                         @if (Insurance.Utils.SessionHelper.IsAdmin())
                                         {
-                                <a href="/ManagePolicy/Edit/@item.Id" style="color: #cece52;">&nbsp;Edit</a> @*<a href="/ManagePolicy/Delete/@item.Id" style="color: #cece52;">&nbsp;/Delete</a>*@}
+                                            <a href="/ManagePolicy/Edit/@item.Id" style="color: #cece52;">&nbsp;Edit</a> @*<a href="/ManagePolicy/Delete/@item.Id" style="color: #cece52;">&nbsp;/Delete</a>*@}
                                     </td>
                                 </tr>
 }

@@ -22,7 +22,7 @@ namespace Insurance
             var container = new UnityContainer();
 
             // register all your components with the container here
-            container.RegisterType<IInsurance, TherapistRepositary>();
+            //container.RegisterType<IInsurance, TherapistRepositary>();
             //container.RegisterType<IAdmin, AdminRepository>();
 
             return container;

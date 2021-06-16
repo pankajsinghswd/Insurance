@@ -75,9 +75,11 @@ namespace Insurance.Interface
                             UsersViewModel viewModel = new UsersViewModel();
                             viewModel.Id = Convert.ToString(dr["Id"]);
                             viewModel.Email = Convert.ToString(dr["Email"]);
-                            viewModel.FullName = Convert.ToString(dr["FullName"]);
+                            viewModel.FullName_en = Convert.ToString(dr["FullName_en"]);
+                            viewModel.FullName_local = Convert.ToString(dr["FullName_local"]);
                             viewModel.PhoneNumber = Convert.ToString(dr["PhoneNumber"]);
-                            viewModel.Interest = Convert.ToString(dr["Interest"]);
+                            viewModel.Interest_en = Convert.ToString(dr["Interest_en"]);
+                            viewModel.Interest_local = Convert.ToString(dr["Interest_local"]);
                             viewModel.IsBlocked = Convert.ToString(dr["IsBlocked"]);
                             viewModel.IsDeleted = Convert.ToString(dr["IsDeleted"]);
                             viewModel.RegisteredOn = Convert.ToString(dr["RegisteredOn"]);
@@ -105,11 +107,13 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeAdmin.CreateUsers);
                 sqlParams.Add("@AspNetUserId", model.Id);
-                sqlParams.Add("@FullName", model.FullName);
+                sqlParams.Add("@FullName_en", model.FullName_en);
+                sqlParams.Add("@FullName_local", model.FullName_local);
                 sqlParams.Add("@Password", model.Password);
 
                 sqlParams.Add("@InsuraceTypeId", model.InsuranceTypeId);
-                sqlParams.Add("@Interest", model.Interest);
+                sqlParams.Add("@Interest_en", model.Interest_en);
+                sqlParams.Add("@Interest_local", model.Interest_local);
                 sqlParams.Add("@Gender", model.Gender);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
             }
@@ -141,12 +145,14 @@ namespace Insurance.Interface
                         foreach (DataRow dr in table.Rows)
                         {
                             model.Id = Convert.ToString(dr["Id"]);
-                            model.FullName = Convert.ToString(dr["FullName"]);
+                            model.FullName_en = Convert.ToString(dr["FullName_en"]);
+                            model.FullName_local = Convert.ToString(dr["FullName_local"]);
                             model.Email = Convert.ToString(dr["Email"]);
                             model.Gender = Convert.ToString(dr["Gender"]);
                             model.PhoneNumber = Convert.ToString(dr["PhoneNumber"]);
                             model.InsuranceTypeId = Convert.ToString(dr["InsuranceTypeId"]);
-                            model.Interest = Convert.ToString(dr["Interest"]);
+                            model.Interest_en = Convert.ToString(dr["Interest_en"]);
+                            model.Interest_local = Convert.ToString(dr["Interest_local"]);
                             model.ExistingPhotoPath = Convert.ToString(dr["Image"]);
                         }
                     }
@@ -173,11 +179,13 @@ namespace Insurance.Interface
                 sqlParams.Add("@Qtype", QueryTypeAdmin.UpdateProfile);
                 sqlParams.Add("@AspNetUserId", editModel.Id);
                 sqlParams.Add("@Email", editModel.Email);
-                sqlParams.Add("@FullName", editModel.FullName);
+                sqlParams.Add("@FullName_en", editModel.FullName_en);
+                sqlParams.Add("@FullName_local", editModel.FullName_local);
                 sqlParams.Add("@Gender", editModel.Gender);
                 sqlParams.Add("@Phone", editModel.PhoneNumber);
                 sqlParams.Add("@InsuraceTypeId", editModel.InsuranceTypeId);
-                sqlParams.Add("@Interest", editModel.Interest);
+                sqlParams.Add("@Interest_en", editModel.Interest_en);
+                sqlParams.Add("@Interest_local", editModel.Interest_local);
                 sqlParams.Add("@ExistingPhotoPath", editModel.ExistingPhotoPath);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -219,11 +227,14 @@ namespace Insurance.Interface
                         foreach (DataRow dr in table.Rows)
                         {
                             model.Id = Convert.ToString(dr["Id"]);
-                            model.FullName = Convert.ToString(dr["FullName"]);
+                            model.FullName_en = Convert.ToString(dr["FullName_en"]);
+                            model.FullName_local = Convert.ToString(dr["FullName_local"]);
                             model.Email = Convert.ToString(dr["Email"]);
                             model.Mobile = Convert.ToString(dr["PhoneNumber"]);
-                            model.Interest = Convert.ToString(dr["Interest"]);
-                            model.InsuranceType = Convert.ToString(dr["InsuranceName"]);
+                            model.Interest_en = Convert.ToString(dr["Interest_en"]);
+                            model.Interest_local = Convert.ToString(dr["Interest_local"]);
+                            model.InsuranceType_en = Convert.ToString(dr["InsuranceName_en"]);
+                            model.InsuranceType_local = Convert.ToString(dr["InsuranceName_local"]);
                             if (Convert.ToString(dr["ProfilePath"]) != "avtar.png")
                             {
                                 model.ProfilePath = GetBaseUrl() + "Content/userProfile/" + Convert.ToString(dr["ProfilePath"]);
@@ -320,7 +331,8 @@ namespace Insurance.Interface
                         {
                             ManagePolicyTypeModels viewModel = new ManagePolicyTypeModels();
                             viewModel.Id = Convert.ToString(dr["Id"]);
-                            viewModel.Name = Convert.ToString(dr["Name"]);
+                            viewModel.Name_en = Convert.ToString(dr["Name_en"]);
+                            viewModel.Name_local = Convert.ToString(dr["Name_local"]);
                             viewModel.Image = !string.IsNullOrEmpty(Convert.ToString(dr["Image"])) ? Convert.ToString(dr["Image"]) : "avtar.png";
                             model.Add(viewModel);
                         }
@@ -346,7 +358,8 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeAdmin.AddPolicyType);
                 sqlParams.Add("@Id", model.Id);
-                sqlParams.Add("@FullName", model.Name);
+                sqlParams.Add("@Name_en", model.Name_en);
+                sqlParams.Add("@Name_local", model.Name_local);
                 sqlParams.Add("@ExistingPhotoPath", model.Image);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
             }
@@ -378,7 +391,8 @@ namespace Insurance.Interface
                         foreach (DataRow dr in table.Rows)
                         {
                             model.Id = Convert.ToString(dr["Id"]);
-                            model.Name = Convert.ToString(dr["Name"]);
+                            model.Name_en = Convert.ToString(dr["Name_en"]);
+                            model.Name_local = Convert.ToString(dr["Name_local"]);
                             model.Image = Convert.ToString(dr["Image"]);
                         }
                     }
@@ -403,7 +417,8 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeAdmin.UpdatePolicyType);
                 sqlParams.Add("@Id", editModel.Id);
-                sqlParams.Add("@FullName", editModel.Name);
+                sqlParams.Add("@Name_en", editModel.Name_en);
+                sqlParams.Add("@Name_local", editModel.Name_local);
                 sqlParams.Add("@ExistingPhotoPath", editModel.Image);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -412,7 +427,7 @@ namespace Insurance.Interface
                     {
                         foreach (DataRow dr in table.Rows)
                         {
-                            model = Convert.ToString(dr["Status"]);
+                            model = Convert.ToString(ds.Tables[0].Rows[0][0]);
                         }
                     }
                 }
@@ -474,7 +489,8 @@ namespace Insurance.Interface
                             StaticContentView model1 = new StaticContentView();
                             model1.Id = Convert.ToInt32(dr["Id"]);
                             model1.PageName = Convert.ToString(dr["PageName"]);
-                            model1.PageTitle = Convert.ToString(dr["PageTitle"]);
+                            model1.PageTitle_en = Convert.ToString(dr["PageTitle_en"]);
+                            model1.PageTitle_local = Convert.ToString(dr["PageTitle_local"]);
                             model1.LastModified = Convert.ToString(dr["LastModifiedOn"]);
                             model1.ModifiedBy = Convert.ToString(dr["ModifiedBy"]);
 
@@ -503,8 +519,10 @@ namespace Insurance.Interface
                 sqlParams.Add("@Qtype", QueryTypeAdmin.AddUpdateStaticPageContent);
                 sqlParams.Add("@AspNetUserId", model.AspNetUserId);
                 sqlParams.Add("@Id", model.Id);
-                sqlParams.Add("@Title", model.PageTitle);
-                sqlParams.Add("@Content", model.PageContent);
+                sqlParams.Add("@Title_en", model.PageTitle_en);
+                sqlParams.Add("@Title_local", model.PageTitle_local);
+                sqlParams.Add("@Content_en", model.PageContent_en);
+                sqlParams.Add("@Content_local", model.PageContent_local);
                 sqlParams.Add("@PageId", model.PageName);
 
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
@@ -541,8 +559,10 @@ namespace Insurance.Interface
                         {
                             model.Id = Convert.ToInt32(dr["Id"]);
                             model.PageName = Convert.ToInt32(dr["PageTypeId"]);
-                            model.PageTitle = Convert.ToString(dr["PageTitle"]);
-                            model.PageContent = Convert.ToString(dr["PageContent"]);
+                            model.PageTitle_en = Convert.ToString(dr["PageTitle_en"]);
+                            model.PageTitle_local = Convert.ToString(dr["PageTitle_local"]);
+                            model.PageContent_en = Convert.ToString(dr["PageContent_en"]);
+                            model.PageContent_local = Convert.ToString(dr["PageContent_local"]);
                         }
                     }
                 }
@@ -582,7 +602,7 @@ namespace Insurance.Interface
                             category.Add(new SelectListItem
                             {
                                 Value = Convert.ToString(dr["Id"]),
-                                Text = Convert.ToString(dr["Name"])
+                                Text = Convert.ToString(dr["Name_en"])
                             });
                         }
                     }

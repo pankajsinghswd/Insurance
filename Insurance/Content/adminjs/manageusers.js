@@ -11,12 +11,15 @@ function View(id) {
         dataType: "json",
         success: function (response) {
             $(response).each(function () {
-                $("#insurancetype").html(this.InsuranceType);
-                $("#first").html(this.FullName);
+                $("#insurancetype_en").html(this.InsuranceType_en);
+                $("#insurancetype_local").html(this.InsuranceType_local);
+                $("#first_en").html(this.FullName_en);
+                $("#first_local").html(this.FullName_local);
                 $('#img').attr('src', this.ProfilePath == '' ? '/Content/images/avtar.png' : this.ProfilePath);
                 $("#Mobile").html(this.Mobile);
                 $("#Email").html(this.Email);
-                $("#Interest").html(this.Interest);
+                $("#Interest_en").html(this.Interest_en);
+                $("#Interest_local").html(this.Interest_local);
 
                 $("#view").addClass("modal fade in");
                 $("#view").css("display", "block");

@@ -114,12 +114,12 @@ namespace Insurance.Controllers.API
                                 }
 
                                 #region Add device info of logged in user
-                                DeviceInfoForPushNotification device = new DeviceInfoForPushNotification
-                                {
-                                    TherapistId = loginUser.Id,
-                                    DeviceId = model.DeviceId,
-                                    DeviceName = model.DeviceName
-                                };
+                                //DeviceInfoForPushNotification device = new DeviceInfoForPushNotification
+                                //{
+                                //    TherapistId = loginUser.Id,
+                                //    DeviceId = model.DeviceId,
+                                //    DeviceName = model.DeviceName
+                                //};
                                 //admin.addUpdateDeviceInfo(device);
                                 #endregion
 

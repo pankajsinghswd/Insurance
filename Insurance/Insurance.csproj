@@ -4312,19 +4312,27 @@
     <Compile Include="Controllers\API\AccountAPIController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterBaseController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="DataHelper\SqlHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\HTMLHelperExtensions.cs" />
     <Compile Include="Interface\AdminRepository.cs" />
     <Compile Include="Interface\IAdmin.cs" />
     <Compile Include="Interface\SendGridMailManager.cs" />
     <Compile Include="Models\APIModels\UserDetailsModels.cs" />
     <Compile Include="Models\GeneralModel.cs" />
+    <Compile Include="Resources\Master_en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Master_en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utils\AppConstants.cs" />
+    <Compile Include="Utils\Crypto.cs" />
     <Compile Include="Utils\EmailService.cs" />
     <Compile Include="Utils\ErrorDetails.cs" />
     <Compile Include="Utils\Mailer.cs" />
@@ -4342,40 +4350,20 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\InsuranceErrorService.cs" />
     <Compile Include="ViewModels\AppointmentCreateViewModel.cs" />
-    <Compile Include="ViewModels\AppointmentDetailModel.cs" />
-    <Compile Include="ViewModels\AssignTherapistModel.cs" />
-    <Compile Include="ViewModels\AttendedAppointmentsReports.cs" />
     <Compile Include="ViewModels\BindDropdownList.cs" />
-    <Compile Include="ViewModels\ConsumedUnitHistory.cs" />
     <Compile Include="ViewModels\CreateProfileViewModel.cs" />
     <Compile Include="ViewModels\DashboardModel.cs" />
-    <Compile Include="ViewModels\EarnedUnitHistory.cs" />
-    <Compile Include="ViewModels\EducationCreateModel.cs" />
-    <Compile Include="ViewModels\EducationViewModel.cs" />
-    <Compile Include="ViewModels\HRCreateModel.cs" />
-    <Compile Include="ViewModels\HRModel.cs" />
-    <Compile Include="ViewModels\HRUpdateModel.cs" />
-    <Compile Include="ViewModels\HRViewModel.cs" />
     <Compile Include="ViewModels\IsEmailValid.cs" />
     <Compile Include="ViewModels\IsMobileValid.cs" />
     <Compile Include="ViewModels\IsZipCodeValid.cs" />
     <Compile Include="ViewModels\ManagePolicyTypeModels.cs" />
-    <Compile Include="ViewModels\PatientBilling.cs" />
-    <Compile Include="ViewModels\PatientViewModel.cs" />
-    <Compile Include="ViewModels\Payrolls.cs" />
-    <Compile Include="ViewModels\PendingAppointmentsReport.cs" />
     <Compile Include="ViewModels\ProfileDetailModel.cs" />
     <Compile Include="ViewModels\ProfileEditModel.cs" />
-    <Compile Include="ViewModels\ProfileUpdateViewModel.cs" />
-    <Compile Include="ViewModels\SalesforceEnquiry__C.cs" />
     <Compile Include="ViewModels\StaticContentInsert.cs" />
     <Compile Include="ViewModels\StaticContentUpdate.cs" />
     <Compile Include="ViewModels\StaticContentView.cs" />
-    <Compile Include="ViewModels\TherapistBilling.cs" />
     <Compile Include="ViewModels\UserCreateModel.cs" />
-    <Compile Include="ViewModels\TherapistProfileEditModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
-    <Compile Include="ViewModels\UnassignedAppointmentsReports.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -4499,9 +4487,17 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\MasterBase\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Master_en.ar.resx" />
+    <EmbeddedResource Include="Resources\Master_en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Master_en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -21,7 +21,7 @@ namespace Insurance.Controllers
         AdminRepository adminRepository;
         public AccountController()
         {
-            insuranceWeb = new InsuranceWeb();
+            adminRepository = new AdminRepository();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)

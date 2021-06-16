@@ -50,45 +50,59 @@
                         @using (Html.BeginForm("Create", "StaticContent", FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
-                            <div class="form-group row">
-                                <div class="form-group col-md-12">
-                                    @Html.LabelFor(model => model.PageName, new { @class = "form-group" })
+                        <div class="form-group row">
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(model => model.PageName, new { @class = "form-group" })
 
-                                    @Html.DropDownList("PageName", EnumHelper.GetSelectList(typeof(Insurance.Utils.PageType)), new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.PageName, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group col-md-12">
-                                    @Html.LabelFor(model => model.PageTitle, new { @class = "form-group" })
-
-                                    @Html.TextBoxFor(m => m.PageTitle, new { @class = "form-control", @type = "Name", @placeholder = "Page Title" })
-                                    @Html.ValidationMessageFor(model => model.PageTitle, "", new { @class = "text-danger" })
-                                </div>
-                                @*<div class="form-group col-md-12">
-                                        @Html.LabelFor(model => model.PageContent, new { @class = "form-group" })
-
-                                        @Html.TextAreaFor(m => m.PageContent, new { @class = "form-control", @id = "editor1", @placeholder = "Page Content" })
-                                        @Html.ValidationMessageFor(model => model.PageContent, "", new { @class = "text-danger" })
-                                    </div>*@
-                                <div class="form-group col-md-12">
-                                    @Html.LabelFor(model => model.PageContent, new { @class = "form-group" })
-                                    @Html.TextAreaFor(m => m.PageContent, new
-                                    {
-                                        rows = "20",
-                                        style = "resize:none;width:400px;",
-                                        placeholder = "Page Content",
-                                        @class = "form-control input-lg textarea-editor"
-                                    })
-                                    @Html.ValidationMessageFor(model => model.PageContent, "", new { @class = "text-danger" })
-                                </div>
-                                @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
-                                <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <a href="/StaticContent/Index" class="btn btn-danger">Cancel</a>
-                                </div>
-                                @*<textarea id="editor1" name="editor1" rows="10" cols="80">
-                                        This is my textarea to be replaced with CKEditor.
-                                    </textarea>*@
+                                @Html.DropDownList("PageName", EnumHelper.GetSelectList(typeof(Insurance.Utils.PageType)), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PageName, "", new { @class = "text-danger" })
                             </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(model => model.PageTitle_en, new { @class = "form-group" })
+                                @Html.TextBoxFor(m => m.PageTitle_en, new { @class = "form-control", @type = "Name", @placeholder = "Page Title_en" })
+                                @Html.ValidationMessageFor(model => model.PageTitle_en, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(model => model.PageTitle_local, new { @class = "form-group" })
+                                @Html.TextBoxFor(m => m.PageTitle_local, new { @class = "form-control", @type = "Name", @placeholder = "Page Title_local" })
+                                @Html.ValidationMessageFor(model => model.PageTitle_local, "", new { @class = "text-danger" })
+                            </div>
+                            @*<div class="form-group col-md-12">
+         @Html.LabelFor(model => model.PageContent, new { @class = "form-group" })
+         @Html.TextAreaFor(m => m.PageContent, new { @class = "form-control", @id = "editor1", @placeholder = "Page Content" })
+         @Html.ValidationMessageFor(model => model.PageContent, "", new { @class = "text-danger" })
+        </div>*@
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(model => model.PageContent_en, new { @class = "form-group" })
+                                @Html.TextAreaFor(m => m.PageContent_en, new
+                                {
+                                    rows = "20",
+                                    style = "resize:none;width:400px;",
+                                    placeholder = "Page Content_en",
+                                    @class = "form-control input-lg textarea-editor"
+                                })
+                                @Html.ValidationMessageFor(model => model.PageContent_en, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-12">
+                                @Html.LabelFor(model => model.PageContent_local, new { @class = "form-group" })
+                                @Html.TextAreaFor(m => m.PageContent_local, new
+                                {
+                                    rows = "20",
+                                    style = "resize:none;width:400px;",
+                                    placeholder = "Page Content_local",
+                                    @class = "form-control input-lg textarea-editor"
+                                })
+                                @Html.ValidationMessageFor(model => model.PageContent_local, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
+                            <div class="form-group col-md-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="/StaticContent/Index" class="btn btn-danger">Cancel</a>
+                            </div>
+                            @*<textarea id="editor1" name="editor1" rows="10" cols="80">
+            This is my textarea to be replaced with CKEditor.
+        </textarea>*@
+                        </div>
                         }
                     </div>
                 </div>

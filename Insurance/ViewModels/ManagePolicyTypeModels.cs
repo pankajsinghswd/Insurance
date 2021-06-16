@@ -9,16 +9,20 @@ namespace Insurance.ViewModels
     public class ManagePolicyTypeModels
     {
         public string Id { get; set; }
-        public string Name { get; set; }
+        public string Name_en { get; set; }
+        public string Name_local { get; set; }
         public string Image { get; set; }
     }
 
     public class EditPolicyTypeModel
     {
         public string Id { get; set; }
-        [Display(Name = "Name")]
+        [Display(Name = "Name_en")]
         [Required]
-        public string Name { get; set; }
+        public string Name_en { get; set; }
+        [Display(Name = "Name_local")]
+        [Required]
+        public string Name_local { get; set; }
         public string Image { get; set; }
         [DataType(DataType.Upload)]
         [Display(Name = "Upload File")]

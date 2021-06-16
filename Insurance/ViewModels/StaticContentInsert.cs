@@ -14,12 +14,19 @@ namespace Insurance.ViewModels
         [Range(1, int.MaxValue, ErrorMessage = "Please Select Page Name")]
         public int PageName { get; set; }
         [Required]
-        [Display(Name = "Page Title")]
-        public string PageTitle { get; set; }
+        [Display(Name = "Page Title_en")]
+        public string PageTitle_en { get; set; }
+        [Required]
+        [Display(Name = "Page Title_local")]
+        public string PageTitle_local { get; set; }
         [AllowHtml]
         [Required]
-        [Display(Name = "Page Content")]
-        public string PageContent { get; set; }
+        [Display(Name = "PageContent_en")]
+        public string PageContent_en { get; set; }
+        [AllowHtml]
+        [Required]
+        [Display(Name = "PageContent_local")]
+        public string PageContent_local { get; set; }
         public string AspNetUserId { get; set; }
     }
 }

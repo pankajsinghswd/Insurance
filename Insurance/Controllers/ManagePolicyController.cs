@@ -42,7 +42,8 @@ namespace Insurance.Controllers
             if (ModelState.IsValid)
             {
                 ManagePolicyTypeModels _model = new ManagePolicyTypeModels();
-                _model.Name = model.Name;
+                _model.Name_en = model.Name_en;
+                _model.Name_local = model.Name_local;
                 _model.Image = ProcessFile(model.Image, file);
                 adminRepository.CreatePolicyType(_model);
                 logger.Info("Policy type has been created.");
@@ -60,7 +61,8 @@ namespace Insurance.Controllers
             var result = adminRepository.GetPolicyTypeById(id);
             EditPolicyTypeModel _model = new EditPolicyTypeModel();
             _model.Id = result.Id;
-            _model.Name = result.Name;
+            _model.Name_en = result.Name_en;
+            _model.Name_local = result.Name_local;
             _model.Image = result.Image;
             return View(_model);
         }
@@ -71,7 +73,8 @@ namespace Insurance.Controllers
             {
                 ManagePolicyTypeModels _model = new ManagePolicyTypeModels();
                 _model.Id = model.Id;
-                _model.Name = model.Name;
+                _model.Name_en = model.Name_en;
+                _model.Name_local = model.Name_local;
                 _model.Image = ProcessFile(model.Image, file);
                 var result = adminRepository.UpdatePolicyType(_model);
                 return RedirectToAction("Index");

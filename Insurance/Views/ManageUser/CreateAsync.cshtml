@@ -1,6 +1,6 @@
 ﻿@model Insurance.ViewModels.UserCreateModel
 @{ ViewBag.Title = "Index";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -27,55 +27,62 @@
             @Html.AntiForgeryToken()
             <div class="form-group row">
                 <div class="form-group col-md-6">
-                    @*@Html.LabelFor(m => m.FullName)*@
-                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @type = "Name", @placeholder = "Full Name" })
-                    @Html.ValidationMessageFor(a => a.FullName, string.Empty, new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.FullName_en, new { @class = "form-control", @type = "Name", @placeholder = "Full Name_en" })
+                    @Html.ValidationMessageFor(a => a.FullName_en, string.Empty, new { @class = "text-danger" })
                 </div>
                 <div class="form-group col-md-6">
-                    @*@Html.LabelFor(m => m.FullName)*@
-                    @Html.DropDownListFor(m => m.Gender, Model.GenderList, "Choose Gender", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.FullName_local, new { @class = "form-control", @type = "Name", @placeholder = "Full Name_local" })
+                    @Html.ValidationMessageFor(a => a.FullName_local, string.Empty, new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group row">
                 <div class="form-group col-md-6">
-                    @*@Html.LabelFor(m => m.Email)*@
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "Email", @placeholder = "Email Address" })
-                    @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })
+                    @Html.DropDownListFor(m => m.Gender, Model.GenderList, "Choose Gender", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group col-sm-6">
-                    @*@Html.LabelFor(m => m.Phone)*@
-                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @type = "Phone", @placeholder = "Phone Number" })
-                    @Html.ValidationMessageFor(a => a.Phone, string.Empty, new { @class = "text-danger" })
+                <div class="form-group col-md-6">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @autocomplete = "off",  @type = "Email", @placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group row">
                 <div class="form-group col-sm-6">
                     @*@Html.LabelFor(m => m.Password)*@
-                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "Password", @placeholder = "Password" })
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @autocomplete = "off", @type = "Password", @placeholder = "Password" })
                     @Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })
                 </div>
                 <div class="form-group col-sm-6">
                     @*@Html.LabelFor(m => m.ConfirmPassword, new { })*@
-                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "Password", @placeholder = "Confirm Password" })
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @autocomplete = "off", @type = "Password", @placeholder = "Confirm Password" })
                     @Html.ValidationMessageFor(a => a.ConfirmPassword, string.Empty, new { @class = "text-danger" })
                 </div>
             </div>
-            
+            <div class="form-group row">
+                <div class="form-group col-sm-6">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @type = "Phone", @placeholder = "Phone Number" })
+                    @Html.ValidationMessageFor(a => a.Phone, string.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
         </div>
 
-        <div class="panel-heading" style="margin-top: -4%;">Additional Details</div>
+        <div class="panel-heading mt-0">Additional Details</div>
         <div class="panel-body">
             <div class="form-group row">
                 <div class="form-group col-sm-6">
-                        @Html.DropDownListFor(m => m.InsuranceTypeId, Model.InsuranceType, "Choose Insurance", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.InsuranceTypeId, "", new { @class = "text-danger" })
-                    </div>
+                    @Html.DropDownListFor(m => m.InsuranceTypeId, Model.InsuranceType, "Choose Insurance", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.InsuranceTypeId, "", new { @class = "text-danger" })
                 </div>
+            </div>
             <div class="form-group row">
-                <div class="form-group col-sm-6">
-                    @Html.TextAreaFor(m => m.Interest, new { @class = "form-control", @type = "text", @placeholder = "About Interest" })
-                    @Html.ValidationMessageFor(a => a.Interest, string.Empty, new { @class = "text-danger" })
+                <div class="form-group col-sm-12">
+                    @Html.TextAreaFor(m => m.Interest_en, new { @class = "form-control", @type = "text", @placeholder = "About Interest_en" })
+                    @Html.ValidationMessageFor(a => a.Interest_en, string.Empty, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-sm-12">
+                    @Html.TextAreaFor(m => m.Interest_local, new { @class = "form-control", @type = "text", @placeholder = "About Interest_local" })
+                    @Html.ValidationMessageFor(a => a.Interest_local, string.Empty, new { @class = "text-danger" })
                 </div>
             </div>
             @Html.ValidationSummary(false, string.Empty, new { @class = "text-danger" })
