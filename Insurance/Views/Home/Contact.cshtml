@@ -1,17 +1,140 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@{ ViewBag.Title = "Contact";
+                Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+<div class="stepForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+                <div class="header_right">
+                    <div class="header_tabs">
+                        <div class="header_tabinner">
+                            <a class="header_tab icon2">
+                                <div class="header_tabtooltip">Vehicle insurance</div>
+                            </a>
+                            <a class="header_tab icon5">
+                                <div class="header_tabtooltip">Medical</div>
+                            </a>
+                            <a class="header_tab icon6">
+                                <div class="header_tabtooltip">Medical Malpractice</div>
+                            </a>
+                            <a class="header_tab icon4">
+                                <div class="header_tabtooltip">Travel</div>
+                            </a>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                            <a class="header_tab icon3">
+                                <div class="header_tabtooltip">Life & Savings</div>
+                            </a>
+                            <a class="header_tab icon1">
+                                <div class="header_tabtooltip">House Hold</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-10">
+
+
+
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <div class="heading-3">
+                            Face any problem? <br>
+                            inform us
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row rowcallDiv">
+                    <div class="col-lg-4">
+                        <div class="callDiv">
+                            <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/callus.png"></div>
+                            <div class="callDiv_item callDiv_item-2">Call Us</div>
+                            <div class="callDiv_item callDiv_item-3">
+                                <div>7890 456 +123</div>
+                                <div>7890 456 +123</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="callDiv">
+                            <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/mail (2).png"></div>
+                            <div class="callDiv_item callDiv_item-2">Send a Mail</div>
+                            <div class="callDiv_item callDiv_item-3">
+                                <div>test.test@test.com</div>
+                                <div>test.test@test.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="callDiv">
+                            <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/location.png"></div>
+                            <div class="callDiv_item callDiv_item-2">Find Us at</div>
+                            <div class="callDiv_item callDiv_item-3">
+                                <div>7890 456 +123</div>
+                                <div>7890 456 +123</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bannerForm_mn">
+                            <div class="bannerForm contactUs">
+
+                                <div class="bannerForm__item bannerForm__box">
+
+                                    <div class="form_control form_control">
+                                        <p class="bannerForm__box--head">
+                                            Contact Us
+                                        </p>
+                                    </div>
+
+                                    <div class="form_control  form_control-50">
+                                        <input type="text" name="" class="inputtext" placeholder="Name">
+                                    </div>
+                                    <div class="form_control  form_control-50">
+                                        <input type="text" name="" class="inputtext" placeholder="Email address">
+                                    </div>
+
+
+
+                                    <div class="form_control  form_control-50">
+                                        <input type="text" name="" class="inputtext" placeholder="Phone">
+                                    </div>
+                                    <div class="form_control form_control-50">
+                                        <select class="select">
+                                            <option>Your Age</option>
+                                            <option>Home Insurance</option>
+                                            <option>Health Insurance</option>
+                                            <option>Car Insurance</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form_control">
+                                        <textarea class="inputtext" placeholder="Comment"></textarea>
+                                    </div>
+
+
+
+                                    <div class="form_control">
+                                        <div class="button_div">
+                                            <button type="button" name="next" class="button">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

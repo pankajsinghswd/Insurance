@@ -50,6 +50,12 @@ namespace Insurance.Controllers
 
             return View();
         }
+
+        public ActionResult HouseHold()
+        {
+            return View();
+        }
+
         [AcceptVerbs("Get", "Post")]
         [AllowAnonymous]
         public async Task<IActionResult> IsEmailInUse(string email)

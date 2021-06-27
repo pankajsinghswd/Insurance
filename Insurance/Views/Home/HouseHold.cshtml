@@ -1,0 +1,178 @@
+﻿@{ ViewBag.Title = "House Hold";
+                Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+<div class="stepForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+
+                <div class="header_right">
+                    <div class="header_tabs">
+                        <div class="header_tabinner">
+                            <a class="header_tab icon2">
+                                <div class="header_tabtooltip">Vehicle insurance</div>
+                            </a>
+                            <a class="header_tab icon5">
+                                <div class="header_tabtooltip">Medical</div>
+                            </a>
+                            <a class="header_tab icon6">
+                                <div class="header_tabtooltip">Medical Malpractice</div>
+                            </a>
+                            <a class="header_tab icon4">
+                                <div class="header_tabtooltip">Travel</div>
+                            </a>
+
+                            <a class="header_tab icon3">
+                                <div class="header_tabtooltip">Life & Savings</div>
+                            </a>
+                            <a class="header_tab icon1">
+                                <div class="header_tabtooltip">House Hold</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-10">
+
+                <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+
+                        <li class="active">
+                            <span>STEP 1</span>
+                            Home
+                            <div class="progressbar_flag">In Progress</div>
+                        </li>
+                        <li>
+                            <span>STEP 2</span>
+                            Owner
+                            <div class="progressbar_flag">Pending</div>
+                        </li>
+                        <li>
+                            <span>STEP 3</span>
+                            Quotes
+                            <div class="progressbar_flag">In Progress</div>
+                        </li>
+
+                    </ul>
+                    <!-- fieldsets -->
+                    <br>
+                    <br>
+                    <br>
+
+
+                    <fieldset>
+                        <div class="formfieldmn">
+                            <div class="formfieldmn_item formfieldmn_head">
+                                <h1>Tell us about your home</h1>
+                                <h3 class="fs-subtitle">We'll only ask the required details.</h3>
+                            </div>
+                        </div>
+                        <div class="formfieldmn">
+
+
+                            <div class="button-group-pills text-center" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="options" checked="">
+                                    <div>House</div>
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">
+                                    <div>Condo</div>
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">
+                                    <div>Rental</div>
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">
+                                    <div>Apartment</div>
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">
+                                    <div>Other</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="formfieldmn">
+                            <div class="formfieldmn_item formfieldmn_head">
+                                <h1>What's the address you'd like to ensure?</h1>
+                                <h3 class="fs-subtitle">We'll only ask the required details.</h3>
+                            </div>
+                        </div>
+                        <div class="formfieldmn">
+                            <div class="form_control form_control">
+                                <input type="text" name="" class="inputtext" placeholder="Address">
+                            </div>
+                            <div class="form_control form_control-50">
+                                <select class="select">
+                                    <option>Select Insurance</option>
+                                    <option>Home Insurance</option>
+                                    <option>Health Insurance</option>
+                                    <option>Car Insurance</option>
+                                </select>
+                            </div>
+                            <div class="form_control form_control-50">
+                                <input type="text" name="" class="inputtext" placeholder="City">
+                            </div>
+                            <div class="form_control form_control-50">
+                                <select class="select">
+                                    <option>State</option>
+                                    <option>Home Insurance</option>
+                                    <option>Health Insurance</option>
+                                    <option>Car Insurance</option>
+                                </select>
+                            </div>
+                            <div class="form_control form_control form_control-50">
+                                <input type="text" name="" class="inputtext" placeholder="ZIP Code">
+                            </div>
+                        </div>
+                        <div class="formfieldmn">
+                            <div class="formfieldmn_item formfieldmn_head">
+                                <h1>Do you already have an insurance?</h1>
+                            </div>
+                            <div class="formfieldmn_item formfieldmn_form">
+
+                                <div class="toggleBtn">
+                                    <div class="toggleBtn_txt">YES</div>
+                                    <div class="btn-container">
+                                        <div class="toggle-btn">
+                                            <div class="inner-circle"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="toggleBtn_txt">NO</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <div class="button_div">
+                            <button type="button" name="next" class="next button">Save & Continue</button>
+                        </div>
+
+                        <!-- <input type="button" name="next" class="next button" value="Save & Continue"/> -->
+
+                    </fieldset>
+                    <fieldset>
+
+
+                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                        <input type="button" name="next" class="next action-button" value="Next"/> -->
+
+
+                        <button type="button" name="previous" class="previous button">previous</button>
+                        <button type="button" name="next" class="next button">Save & Continue</button>
+
+                    </fieldset>
+                    <fieldset>
+
+
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

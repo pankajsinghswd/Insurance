@@ -73,6 +73,20 @@ namespace Insurance.Controllers
             return View(viewModel);
         }
         [AllowAnonymous]
+        public ActionResult UserLogin(string returnUrl)
+        {
+            LoginViewModel viewModel = new LoginViewModel();
+            ViewBag.ReturnUrl = returnUrl;
+            return View(viewModel);
+        }
+        [AllowAnonymous]
+        public ActionResult UserSignup(string returnUrl)
+        {
+            LoginViewModel viewModel = new LoginViewModel();
+            ViewBag.ReturnUrl = returnUrl;
+            return View(viewModel);
+        }
+        [AllowAnonymous]
         public ActionResult TherapistLogin(string returnUrl)
         {
             LoginViewModel viewModel = new LoginViewModel();

@@ -1,0 +1,53 @@
+﻿@model Insurance.Models.LoginViewModel
+@{ ViewBag.Title = "UserSignUp";
+    Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+
+<div class="login_mn">
+    <div class="login_in">
+        <div class="container" style="margin-left:28%;">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+                    <div class="card card-signin">
+                        <div class="card-body">
+                            <h5 class="card-title">Registration</h5>
+                            <h3 class="card-title-small ">Lorem ipsum is a placeholder text commonly used to demonstrate the  </h3>
+                            <form class="form-signin">
+
+
+                                <div class="card_form">
+                                    <div class="card_control">
+                                        <input type="text" class="card_control_input" placeholder="Name">
+                                    </div>
+                                    <div class="card_control">
+                                        <input type="email" class="card_control_input" placeholder="Email ID">
+                                    </div>
+                                    <div class="card_control">
+                                        <input type="password" class="card_control_input" placeholder="Password">
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <button class="btn btn-lg btn-block login_btn" type="submit">SIGN UP</button>
+
+                                <div class="hrmain" style="display:none;">
+                                    <hr class="my-4">
+                                </div>
+
+                                <div class="custom-social" style="display:none;">
+                                    <button class="btn btn-lg btn-block  facebook_link" type="submit"><img src="~/Content/frontenten/img/google_icon.png"> Sign in with Google</button>
+                                    <button class="btn btn-lg  btn-block google_link" type="submit"><img src="~/Content/frontenten/img/facebook_icon.png"> Sign in with Facebook</button>
+                                </div>
+                                <div class="signupAcc">
+                                    Already have account? <a href="/Account/UserLogin"> Login </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

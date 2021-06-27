@@ -1,0 +1,5 @@
+.header { display: flex; }
+
+.header_right { width: 100px; }
+
+.header_left { width: calc(100% - 100px); }
