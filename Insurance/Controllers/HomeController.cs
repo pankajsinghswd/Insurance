@@ -43,7 +43,14 @@ namespace Insurance.Controllers
 
             return View();
         }
-
+        public ActionResult TermsCondition()
+        {
+            return View();
+        }
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

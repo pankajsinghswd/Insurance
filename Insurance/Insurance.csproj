@@ -4582,6 +4582,8 @@
     <Content Include="Views\ManagePolicy\CreateAsync.cshtml" />
     <Content Include="Views\Account\UserSignup.cshtml" />
     <Content Include="Views\Home\HouseHold.cshtml" />
+    <Content Include="Views\Home\TermsCondition.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
