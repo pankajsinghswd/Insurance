@@ -77,6 +77,11 @@ namespace Insurance
                 .Include(lteplugins + "iCheck/all.css")
                 .Include(lteplugins + "pace/pace.min.css")
                 .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                       "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jquerylang").Include(
+                       "~/Content/frontendjs/lang.*"));
         }
     }
 }

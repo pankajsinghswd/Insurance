@@ -1804,3 +1804,145 @@ textarea.inputtext{
 .remForgot_item a {
     color: #848484;
 }
+/*new css*/
+.header_rightlink {
+    display: none;
+}
+
+.arabic .header_tabtooltip {
+    justify-content: flex-end;
+    padding-right: 19px;
+    background: url(../images/tooltip_bg-right.png);
+    left: unset;
+    right: 70%;
+    padding-right: 30px;
+    padding-left: 20px;
+}
+
+.arabic .bannerForm__item.bannerForm__heading {
+    flex-direction: row-reverse;
+    justify-content: end;
+}
+
+.arabic .bannerForm__heading img {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.arabic .form_control.form_control {
+    justify-content: flex-end;
+}
+
+.arabic .form_control-radio {
+    flex-direction: row-reverse;
+}
+
+    .arabic .form_control-radio .check {
+        margin-left: 10px;
+    }
+
+.arabic .inputtext, .arabic .select {
+    text-align: right;
+}
+
+.arabic .formfieldmn {
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.arabic .formfieldmn_head h1 {
+    text-align: right;
+}
+
+.arabic .fs-subtitle {
+    text-align: right;
+}
+
+
+.arabic .button_div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.arabic .heading-3 {
+    text-align: right;
+}
+
+.arabic .card_control_input {
+    text-align: right;
+    background-position-x: 15px !important;
+    padding-right: 15px;
+}
+
+.arabic #msform fieldset {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+}
+
+    .burger.close_menu:before {
+        content: "\f00d";
+    }
+
+.arabic .header_navlink {
+    text-align: right;
+}
+
+.arabic .header_navlink-1, .arabic .header_navlink-2 {
+    text-align: center;
+}
+
+.header_menu {
+    margin-right: 90px;
+}
+
+.header_language {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+    .header_language a {
+        font-size: 16px;
+        font-family: Raleway-Bold;
+        color: #000;
+        border: 1px solid #bbb;
+        padding: 5px 20px;
+        border-radius: 50px;
+    }
+
+.header_language-1 {
+    display: block;
+}
+
+.header_language-2 {
+    display: block;
+}
+
+.arabic .header_language-1 {
+    display: block;
+}
+
+.arabic .header_language-2 {
+    display: block;
+}
+
+.arabic .stepForm > .container > .row {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.arabic .bannerForm_mn {
+    justify-content: flex-start;
+}
+
+.arabic .bannerForm:before {
+    background: url(../img/vehicle-right.png);
+    right: -394px;
+    left: unset;
+}

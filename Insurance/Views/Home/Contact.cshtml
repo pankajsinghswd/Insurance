@@ -1,46 +1,44 @@
-﻿@{ ViewBag.Title = "Contact";
-                Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+﻿@using Insurance.Resources
+@{ ViewBag.Title = Master_en.MenuContactUs;
+    Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+@model Insurance.Models.ContactUsViewModels
 <div class="stepForm">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
-
                 <div class="header_right">
                     <div class="header_tabs">
                         <div class="header_tabinner">
                             <a class="header_tab icon2">
-                                <div class="header_tabtooltip">Vehicle insurance</div>
+                                <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
                             </a>
                             <a class="header_tab icon5">
-                                <div class="header_tabtooltip">Medical</div>
+                                <div class="header_tabtooltip">@Master_en.InsMedical</div>
                             </a>
                             <a class="header_tab icon6">
-                                <div class="header_tabtooltip">Medical Malpractice</div>
+                                <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
                             </a>
                             <a class="header_tab icon4">
-                                <div class="header_tabtooltip">Travel</div>
+                                <div class="header_tabtooltip">@Master_en.InsTravel</div>
                             </a>
 
                             <a class="header_tab icon3">
-                                <div class="header_tabtooltip">Life & Savings</div>
+                                <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
                             </a>
                             <a class="header_tab icon1">
-                                <div class="header_tabtooltip">House Hold</div>
+                                <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-lg-10">
-
-
-
                 <div class="row ">
                     <div class="col-lg-12">
                         <div class="heading-3">
-                            Face any problem? <br>
-                            inform us
+                            @Master_en.Contact_FaceAnyProblem
+                            <br>
+                            @Master_en.ContactUs_InformUs
                         </div>
                     </div>
                 </div>
@@ -50,91 +48,106 @@
                     <div class="col-lg-4">
                         <div class="callDiv">
                             <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/callus.png"></div>
-                            <div class="callDiv_item callDiv_item-2">Call Us</div>
+                            <div class="callDiv_item callDiv_item-2">@Master_en.Contact_CallUs</div>
                             <div class="callDiv_item callDiv_item-3">
-                                <div>7890 456 +123</div>
-                                <div>7890 456 +123</div>
+                                <div>+966 591100655</div>
+                                <div>+966 591100655</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="callDiv">
                             <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/mail (2).png"></div>
-                            <div class="callDiv_item callDiv_item-2">Send a Mail</div>
+                            <div class="callDiv_item callDiv_item-2">@Master_en.Contact_SendEmail</div>
                             <div class="callDiv_item callDiv_item-3">
-                                <div>test.test@test.com</div>
-                                <div>test.test@test.com</div>
+                                <div>h.s.almalik@hotmail.com</div>
+                                <div>h.s.almalik@hotmail.com</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="callDiv">
                             <div class="callDiv_item callDiv_item-1"><img src="~/Content/frontenten/img/location.png"></div>
-                            <div class="callDiv_item callDiv_item-2">Find Us at</div>
+                            <div class="callDiv_item callDiv_item-2">@Master_en.Contact_FindUsAt</div>
                             <div class="callDiv_item callDiv_item-3">
-                                <div>7890 456 +123</div>
-                                <div>7890 456 +123</div>
+                                <div>+966 591100655</div>
+                                <div>+966 591100655</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bannerForm_mn">
-                            <div class="bannerForm contactUs">
+                            @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                            {
+                              @Html.AntiForgeryToken()
+                              <div class="bannerForm contactUs">
+                                  <div class="bannerForm__item bannerForm__box">
+                                      <div id="divmsg">
+                                          @if (TempData["success"] != null)
+                                          {
+                                              <label style="color:red;">@TempData["success"]</label>
+                                          }
+                                      </div>
+                                      <div class="form_control form_control">
+                                          <p class="bannerForm__box--head">
+                                              @Master_en.MenuContactUs
+                                          </p>
+                                      </div>
 
-                                <div class="bannerForm__item bannerForm__box">
+                                      <div class="form_control  form_control-50">
+                                          @Html.TextBoxFor(m => m.Name, new { @class = "inputtext", @type = "text", @placeholder = Master_en.Contact_Name })
+                                          @Html.ValidationMessageFor(a => a.Name, string.Empty, new { @class = "text-danger" })
+                                      </div>
+                                      <div class="form_control  form_control-50">
+                                          @Html.TextBoxFor(m => m.EmailAddress, new { @class = "inputtext", @type = "email", @placeholder = Master_en.PHolderEmail })
+                                          @Html.ValidationMessageFor(a => a.EmailAddress, string.Empty, new { @class = "text-danger" })
+                                      </div>
 
-                                    <div class="form_control form_control">
-                                        <p class="bannerForm__box--head">
-                                            Contact Us
-                                        </p>
-                                    </div>
+                                      <div class="form_control  form_control-50">
+                                          @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "inputtext", @type = "number", @placeholder = Master_en.PHolderPhoneNumber })
+                                          @Html.ValidationMessageFor(a => a.PhoneNumber, string.Empty, new { @class = "text-danger" })
+                                      </div>
+                                      <div class="form_control form_control-50">
+                                          @Html.DropDownListFor(m => m.Age, Model.AgeList, Master_en.PHolderYourAge, new { @class = "select" })
+                                          @Html.ValidationMessageFor(a => a.Age, string.Empty, new { @class = "text-danger" })
+                                      </div>
 
-                                    <div class="form_control  form_control-50">
-                                        <input type="text" name="" class="inputtext" placeholder="Name">
-                                    </div>
-                                    <div class="form_control  form_control-50">
-                                        <input type="text" name="" class="inputtext" placeholder="Email address">
-                                    </div>
+                                      <div class="form_control">
+                                          @Html.TextAreaFor(m => m.Comment, new { @class = "inputtext", @placeholder = Master_en.Contact_Comment })
+                                          @Html.ValidationMessageFor(a => a.Comment, string.Empty, new { @class = "text-danger" })
+                                      </div>
 
-
-
-                                    <div class="form_control  form_control-50">
-                                        <input type="text" name="" class="inputtext" placeholder="Phone">
-                                    </div>
-                                    <div class="form_control form_control-50">
-                                        <select class="select">
-                                            <option>Your Age</option>
-                                            <option>Home Insurance</option>
-                                            <option>Health Insurance</option>
-                                            <option>Car Insurance</option>
-                                        </select>
-                                    </div>
-
-
-                                    <div class="form_control">
-                                        <textarea class="inputtext" placeholder="Comment"></textarea>
-                                    </div>
-
-
-
-                                    <div class="form_control">
-                                        <div class="button_div">
-                                            <button type="button" name="next" class="button">Submit</button>
+                                      <div class="form_control">
+                                          <div class="button_div">
+                                              <button type="button" name="next" class="button" id="btnsubmit">@Master_en.Contact_Submit</button>
+                                          </div>
+                                      </div>
+                                  </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        }
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
         </div>
     </div>
 </div>
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    setTimeout(function () {
+        $('#divmsg').hide();
+    }, 4000);
+    $("#btnsubmit").click(function (e) {
+        e.preventDefault();
+        //$('#buttondiv').css('display','block!important;');
+        // now trigger the form validation, result is 1 or 0
+        var result = $('form').valid();
+        if (result) {
+            $('form').submit();
+        }
+    });
+</script>

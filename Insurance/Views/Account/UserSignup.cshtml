@@ -1,4 +1,5 @@
-﻿@model Insurance.Models.LoginViewModel
+﻿@using Insurance.Resources
+@model Insurance.Models.UserRegisterViewModel
 @{ ViewBag.Title = "UserSignUp";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
 
@@ -9,41 +10,46 @@
                 <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
                     <div class="card card-signin">
                         <div class="card-body">
-                            <h5 class="card-title">Registration</h5>
-                            <h3 class="card-title-small ">Lorem ipsum is a placeholder text commonly used to demonstrate the  </h3>
-                            <form class="form-signin">
-
-
-                                <div class="card_form">
-                                    <div class="card_control">
-                                        <input type="text" class="card_control_input" placeholder="Name">
-                                    </div>
-                                    <div class="card_control">
-                                        <input type="email" class="card_control_input" placeholder="Email ID">
-                                    </div>
-                                    <div class="card_control">
-                                        <input type="password" class="card_control_input" placeholder="Password">
-                                    </div>
-                                </div>
-
-
-
-
-
-                                <button class="btn btn-lg btn-block login_btn" type="submit">SIGN UP</button>
-
-                                <div class="hrmain" style="display:none;">
-                                    <hr class="my-4">
-                                </div>
-
-                                <div class="custom-social" style="display:none;">
-                                    <button class="btn btn-lg btn-block  facebook_link" type="submit"><img src="~/Content/frontenten/img/google_icon.png"> Sign in with Google</button>
-                                    <button class="btn btn-lg  btn-block google_link" type="submit"><img src="~/Content/frontenten/img/facebook_icon.png"> Sign in with Facebook</button>
-                                </div>
-                                <div class="signupAcc">
-                                    Already have account? <a href="/Account/UserLogin"> Login </a>
-                                </div>
-                            </form>
+                            <h5 class="card-title">@Master_en.Regis_Registration</h5>
+                            @*<h3 class="card-title-small ">Lorem ipsum is a placeholder text commonly used to demonstrate the  </h3>*@
+                            @using (Html.BeginForm("UserSignup", "Account", FormMethod.Post, new { @class = "form-signin" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                        <div id="divmsg">
+                                            @if (TempData["success"] != null)
+                                            {
+                                                <label style="color:red;">@TempData["success"]</label>
+                                            }
+                                        </div>
+                                                        <div class="card_form">
+                                                            <div class="card_control">
+                                                                @Html.TextBoxFor(m => m.FullName, new { @class = "card_control_input", @type = "text", @placeholder = Master_en.Contact_Name })
+                                                                @Html.ValidationMessageFor(a => a.FullName, string.Empty, new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="card_control">
+                                                                @Html.TextBoxFor(m => m.Email, new { @class = "card_control_input", @type = "email", @placeholder = Master_en.PHolderEmail })
+                                                                @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="card_control">
+                                                                @Html.TextBoxFor(m => m.Password, new { @class = "card_control_input", @type = "password", @placeholder = Master_en.UserLogin_Password })
+                                                                @Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="card_control">
+                                                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "card_control_input", @type = "password", @placeholder = Master_en.Regis_ConfirmPassword })
+                                                                @Html.ValidationMessageFor(a => a.ConfirmPassword, string.Empty, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                                        <button class="btn btn-lg btn-block login_btn" type="button" id="btnsubmit">@Master_en.Regis_Signup</button>
+                                                                                        <div class="hrmain" style="display:none;">
+                                                                                            <hr class="my-4">
+                                                                                        </div>
+                                                                                                        <div class="custom-social" style="display:none;">
+                                                                                                            <button class="btn btn-lg btn-block  facebook_link" type="submit"><img src="~/Content/frontenten/img/google_icon.png"> Sign in with Google</button>
+                                                                                                            <button class="btn btn-lg  btn-block google_link" type="submit"><img src="~/Content/frontenten/img/facebook_icon.png"> Sign in with Facebook</button>
+                                                                                                        </div>
+                                                                                                                        <div class="signupAcc">
+                                                                                                                            @Master_en.Regis_AlreadyHaveAccount<a href="/Account/UserLogin">@Master_en.Regis_Login </a>
+                                                                                                                        </div>}
                         </div>
                     </div>
                 </div>
@@ -51,3 +57,18 @@
         </div>
     </div>
 </div>
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    setTimeout(function () {
+        $('#divmsg').hide();
+    }, 4000);
+    $("#btnsubmit").click(function (e) {
+        e.preventDefault();
+        //$('#buttondiv').css('display','block!important;');
+        // now trigger the form validation, result is 1 or 0
+        var result = $('form').valid();
+        if (result) {
+            $('form').submit();
+        }
+    });
+</script>

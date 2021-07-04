@@ -414,6 +414,8 @@
     <Content Include="Content\adminlte\img\user7-128x128.jpg" />
     <Content Include="Content\adminlte\img\user8-128x128.jpg" />
     <Content Include="Content\adminlte\img\userlogo.png" />
+    <Content Include="Content\frontendjs\lang.ar.js" />
+    <Content Include="Content\frontendjs\lang.en.js" />
     <Content Include="Content\frontenten\css\aboutus.css" />
     <Content Include="Content\frontenten\css\bootstrap.min.css" />
     <Content Include="Content\frontenten\css\main.css" />
@@ -545,10 +547,15 @@
     <Content Include="Content\images\user_img.png" />
     <Content Include="Content\images\video-img.png" />
     <Content Include="Content\userProfile\trkeJ3JxII.png" />
-    <Content Include="EmailTemplate\AccountActivation.html" />
-    <Content Include="EmailTemplate\EmailOTP.html" />
-    <Content Include="EmailTemplate\ForgotPassword.html" />
+    <Content Include="EmailTemplate\AccountActivation_ar.html" />
+    <Content Include="EmailTemplate\AccountActivation_en.html" />
+    <Content Include="EmailTemplate\ContactUs_ar.html" />
+    <Content Include="EmailTemplate\forgotpassword_ar.html" />
+    <Content Include="EmailTemplate\ForgotPassword_en.html" />
+    <Content Include="EmailTemplate\ContactUs_en.html" />
+    <Content Include="EmailTemplate\InsuranceQuote_en.html" />
     <Content Include="EmailTemplate\MailPasswordReset.html" />
+    <Content Include="EmailTemplate\InsuranceQuote_ar.html" />
     <Content Include="EmailTemplate\WelcomeEmail.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -4398,6 +4405,11 @@
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="terms_conditions.html" />
     <Content Include="Web.config" />
@@ -4420,6 +4432,7 @@
     <Compile Include="Controllers\MasterBaseController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
+    <Compile Include="Controllers\UserDashboardController.cs" />
     <Compile Include="DataHelper\SqlHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4429,8 +4442,18 @@
     <Compile Include="Interface\AdminRepository.cs" />
     <Compile Include="Interface\IAdmin.cs" />
     <Compile Include="Interface\SendGridMailManager.cs" />
+    <Compile Include="Interface\UIRepository.cs" />
     <Compile Include="Models\APIModels\UserDetailsModels.cs" />
+    <Compile Include="Models\ContactUsViewModels.cs" />
+    <Compile Include="Models\DropdownList.cs" />
     <Compile Include="Models\GeneralModel.cs" />
+    <Compile Include="Models\InsuranceQuoteModel.cs" />
+    <Compile Include="Models\UserAccountViewModels.cs" />
+    <Compile Include="Resources\Master_en.ar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Master_en.ar.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Master_en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4557,7 +4580,6 @@
     <Content Include="Scripts\adminlte\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Shared\_LayoutWeb.cshtml" />
-    <Content Include="Views\Shared\_LayoutTherapist.cshtml" />
     <Content Include="Views\Account\UserLogin.cshtml" />
     <Content Include="Views\Shared\_LayoutStatic_en.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -4584,6 +4606,12 @@
     <Content Include="Views\Home\HouseHold.cshtml" />
     <Content Include="Views\Home\TermsCondition.cshtml" />
     <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\UserDashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_UserDashboardLayout.cshtml" />
+    <Content Include="Views\Account\UserForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\UserForgotPassword.cshtml" />
+    <Content Include="Views\Account\UserResetPassword.cshtml" />
+    <Content Include="Views\Account\UserResetPasswordConfirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4600,9 +4628,12 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Master_en.ar.resx" />
+    <EmbeddedResource Include="Resources\Master_en.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Master_en.ar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Master_en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Master_en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

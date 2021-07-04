@@ -10,16 +10,20 @@ using Insurance.Utils;
 using Insurance.ViewModels;
 using System;
 using Insurance.Helpers;
+using Insurance.Resources;
 
 namespace Insurance.Controllers
 {
+
     public class HomeController : MasterBaseController, IDisposable
     {
         readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public bool IsEnglish { get; set; }
+        UIRepository uiRepository;
         public HomeController()
         {
             IsEnglish = SessionHelper.IsEnglish();
+            uiRepository = new UIRepository();
         }
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
@@ -35,7 +39,29 @@ namespace Insurance.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            InsuranceQuoteModel quoteModel = new InsuranceQuoteModel();
+            quoteModel.InsuraceList = uiRepository.GetPolicyTypeList();
+            quoteModel.AgeList = uiRepository.GetAgeList();
+            return View(quoteModel);
+        }
+
+        [HttpPost]
+        public ActionResult Index(InsuranceQuoteModel model)
+        {
+            //ModelState.Remove("AgeList");
+            //ModelState.Remove("InsuraceList");
+            if (model!=null)
+            {
+                uiRepository.SaveInsuranceQuote(model);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                model.InsuraceList = uiRepository.GetPolicyTypeList();
+                model.AgeList = uiRepository.GetAgeList();
+            }
+            return View(model);
         }
         public ActionResult About()
         {
@@ -53,11 +79,33 @@ namespace Insurance.Controllers
         }
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            ContactUsViewModels models = new ContactUsViewModels();
+            models.AgeList = uiRepository.GetAgeList();
+            return View(models);
         }
-
+        [HttpPost]
+        public ActionResult Contact(ContactUsViewModels model)
+        {
+            try
+            {
+                if (model != null)
+                {
+                    uiRepository.SaveContactUsSendEmail(model);
+                    //sent email
+                    TempData["success"] = Master_en.ContactUsSuccessMessage;
+                    return RedirectToAction("Contact");
+                }
+                else
+                {
+                    model.AgeList = uiRepository.GetAgeList();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex);
+            }
+            return View(model);
+        }
         public ActionResult HouseHold()
         {
             return View();
@@ -99,7 +147,6 @@ namespace Insurance.Controllers
                 cookie.Expires = DateTime.Now.AddYears(1);
             }
             Response.Cookies.Add(cookie);
-            SetCityName();
             return Redirect(Request.UrlReferrer.AbsoluteUri);
         }
 

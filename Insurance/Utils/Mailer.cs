@@ -10,6 +10,7 @@ using System.Web.Hosting;
 using System.Threading.Tasks;
 using System.Net;
 using Insurance.Models;
+using Insurance.Resources;
 
 namespace Insurance.Utils
 {
@@ -248,7 +249,7 @@ namespace Insurance.Utils
 
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.To.Add(strTo);
-                mailMessage.Subject = "Reset your password on Therapist";
+                mailMessage.Subject = "Reset your password on Insurance";
 
                 AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
                 mailMessage.AlternateViews.Add(altView);
@@ -282,10 +283,11 @@ namespace Insurance.Utils
                 smtp.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["MailAddress"], ConfigurationManager.AppSettings["Password"]);
                 smtp.EnableSsl = true;
                 string userState = Guid.NewGuid().ToString();
-                //smtp.SendMailAsync(mailMessage);
-                smtp.Send(mailMessage);
-                //object someObject = "some object";
-                //smtp.SendAsync(mailMessage, someObject);
+                //smtp.Send(mailMessage);
+                BackgroundTaskRunner.FireAndForgetTask(async () =>
+                {
+                    await smtp.SendMailAsync(mailMessage);
+                });
                 return true;
             }
             catch (Exception ex)
@@ -375,82 +377,85 @@ namespace Insurance.Utils
             return templateText;
         }
 
-        //public bool SendWelcomeEmail(string strTo)
-        //{
-        //    try
-        //    {
-
-        //        ClicFlyerEntities db = new ClicFlyerEntities();
-        //        var data = db.WelcomeEmails.FirstOrDefault();
-        //        if (data != null)
-        //        {
-        //            Dictionary<string, string> mailParam = new Dictionary<string, string>();
-        //            mailParam.Add("%TEMPLATE_TOKEN1%", data.Message_en);
-        //            mailParam.Add("%TEMPLATE_TOKEN2%", data.Message_local);
-
-        //            string body = PrepareMailBodyForSync("WelcomeEmail.html", mailParam);
-
-        //            MailMessage mailMessage = new MailMessage();
-        //            mailMessage.To.Add(strTo);
-        //            mailMessage.Subject = "Welcome to ClicFlyer";
-
-        //            AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
-        //            mailMessage.AlternateViews.Add(altView);
-
-        //            //SendMail(mailMessage);
-        //            SmtpClient smtp = new SmtpClient();
-        //            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //            smtp.UseDefaultCredentials = false;
-        //            mailMessage.IsBodyHtml = true;
-        //            mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["SenderMailAddress"]);
-
-        //            smtp.Host = ConfigurationManager.AppSettings["Host"];
-        //            smtp.Port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
-        //            smtp.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["MailAddress"], ConfigurationManager.AppSettings["Password"]);
-        //            smtp.EnableSsl = true;
-        //            string userState = Guid.NewGuid().ToString();
-        //            //smtp.SendMailAsync(mailMessage);
-        //            BackgroundTaskRunner.FireAndForgetTask(async () =>
-        //            {
-        //                await smtp.SendMailAsync(mailMessage);
-        //            });
-        //        }
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logger.Error("Error in sending mail " + strTo, ex);
-        //        return false;
-        //    }
-        //}
-
-        #region Send Email OTP
-        public bool SendOTPOnEmail(string strTo, string emailOTP)
+        public bool SendEmailInsuracneQuote(InsuranceQuoteModel model,bool IsEnglish)
         {
             try
             {
-                Dictionary<string, string> mailParam = new Dictionary<string, string>();
-                mailParam.Add("%Email_OTP%", emailOTP);
+                if (model != null)
+                {
 
-                string body = PrepareMailBody("EmailOTP.html", mailParam);
+                    if(model.PurposeofInsurance== "New Insurance" && IsEnglish == false)
+                    {
+                        model.PurposeofInsurance = "تأمين جديد";
+                    }
+                    if (model.PurposeofInsurance == "Transfer of ownership" && IsEnglish == false)
+                    {
+                        model.PurposeofInsurance = "نقل ملكية";
+                    }
+                    Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                    mailParam.Add("%PurposeofInsurance%", model.PurposeofInsurance);
+                    mailParam.Add("%InsuranceType%", model.SelectedInsurance);
+                    mailParam.Add("%FirstName%", model.FirstName);
+                    mailParam.Add("%LastName%", model.LastName);
+                    mailParam.Add("%Email%", model.EmailAddress);
+                    mailParam.Add("%PhoneNumber%", model.PhoneNumber);
+                    mailParam.Add("%Age%", model.Age);
 
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.To.Add(strTo);
-                mailMessage.Subject = "OTP for secure login";
+                    string body = PrepareMailBodyForSync(IsEnglish? "InsuranceQuote_en.html": "InsuranceQuote_ar.html", mailParam);
 
-                AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
-                mailMessage.AlternateViews.Add(altView);
-                SendMailForOTP(mailMessage);
+                    MailMessage mailMessage = new MailMessage();
+                    mailMessage.To.Add(ConfigurationManager.AppSettings["contactusemail"]);
+                    mailMessage.Subject = Master_en.GetaFreeInsuranceQuote;
+
+                    AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+                    mailMessage.AlternateViews.Add(altView);
+                    mailMessage.IsBodyHtml = true;
+                    mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["SenderMailAddress"]);
+                    //send email
+                    SendMail(mailMessage);
+                }
                 return true;
             }
             catch (Exception ex)
             {
-                logger.Error("Error in sending mail " + strTo, ex);
+                logger.Error("Error in sending mail ", ex);
                 return false;
             }
         }
-        #endregion
 
+        public bool SendEmailContactUs(ContactUsViewModels model, bool IsEnglish)
+        {
+            try
+            {
+                if (model != null)
+                {
+                    Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                    mailParam.Add("%Name%", model.Name);
+                    mailParam.Add("%Email%", model.EmailAddress);
+                    mailParam.Add("%PhoneNumber%", model.PhoneNumber);
+                    mailParam.Add("%Age%", model.Age);
+                    mailParam.Add("%Comment%", model.Comment);
+
+                    string body = PrepareMailBodyForSync(IsEnglish ? "ContactUs_en.html" : "ContactUs_ar.html", mailParam);
+                    MailMessage mailMessage = new MailMessage();
+                    mailMessage.To.Add(ConfigurationManager.AppSettings["contactusemail"]);
+                    mailMessage.Subject = Master_en.MenuContactUs;
+
+                    AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+                    mailMessage.AlternateViews.Add(altView);
+                    mailMessage.IsBodyHtml = true;
+                    mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["SenderMailAddress"]);
+                    //send email
+                    SendMail(mailMessage);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error in sending mail ", ex);
+                return false;
+            }
+        }
         public static class BackgroundTaskRunner
         {
             public static void FireAndForgetTask(Action action)

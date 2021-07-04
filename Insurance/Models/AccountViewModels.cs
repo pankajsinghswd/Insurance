@@ -57,15 +57,11 @@ namespace Insurance.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-        [Display(Name = "Device Id")]
-        public string DeviceId { get; set; }
-        [Display(Name = "Device Name")]
-        public string DeviceName { get; set; }
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
-
+   
     public class RegisterViewModel
     {
         [Required]

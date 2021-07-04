@@ -1,7 +1,7 @@
-﻿@{ 
-    ViewBag.Title = "Index";
-   Layout = "~/Views/Shared/_LayoutStatic_en.cshtml";
- }
+﻿@using Insurance.Resources
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+@model Insurance.Models.InsuranceQuoteModel
 <div class="stepForm homepage">
     <div class="container">
         <div class="row">
@@ -11,23 +11,23 @@
                     <div class="header_tabs">
                         <div class="header_tabinner">
                             <a class="header_tab icon2">
-                                <div class="header_tabtooltip">Vehicle insurance</div>
+                                <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
                             </a>
                             <a class="header_tab icon5">
-                                <div class="header_tabtooltip">Medical</div>
+                                <div class="header_tabtooltip">@Master_en.InsMedical</div>
                             </a>
                             <a class="header_tab icon6">
-                                <div class="header_tabtooltip">Medical Malpractice</div>
+                                <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
                             </a>
                             <a class="header_tab icon4">
-                                <div class="header_tabtooltip">Travel</div>
+                                <div class="header_tabtooltip">@Master_en.InsTravel</div>
                             </a>
 
                             <a class="header_tab icon3">
-                                <div class="header_tabtooltip">Life & Savings</div>
+                                <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
                             </a>
                             <a class="header_tab icon1" href="/Home/HouseHold">
-                                <div class="header_tabtooltip">House Hold</div>
+                                <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
                             </a>
                         </div>
                     </div>
@@ -36,113 +36,146 @@
             </div>
             <div class="col-lg-10">
                 <div class="bannerForm_mn">
-                    <div class="bannerForm">
-                        <div class="bannerForm__item bannerForm__heading">
-                            <img src="~/Content/frontenten/img/quote.png"> Get a Free Insurance Quote
-                        </div>
-                        <div class="bannerForm__item bannerForm__box">
-
-
-                            <div class="form_control form_control">
-                                <p class="bannerForm__box--head">
-                                    Purpose of Insurance
-                                </p>
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                    {
+                       @Html.AntiForgeryToken()
+                        <div class="bannerForm">
+                            <div class="bannerForm__item bannerForm__heading">
+                                <img src="~/Content/frontenten/img/quote.png">@Master_en.GetaFreeInsuranceQuote
                             </div>
-
-
-
-                            <div class="form_control form_control-50">
-                                <div class="form_control-radio">
-                                    <input type="radio" id="f-option-1" name="selector">
-
-                                    <div class="check"></div>
-                                    <label for="f-option-1">New Insurance</label>
+                            <div class="bannerForm__item bannerForm__box">
+                                @Html.HiddenFor(m=>m.PurposeofInsurance)
+                                @Html.HiddenFor(m=>m.SelectedInsurance)
+                                <div id="divmsg">
+                                    @if (TempData["success"] != null)
+                                    {
+                                        <label style="color:red;">@TempData["success"]</label>
+                                    }
                                 </div>
-                            </div>
-                            <div class="form_control form_control-50">
-                                <div class="form_control-radio">
-                                    <input type="radio" id="f-option-2" name="selector">
-                                    <div class="check"></div>
-                                    <label for="f-option-2">Transfer of ownership</label>
-
-                                </div>
-                            </div>
-
-
-                            <div class="form_control">
-                                <select class="select">
-                                    <option>Select Insurance</option>
-                                    <option>Home Insurance</option>
-                                    <option>Health Insurance</option>
-                                    <option>Car Insurance</option>
-                                </select>
-                            </div>
-
-                            <div class="form_control  form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="First Name">
-                            </div>
-                            <div class="form_control  form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="Last Name">
-                            </div>
-                            <div class="form_control">
-                                <input type="text" name="" class="inputtext" placeholder="Email Address">
-                            </div>
-                            <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="Phone number">
-                            </div>
-                            <div class="form_control form_control-50">
-
-                                <select class="select">
-                                    <option>Your Age</option>
-                                </select>
-
-                            </div>
-
-                            <div class="form_control">
-                                <div class="form_control-checkbox">
-                                    <input type="checkbox" id="cc">
-                                    <label for="cc">I agree to the terms and conditions of the company</label>
-                                </div>
-                            </div>
-
-
-
-                            <div class="form_control">
-                                <div class="button_div">
-                                    <button type="button" name="next" class="next button">Get Quotes</button>
+                                <div class="form_control form_control">
+                                    <p class="bannerForm__box--head">
+                                        @Master_en.PurposeofInsurance
+                                    </p>
                                 </div>
 
-                            </div>
 
-                        </div>
-                    </div>
+
+                                <div class="form_control form_control-50">
+                                    <div class="form_control-radio">
+                                        <input type="radio" id="f-option-1" checked name="selector">
+
+                                        <div class="check"></div>
+                                        <label for="f-option-1">@Master_en.NewInsurance</label>
+                                    </div>
+                                </div>
+                                <div class="form_control form_control-50">
+                                    <div class="form_control-radio">
+                                        <input type="radio" id="f-option-2" name="selector">
+                                        <div class="check"></div>
+                                        <label for="f-option-2">@Master_en.TransferOfOwnership</label>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form_control">
+                                    @Html.DropDownListFor(m => m.IssuranceId, Model.InsuraceList, Master_en.InsuraceList, new { @class = "select" })
+                                    @Html.ValidationMessageFor(a => a.IssuranceId, string.Empty, new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form_control  form_control-50">
+                                    @*<input type="text" name="" class="inputtext" placeholder="First Name">*@
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "inputtext", @type = "text", @placeholder = Master_en.PHolderFirstName })
+                                    @Html.ValidationMessageFor(a => a.FirstName, string.Empty, new { @class = "text-danger" })
+                                </div>
+                                <div class="form_control  form_control-50">
+                                    @*<input type="text" name="" class="inputtext" placeholder="Last Name">*@
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "inputtext", @type = "text", @placeholder = Master_en.PHolderLastName })
+                                    @Html.ValidationMessageFor(a => a.LastName, string.Empty, new { @class = "text-danger" })
+                                </div>
+                                <div class="form_control">
+                                    @*<input type="text" name="" class="inputtext" placeholder="Email Address">*@
+                                    @Html.TextBoxFor(m => m.EmailAddress, new { @class = "inputtext", @type = "email", @placeholder = Master_en.PHolderEmail })
+                                    @Html.ValidationMessageFor(a => a.EmailAddress, string.Empty, new { @class = "text-danger" })
+                                </div>
+                                <div class="form_control form_control-50">
+                                    @*<input type="text" name="" class="inputtext" placeholder="Phone number">*@
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "inputtext", @type = "number", @placeholder = Master_en.PHolderPhoneNumber })
+                                    @Html.ValidationMessageFor(a => a.PhoneNumber, string.Empty, new { @class = "text-danger" })
+                                </div>
+                                <div class="form_control form_control-50">
+                                    @Html.DropDownListFor(m => m.Age, Model.AgeList, Master_en.PHolderYourAge, new { @class = "select" })
+                                    @Html.ValidationMessageFor(a => a.Age, string.Empty, new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form_control">
+                                    <div class="form_control-checkbox">
+                                        @*<input type="checkbox" id="cc">*@
+                                        @Html.CheckBoxFor(m => m.TermsCondition)
+                                        <label for="cc">@Master_en.IAgreeToTheTerms</label>
+                                        @Html.ValidationMessageFor(a => a.TermsCondition, string.Empty, new { @class = "text-danger", @style = "position:absolute;top:33px;left:26px;" })
+                                        <p class="clearfix">&nbsp;</p>
+                                    </div>
+                                </div>
+
+                                <div class="form_control">
+                                    <div class="button_div" id="buttondiv">
+                                        <button type="button" name="next" id="btnQuote" class="button">@Master_en.BtnGetQuotes</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>}
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 </div>
 <div class="partner">
     <div class="container">
         <div class="row">
             <div class="partner_inn">
 
-                <div class="partner_inn-head">Vehicle Insurance</div>
+                <div class="partner_inn-head">@Master_en.InsVehicleinsurance</div>
                 <div class="owl-carousel owl-theme">
-
-                    <div class="item"><img src="~/Content/frontenten/images/logo_2.png"></div>
-                    <div class="item"><img src="~/Content/frontenten/images/logo_1.jpg"></div>
-                    <div class="item"><img src="~/Content/frontenten/images/logo_3.png"></div>
-                    <div class="item"><img src="~/Content/frontenten/images/logo_4.png"></div>
-                    <div class="item"><img src="~/Content/frontenten/images/logo_5.png"></div>
-                    <div class="item"><img src="~/Content/frontenten/images/logo_6.png"></div>
-
+                        <div class="item"><img src="~/Content/frontenten/images/logo_2.png"></div>
+                        <div class="item"><img src="~/Content/frontenten/images/logo_1.jpg"></div>
+                         <div class="item"><img src="~/Content/frontenten/images/logo_3.png"></div>
+                          <div class="item"><img src="~/Content/frontenten/images/logo_4.png"></div>
+                          <div class="item"><img src="~/Content/frontenten/images/logo_5.png"></div>
+                          <div class="item"><img src="~/Content/frontenten/images/logo_6.png"></div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    setTimeout(function () {
+        $('#divmsg').hide();
+    }, 4000);
+    (function ($) {
+        $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+    }(jQuery));
+    $("#btnQuote").click(function (e) {
+        e.preventDefault();
+        //$('#buttondiv').css('display','block!important;');
+        // now trigger the form validation, result is 1 or 0
+        var result = $('form').valid();
+        if (result) {
+            if ($('#f-option-1').prop("checked") == true) {
+                $('#PurposeofInsurance').val('New Insurance');
+            }
+            if ($('#f-option-2').prop("checked") == true) {
+                $('#PurposeofInsurance').val('Transfer of ownership');
+            }
+            $('#SelectedInsurance').val($('#IssuranceId option:selected').text());
+            $('form').submit();
+            //debugger;
+            $.ajax(
+                // details omitted
+            );
+        }
+    });
+</script>

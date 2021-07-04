@@ -9,19 +9,25 @@ using System.Web.Mvc;
 using Insurance.Interface;
 using Insurance.Models;
 using Insurance.ViewModels;
+using Insurance.Utils;
+using Insurance.Resources;
 
 namespace Insurance.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : MasterBaseController
     {
         readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public bool IsEnglish { get; set; }
         AdminRepository adminRepository;
+        UIRepository uIRepository;
         public AccountController()
         {
             adminRepository = new AdminRepository();
+            uIRepository = new UIRepository();
+            IsEnglish = SessionHelper.IsEnglish();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -72,20 +78,7 @@ namespace Insurance.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View(viewModel);
         }
-        [AllowAnonymous]
-        public ActionResult UserLogin(string returnUrl)
-        {
-            LoginViewModel viewModel = new LoginViewModel();
-            ViewBag.ReturnUrl = returnUrl;
-            return View(viewModel);
-        }
-        [AllowAnonymous]
-        public ActionResult UserSignup(string returnUrl)
-        {
-            LoginViewModel viewModel = new LoginViewModel();
-            ViewBag.ReturnUrl = returnUrl;
-            return View(viewModel);
-        }
+
         [AllowAnonymous]
         public ActionResult TherapistLogin(string returnUrl)
         {
@@ -164,6 +157,8 @@ namespace Insurance.Controllers
                 return View(model);
             }
         }
+
+        
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -611,8 +606,222 @@ namespace Insurance.Controllers
         public JsonResult GetStaticPageContent(int pageId)
         {
             var result = adminRepository.GetPageContentById(pageId);
-            return Json(result);
+            string pagecontent = (IsEnglish) ? result.PageContent_en : result.PageContent_local;
+            return Json(pagecontent, JsonRequestBehavior.AllowGet);
         }
+
+        #region UI User login methods
+        [AllowAnonymous]
+        public ActionResult UserLogin(string returnUrl)
+        {
+            UserLoginViewModel viewModel = new UserLoginViewModel();
+            ViewBag.ReturnUrl = returnUrl;
+            return View(viewModel);
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserLogin(UserLoginViewModel model, string returnUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                if (user.EmailConfirmed)
+                {
+                    ModelState.AddModelError("Error", Master_en.Invalidloginattemptoryouraccount);
+                    return View(model);
+                }
+                if (!user.LockoutEnabled)
+                {
+                    ModelState.AddModelError("Error", Master_en.YourAccountHasBeenblocked);
+                    return View(model);
+                }
+                var roles = await UserManager.GetRolesAsync(user.Id);
+                if (roles[0].Contains("User"))
+                {
+                    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                    switch (result)
+                    {
+                        case SignInStatus.Success:
+                            if (string.IsNullOrEmpty(returnUrl))
+                            {
+                                return RedirectToAction("Index", "UserDashboard");
+                            }
+                            else
+                            {
+                                return RedirectToLocal(returnUrl);
+                            }
+                        case SignInStatus.LockedOut:
+                            return View("Lockout");
+                        case SignInStatus.RequiresVerification:
+                            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                        case SignInStatus.Failure:
+                        default:
+                            ModelState.AddModelError("", Master_en.InvalidLoginAttempt);
+                            return View(model);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", Master_en.YouAreNotAllowedToLogInHere);
+                    return View(model);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", Master_en.InvalidLoginAttempt);
+                return View(model);
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserSignup(string returnUrl)
+        {
+            UserRegisterViewModel viewModel = new UserRegisterViewModel();
+            ViewBag.ReturnUrl = returnUrl;
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserSignup(UserRegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    //Assign retailer role to user 
+                    await UserManager.AddToRoleAsync(user.Id, "User");
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //Add user profile
+                    uIRepository.CreateUserProfile(model);
+                    TempData["success"] = "Your account has been created successfully.";
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    return RedirectToAction("UserSignup", "Account");
+                }
+                else
+                {
+                    var errors = new List<string>();
+                    foreach (var modelState in ModelState)
+                    {
+                        foreach (var error in modelState.Value.Errors)
+                        {
+                            errors.Add(!string.IsNullOrEmpty(error.ErrorMessage) ? error.ErrorMessage : "Not valid data");
+                        }
+                    }
+                }
+            }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        // GET: /Account/ForgotPassword
+        [AllowAnonymous]
+        public ActionResult UserForgotPassword()
+        {
+            UserForgotPasswordViewModel model = new UserForgotPasswordViewModel();
+            return View(model);
+        }
+
+        // GET: /Account/ForgotPasswordConfirmation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserForgotPassword(UserForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByNameAsync(model.Email);
+                if (user == null)
+                {
+                    ViewBag.Confirmation = 0;
+                    return View("UserForgotPasswordConfirmation");
+                }
+                //string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var token = UserManager.GeneratePasswordResetToken(user.Id);
+                SendGridMailManager mail = new SendGridMailManager();
+                await mail.ForgotPasswordMessageAsync(model.Email, user.Id, token);
+                ViewBag.Confirmation = 1;
+                return RedirectToAction("UserForgotPasswordConfirmation", "Account");
+            }
+            return View(model);
+        }
+        [AllowAnonymous]
+        public ActionResult UserForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
+        public ActionResult UserResetPassword(string code)
+        {
+            UserResetPasswordViewModel model = new UserResetPasswordViewModel();
+            model.Code = code;
+            return code == null ? View("Error") : View(model);
+        }
+
+        //
+        // POST: /Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UserResetPassword(UserResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user == null)
+            {
+                ViewBag.Confirmation = 0;
+                // Don't reveal that the user does not exist
+                return RedirectToAction("UserResetPasswordConfirmation", "Account");
+            }
+            string code = model.Code.Replace(" ", "+");
+            var result = await UserManager.ResetPasswordAsync(user.Id, code, model.Password);
+            if (result.Succeeded)
+            {
+                ViewBag.Confirmation = 1;
+                return RedirectToAction("UserResetPasswordConfirmation", "Account");
+            }
+            else
+            {
+                string strErrorMsg = "";
+                foreach (string strError in result.Errors)
+                {
+                    strErrorMsg += "<li>" + strError + "</li>";
+                } //foreach
+
+                return View("Error", new string[] { strErrorMsg });
+            }
+        }
+
+        //
+        // GET: /Account/ResetPasswordConfirmation
+        [AllowAnonymous]
+        public ActionResult UserResetPasswordConfirmation()
+        {
+            return View();
+        }
+
+        #endregion
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

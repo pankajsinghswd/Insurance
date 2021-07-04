@@ -62,6 +62,7 @@ namespace Insurance.Utils
     {
         public const string spInsAdmin = "spInsAdmin";
         public const string spBindDropDownlist = "spBindDropDownlist";
+        public const string spInsFrontendUI = "spInsFrontendUI";
 
         //not in use
         public const string spAdmin = "spAdmin";
@@ -89,6 +90,7 @@ namespace Insurance.Utils
         public const int GetStaticContent = 14;
         public const int AddUpdateStaticPageContent = 15;
         public const int GetStaticContentById = 16;
+        
 
 
         //not in use
@@ -153,5 +155,10 @@ namespace Insurance.Utils
         public const int therapistList = 24;
         public const int UpdateProfileByTherapist = 25;
         
+    }
+
+    public static class QueryTypeFrontendUI
+    {
+        public const int SaveInsuranceQuote = 1;
     }
 }

@@ -1,101 +1,348 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
-		Microsoft ResX Schema
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-		Version 1.3
-
-		The primary goals of this format is to allow a simple XML format 
-		that is mostly human readable. The generation and parsing of the 
-		various data types are done through the TypeConverter classes 
-		associated with the data types.
-
-		Example:
-
-		... ado.net/XML headers & schema ...
-		<resheader name="resmimetype">text/microsoft-resx</resheader>
-		<resheader name="version">1.3</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-		<data name="Name1">this is my long string</data>
-		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-			[base64 mime encoded serialized .NET Framework object]
-		</data>
-		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-			[base64 mime encoded string representing a byte array form of the .NET Framework object]
-		</data>
-
-		There are any number of "resheader" rows that contain simple 
-		name/value pairs.
-
-		Each data row contains a name, and value. The row also contains a 
-		type or mimetype. Type corresponds to a .NET class that support 
-		text/value conversion through the TypeConverter architecture. 
-		Classes that don't support this are serialized and stored with the 
-		mimetype set.
-
-		The mimetype is used for serialized objects, and tells the 
-		ResXResourceReader how to depersist the object. This is currently not 
-		extensible. For a given mimetype the value must be set accordingly:
-
-		Note - application/x-microsoft.net.object.binary.base64 is the format 
-		that the ResXResourceWriter will generate, however the reader can 
-		read any of the formats listed below.
-
-		mimetype: application/x-microsoft.net.object.binary.base64
-		value   : The object must be serialized with 
-			: System.Serialization.Formatters.Binary.BinaryFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.soap.base64
-		value   : The object must be serialized with 
-			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.bytearray.base64
-		value   : The object must be serialized into a byte array 
-			: using a System.ComponentModel.TypeConverter
-			: and then encoded with base64 encoding.
-	-->
-	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AgeList" xml:space="preserve">
+    <value>الرجاء تحديد العمر</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>كل الحقوق محفوظة.</value>
+  </data>
+  <data name="BtnGetQuotes" xml:space="preserve">
+    <value>الحصول على مقتطفات</value>
+  </data>
+  <data name="ClickhereLogIn" xml:space="preserve">
+    <value>انقر هنا لتسجيل الدخول</value>
+  </data>
+  <data name="ConnectWithUs" xml:space="preserve">
+    <value>اتصل بنا</value>
+  </data>
+  <data name="ContactUsCommentRequired" xml:space="preserve">
+    <value>حقل التعليق مطلوب</value>
+  </data>
+  <data name="ContactUsNameRequired" xml:space="preserve">
+    <value>حقل الاسم مطلوب</value>
+  </data>
+  <data name="ContactUsSuccessMessage" xml:space="preserve">
+    <value>طلب تقديم الطلب بنجاح. سوف نتصل بك قريبا.</value>
+  </data>
+  <data name="ContactUs_InformUs" xml:space="preserve">
+    <value>ابلغنا</value>
+  </data>
+  <data name="Contact_CallUs" xml:space="preserve">
+    <value>اتصل بنا</value>
+  </data>
+  <data name="Contact_Comment" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="Contact_FaceAnyProblem" xml:space="preserve">
+    <value>هل تواجه أي مشكلة؟</value>
+  </data>
+  <data name="Contact_FindUsAt" xml:space="preserve">
+    <value>تجدنا على</value>
+  </data>
+  <data name="Contact_Name" xml:space="preserve">
+    <value>اسم</value>
+  </data>
+  <data name="Contact_SendEmail" xml:space="preserve">
+    <value>أرسل بريدًا</value>
+  </data>
+  <data name="Contact_Submit" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>حقوق التأليف والنشر © التأمين</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني مطلوب</value>
+  </data>
+  <data name="EmailLink" xml:space="preserve">
+    <value>ارتباط البريد الإلكتروني</value>
+  </data>
+  <data name="EmailLinkNotCorrect" xml:space="preserve">
+    <value>معرف البريد الإلكتروني غير صحيح ، يرجى التحقق من معرف البريد الإلكتروني الخاص بك.</value>
+  </data>
+  <data name="EmailLinkSent" xml:space="preserve">
+    <value>يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>مطلوب حقل الاسم الأول</value>
+  </data>
+  <data name="ForgotPasswordConfirmation" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="GetaFreeInsuranceQuote" xml:space="preserve">
+    <value>الحصول على الاقتباس التأمين المجاني</value>
+  </data>
+  <data name="IAgreeToTheTerms" xml:space="preserve">
+    <value>أوافق على شروط وأحكام الشركة</value>
+  </data>
+  <data name="InsHouseHold" xml:space="preserve">
+    <value>أسرة</value>
+  </data>
+  <data name="InsLifeAndSavings" xml:space="preserve">
+    <value>مدخرات العمر</value>
+  </data>
+  <data name="InsMedical" xml:space="preserve">
+    <value>طبي</value>
+  </data>
+  <data name="InsMedicalMalpractice" xml:space="preserve">
+    <value>سوء التصرف الطبي</value>
+  </data>
+  <data name="InsTravel" xml:space="preserve">
+    <value>سوء التصرف الطبي</value>
+  </data>
+  <data name="InsuraceList" xml:space="preserve">
+    <value>الرجاء تحديد التأمين</value>
+  </data>
+  <data name="InsVehicleinsurance" xml:space="preserve">
+    <value>تأمين المركبة</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>محاولة تسجيل الدخول غير صالحة.</value>
+  </data>
+  <data name="Invalidloginattemptoryouraccount" xml:space="preserve">
+    <value>محاولة تسجيل الدخول غير صحيحة أو تم حذف حسابك.</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>حقل الاسم الأخير مطلوب</value>
+  </data>
+  <data name="LayoutTitle" xml:space="preserve">
+    <value>تأمين</value>
+  </data>
+  <data name="MenuAboutUs" xml:space="preserve">
+    <value>معلومات عنا</value>
+  </data>
+  <data name="MenuContactUs" xml:space="preserve">
+    <value>اتصل بنا</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>منزل، بيت</value>
+  </data>
+  <data name="MenuLogin" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="MenuPrivacyPolicy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="MenuTermsConditions" xml:space="preserve">
+    <value>البنود و الظروف</value>
+  </data>
+  <data name="NewInsurance" xml:space="preserve">
+    <value>تأمين جديد</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>حقل كلمة المرور مطلوب</value>
+  </data>
+  <data name="PHolderEmail" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="PHolderFirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="PHolderLastName" xml:space="preserve">
+    <value>الكنية</value>
+  </data>
+  <data name="PHolderPhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="PHolderYourAge" xml:space="preserve">
+    <value>عمرك</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>مطلوب حقل رقم الهاتف.</value>
+  </data>
+  <data name="Please" xml:space="preserve">
+    <value>لو سمحت</value>
+  </data>
+  <data name="PurposeofInsurance" xml:space="preserve">
+    <value>الغرض من التأمين</value>
+  </data>
+  <data name="QuoteSuccessMessage" xml:space="preserve">
+    <value>قدم طلب الاقتباس بنجاح. سوف نتصل بك قريبا.</value>
+  </data>
+  <data name="RegEmail" xml:space="preserve">
+    <value>البريد الإلكتروني غير صالح</value>
+  </data>
+  <data name="Regis_AlreadyHaveAccount" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="Regis_ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Regis_Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Regis_Registration" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="Regis_Signup" xml:space="preserve">
+    <value>اشتراك</value>
+  </data>
+  <data name="Regis_ThePasswordConfirmationPassword" xml:space="preserve">
+    <value>كلمة المرور وكلمة المرور التأكيدية غير متطابقين.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>إعادة ضبط</value>
+  </data>
+  <data name="ResetPasswordConfirmation" xml:space="preserve">
+    <value>تأكيد إعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="ResetYourPpassword" xml:space="preserve">
+    <value>اعد ضبط كلمه السر</value>
+  </data>
+  <data name="TermsCondition" xml:space="preserve">
+    <value>الرجاء تحديد شروط الشروط</value>
+  </data>
+  <data name="TransferOfOwnership" xml:space="preserve">
+    <value>نقل ملكية</value>
+  </data>
+  <data name="UserLogin_DontHaveAccount" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+  </data>
+  <data name="UserLogin_ForgotPassword" xml:space="preserve">
+    <value>كلمه السر</value>
+  </data>
+  <data name="UserLogin_LogIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="UserLogin_Password" xml:space="preserve">
+    <value>كلمه السر</value>
+  </data>
+  <data name="UserLogin_RememberPassword" xml:space="preserve">
+    <value>تذكر كلمة المرور</value>
+  </data>
+  <data name="UserLogin_SignIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="UserLogin_Signup" xml:space="preserve">
+    <value>اشتراك</value>
+  </data>
+  <data name="UserLogin_Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="YouAreNotAllowedToLogInHere" xml:space="preserve">
+    <value>لا يسمح لك للدخول هنا.</value>
+  </data>
+  <data name="YourAccountHasBeenblocked" xml:space="preserve">
+    <value>تم حظر حسابك. يرجى الاتصال بالمسؤول.</value>
+  </data>
+  <data name="YourPasswordHasBeenReset" xml:space="preserve">
+    <value>تم إعادة تعيين كلمة المرور الخاصة بك</value>
+  </data>
 </root>
