@@ -754,6 +754,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account has been created successfully..
+        /// </summary>
+        public static string YourAccountHasBeenCreatedSuccessfully {
+            get {
+                return ResourceManager.GetString("YourAccountHasBeenCreatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your password has been reset.
         /// </summary>
         public static string YourPasswordHasBeenReset {

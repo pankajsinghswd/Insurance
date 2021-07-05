@@ -348,6 +348,9 @@
   <data name="YourAccountHasBeenblocked" xml:space="preserve">
     <value>Your account has been blocked. Kindly contact to administrator.</value>
   </data>
+  <data name="YourAccountHasBeenCreatedSuccessfully" xml:space="preserve">
+    <value>Your account has been created successfully.</value>
+  </data>
   <data name="YourPasswordHasBeenReset" xml:space="preserve">
     <value>Your password has been reset</value>
   </data>

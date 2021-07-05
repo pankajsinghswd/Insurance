@@ -377,14 +377,14 @@ namespace Insurance.Utils
             return templateText;
         }
 
-        public bool SendEmailInsuracneQuote(InsuranceQuoteModel model,bool IsEnglish)
+        public bool SendEmailInsuracneQuote(InsuranceQuoteModel model, bool IsEnglish)
         {
             try
             {
                 if (model != null)
                 {
 
-                    if(model.PurposeofInsurance== "New Insurance" && IsEnglish == false)
+                    if (model.PurposeofInsurance == "New Insurance" && IsEnglish == false)
                     {
                         model.PurposeofInsurance = "تأمين جديد";
                     }
@@ -401,7 +401,7 @@ namespace Insurance.Utils
                     mailParam.Add("%PhoneNumber%", model.PhoneNumber);
                     mailParam.Add("%Age%", model.Age);
 
-                    string body = PrepareMailBodyForSync(IsEnglish? "InsuranceQuote_en.html": "InsuranceQuote_ar.html", mailParam);
+                    string body = PrepareMailBodyForSync(IsEnglish ? "InsuranceQuote_en.html" : "InsuranceQuote_ar.html", mailParam);
 
                     MailMessage mailMessage = new MailMessage();
                     mailMessage.To.Add(ConfigurationManager.AppSettings["contactusemail"]);
@@ -448,6 +448,33 @@ namespace Insurance.Utils
                     //send email
                     SendMail(mailMessage);
                 }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Error in sending mail ", ex);
+                return false;
+            }
+        }
+
+        public bool UserForgotPasswordEmail(string Email, string EmailLink, bool IsEnglish)
+        {
+            try
+            {
+                Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                mailParam.Add("%link%", EmailLink);
+
+                string body = PrepareMailBodyForSync(IsEnglish ? "forgotpassword_en.html" : "forgotpassword_ar.html", mailParam);
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.To.Add(Email);
+                mailMessage.Subject = Master_en.UserLogin_ForgotPassword;
+
+                AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
+                mailMessage.AlternateViews.Add(altView);
+                mailMessage.IsBodyHtml = true;
+                mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["SenderMailAddress"]);
+                //send email
+                SendMail(mailMessage);
                 return true;
             }
             catch (Exception ex)

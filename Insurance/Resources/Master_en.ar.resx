@@ -348,6 +348,9 @@
   <data name="YourAccountHasBeenblocked" xml:space="preserve">
     <value>تم حظر حسابك. يرجى الاتصال بالمسؤول.</value>
   </data>
+  <data name="YourAccountHasBeenCreatedSuccessfully" xml:space="preserve">
+    <value>تم إنشاء حسابك بنجاح.</value>
+  </data>
   <data name="YourPasswordHasBeenReset" xml:space="preserve">
     <value>تم إعادة تعيين كلمة المرور الخاصة بك</value>
   </data>

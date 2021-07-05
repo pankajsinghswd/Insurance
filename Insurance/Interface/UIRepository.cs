@@ -151,22 +151,21 @@ namespace Insurance.Interface
         #endregion
 
         #region 
-        public void CreateUserProfile(UserRegisterViewModel viewModel)
+        public void CreateUserProfile(UserRegisterViewModel viewModel,string AspnetUserId)
         {
             CreateProfileViewModel model = new CreateProfileViewModel();
             model.FullName_en = (IsEnglish) ? viewModel.FullName : "";
-            model.FullName_local = (IsEnglish) ? viewModel.FullName : "";
+            model.FullName_local = (!IsEnglish) ? viewModel.FullName : "";
             model.Password = (IsEnglish) ? viewModel.Password : "";
             IDictionary<string, object> sqlParams = null;
             try
             {
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeAdmin.CreateUsers);
-                sqlParams.Add("@AspNetUserId", model.Id);
+                sqlParams.Add("@AspNetUserId", AspnetUserId);
                 sqlParams.Add("@FullName_en", model.FullName_en);
                 sqlParams.Add("@FullName_local", model.FullName_local);
                 sqlParams.Add("@Password", model.Password);
-
                 sqlParams.Add("@InsuraceTypeId", model.InsuranceTypeId);
                 sqlParams.Add("@Interest_en", model.Interest_en);
                 sqlParams.Add("@Interest_local", model.Interest_local);
@@ -181,6 +180,18 @@ namespace Insurance.Interface
             finally
             {
                 ds.Dispose();
+            }
+        }
+        public bool UserForgotPasswordEmail(string Email, string EmailLink, bool IsEnglish)
+        {
+            try
+            {
+               return _mailer.UserForgotPasswordEmail(Email,EmailLink,IsEnglish);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return false;
             }
         }
         #endregion

@@ -40,7 +40,7 @@ namespace Insurance.Interface
 
             string body = PrepareMailBody("forgotpassword.html", mailParam);
 
-            return Execute("THERAPIST Reset Password", "", body, email);
+            return Execute("User Reset Password", "", body, email);
         }
         public Task Execute(string subject, string message, string body, string toEmail)
         {

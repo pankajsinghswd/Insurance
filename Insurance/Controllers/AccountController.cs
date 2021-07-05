@@ -11,6 +11,7 @@ using Insurance.Models;
 using Insurance.ViewModels;
 using Insurance.Utils;
 using Insurance.Resources;
+using System.Configuration;
 
 namespace Insurance.Controllers
 {
@@ -649,7 +650,7 @@ namespace Insurance.Controllers
                         case SignInStatus.Success:
                             if (string.IsNullOrEmpty(returnUrl))
                             {
-                                return RedirectToAction("Index", "UserDashboard");
+                                return RedirectToAction("Index", "Home");
                             }
                             else
                             {
@@ -698,11 +699,11 @@ namespace Insurance.Controllers
                 if (result.Succeeded)
                 {
                     //Assign retailer role to user 
-                    //await UserManager.AddToRoleAsync(user.Id, "User");
+                    await UserManager.AddToRoleAsync(user.Id, "User");
                     //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     //Add user profile
-                    uIRepository.CreateUserProfile(model);
-                    TempData["success"] = "Your account has been created successfully.";
+                    uIRepository.CreateUserProfile(model,user.Id);
+                    TempData["success"] =Master_en.YourAccountHasBeenCreatedSuccessfully;
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -751,8 +752,9 @@ namespace Insurance.Controllers
                 }
                 //string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var token = UserManager.GeneratePasswordResetToken(user.Id);
+                string urlformail = ConfigurationManager.AppSettings["baseUrl"] + "/Account/UserResetPassword?userId=" + user.Id + "&Code=" + token;
                 SendGridMailManager mail = new SendGridMailManager();
-                await mail.ForgotPasswordMessageAsync(model.Email, user.Id, token);
+                uIRepository.UserForgotPasswordEmail(model.Email, urlformail, IsEnglish);
                 ViewBag.Confirmation = 1;
                 return RedirectToAction("UserForgotPasswordConfirmation", "Account");
             }
