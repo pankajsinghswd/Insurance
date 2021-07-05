@@ -423,6 +423,7 @@
     <Content Include="Content\frontenten\css\pages\header.css" />
     <Content Include="Content\frontenten\css\pages\mixin.css" />
     <Content Include="Content\frontenten\css\pages\variables.css" />
+    <Content Include="Content\frontenten\css\responsive.css" />
     <Content Include="Content\frontenten\images\About.png" />
     <Content Include="Content\frontenten\images\banner-about.png" />
     <Content Include="Content\frontenten\images\bgbg.png" />

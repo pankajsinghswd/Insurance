@@ -225,6 +225,9 @@
   <data name="LayoutTitle" xml:space="preserve">
     <value>Insurance</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>About Us</value>
   </data>
@@ -245,6 +248,9 @@
   </data>
   <data name="NewInsurance" xml:space="preserve">
     <value>New Insurance</value>
+  </data>
+  <data name="OurPartner" xml:space="preserve">
+    <value>Our Partner</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
     <value>Password field is required</value>

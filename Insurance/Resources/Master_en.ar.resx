@@ -225,6 +225,9 @@
   <data name="LayoutTitle" xml:space="preserve">
     <value>تأمين</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>معلومات عنا</value>
   </data>
@@ -245,6 +248,9 @@
   </data>
   <data name="NewInsurance" xml:space="preserve">
     <value>تأمين جديد</value>
+  </data>
+  <data name="OurPartner" xml:space="preserve">
+    <value>شريكنا</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
     <value>حقل كلمة المرور مطلوب</value>

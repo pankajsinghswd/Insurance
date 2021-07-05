@@ -20,7 +20,7 @@ namespace Insurance.Utils
         }
         public static bool IsUser()
         {
-            return HttpContext.Current.User.IsInRole(AppConstants.THERAPIST);
+            return HttpContext.Current.User.IsInRole(AppConstants.USER);
         }
         public static int CurrentUserId()
         {

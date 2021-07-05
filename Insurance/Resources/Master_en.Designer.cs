@@ -385,6 +385,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About Us.
         /// </summary>
         public static string MenuAboutUs {
@@ -444,6 +453,15 @@ namespace Insurance.Resources {
         public static string NewInsurance {
             get {
                 return ResourceManager.GetString("NewInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Partner.
+        /// </summary>
+        public static string OurPartner {
+            get {
+                return ResourceManager.GetString("OurPartner", resourceCulture);
             }
         }
         

@@ -698,8 +698,8 @@ namespace Insurance.Controllers
                 if (result.Succeeded)
                 {
                     //Assign retailer role to user 
-                    await UserManager.AddToRoleAsync(user.Id, "User");
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await UserManager.AddToRoleAsync(user.Id, "User");
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     //Add user profile
                     uIRepository.CreateUserProfile(model);
                     TempData["success"] = "Your account has been created successfully.";
@@ -820,6 +820,12 @@ namespace Insurance.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult UserLogOffs()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
         #endregion
 
         protected override void Dispose(bool disposing)

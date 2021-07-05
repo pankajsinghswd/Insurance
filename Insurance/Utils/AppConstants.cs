@@ -5,17 +5,12 @@ namespace Insurance.Utils
     public static class AppConstants
     {
         internal const string ADMIN = "Admin";
-        internal const string HRSTAFF = "HR";
-        internal const string THERAPIST = "Therapist";
-        internal const string PATIENT = "Patient";
+        internal const string USER = "User";
     }
     public class RoleName
     {
         public const string Admin = "Admin";
         public const string User = "User";
-        public const string HRSTAFF = "HR";
-        public const string THERAPIST = "Therapist";
-        public const string PATIENT = "Patient";
     }
     public enum PageType
     {
