@@ -1,11 +1,12 @@
 ﻿@using Insurance.Utils
 @using Insurance.Resources
-@{ ViewBag.Title = "House Hold";
+@{ ViewBag.Title = "Medical Malpractice";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
 <div class="stepForm">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
+
                 <div class="header_right">
                     <div class="header_tabs">
                         <div class="header_tabinner">
@@ -30,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-10">
 
@@ -50,7 +52,7 @@
                         <li>
                             <span>@Master_en.Step3</span>
                             @Master_en.Quotes
-                        <div class="progressbar_flag">@Master_en.InProgress</div>
+                            <div class="progressbar_flag">@Master_en.InProgress</div>
                         </li>
 
                     </ul>
@@ -63,36 +65,34 @@
                     <fieldset>
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
-                                <h1>Tell us about your home</h1>
-                                <h3 class="fs-subtitle">We'll only ask the required details.</h3>
+                                <h1>Need Insurance for</h1>
                             </div>
                         </div>
                         <div class="formfieldmn">
 
 
                             <div class="button-group-pills text-center" data-toggle="buttons">
+
                                 <label class="btn btn-default active">
                                     <input type="radio" name="options" checked="">
-                                    <div>House</div>
+                                    <div>myself </div>
                                 </label>
+
                                 <label class="btn btn-default">
                                     <input type="radio" name="options">
-                                    <div>Condo</div>
+                                    <div>my family</div>
                                 </label>
+
                                 <label class="btn btn-default">
                                     <input type="radio" name="options">
-                                    <div>Rental</div>
+                                    <div>my parents</div>
                                 </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options">
-                                    <div>Apartment</div>
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options">
-                                    <div>Other</div>
-                                </label>
+
                             </div>
                         </div>
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>What's the address you'd like to ensure?</h1>
@@ -100,27 +100,19 @@
                             </div>
                         </div>
                         <div class="formfieldmn">
+
+
+
+
+
                             <div class="form_control form_control">
-                                <input type="text" name="" class="inputtext" placeholder="Address">
-                            </div>
-                            <div class="form_control form_control-50">
-                                <select class="select">
-                                    <option>Select Insurance</option>
-                                    <option>Home Insurance</option>
-                                    <option>Health Insurance</option>
-                                    <option>Car Insurance</option>
-                                </select>
-                            </div>
-                            <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="City">
-                            </div>
-                            <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="State">
-                            </div>
-                            <div class="form_control form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="ZIP Code">
+                                <input type="text" name="" class="inputtext" placeholder="Email">
                             </div>
                         </div>
+
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>Do you already have an insurance?</h1>
@@ -169,4 +161,8 @@
             </div>
         </div>
     </div>
+
+
+
+
 </div>

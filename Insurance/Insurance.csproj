@@ -4824,6 +4824,11 @@
     <Content Include="Views\Account\UserForgotPassword.cshtml" />
     <Content Include="Views\Account\UserResetPassword.cshtml" />
     <Content Include="Views\Account\UserResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Home\LifeAndSavings.cshtml" />
+    <Content Include="Views\Home\Travel.cshtml" />
+    <Content Include="Views\Home\MedicalMalpractice.cshtml" />
+    <Content Include="Views\Home\Medical.cshtml" />
+    <Content Include="Views\Home\VehicleInsurance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

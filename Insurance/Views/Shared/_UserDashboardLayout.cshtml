@@ -16,7 +16,7 @@
     string bgColor = "";
     string action = @ViewContext.RouteData.Values["action"].ToString();
     bgColor = (action == "Index") ? "whiteBG" : (action == "Contact") ? "grayBG" : "";
-    bgColor = (Insurance.Utils.SessionHelper.IsEnglish() != true) ? "arabic" : bgColor;
+    bgColor = (Insurance.Utils.SessionHelper.IsEnglish() != true) ? "grayBG arabic" : bgColor;
 }
 <body class="@bgColor">
     <div class="wrapper">

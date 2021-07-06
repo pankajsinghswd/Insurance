@@ -1,11 +1,12 @@
 ﻿@using Insurance.Utils
 @using Insurance.Resources
-@{ ViewBag.Title = "House Hold";
+@{ ViewBag.Title = "Travel";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
 <div class="stepForm">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
+
                 <div class="header_right">
                     <div class="header_tabs">
                         <div class="header_tabinner">
@@ -30,6 +31,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-10">
 
@@ -50,7 +52,7 @@
                         <li>
                             <span>@Master_en.Step3</span>
                             @Master_en.Quotes
-                        <div class="progressbar_flag">@Master_en.InProgress</div>
+                            <div class="progressbar_flag">@Master_en.InProgress</div>
                         </li>
 
                     </ul>
@@ -93,6 +95,9 @@
                                 </label>
                             </div>
                         </div>
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>What's the address you'd like to ensure?</h1>
@@ -100,27 +105,43 @@
                             </div>
                         </div>
                         <div class="formfieldmn">
-                            <div class="form_control form_control">
-                                <input type="text" name="" class="inputtext" placeholder="Address">
+
+                            <div class="form_control form_control-50">
+                                <input type="text" name="" class="inputtext" placeholder="Name">
                             </div>
+                            <div class="form_control form_control-50">
+                                <input type="text" name="" class="inputtext" placeholder="Age">
+                            </div>
+
                             <div class="form_control form_control-50">
                                 <select class="select">
-                                    <option>Select Insurance</option>
-                                    <option>Home Insurance</option>
-                                    <option>Health Insurance</option>
-                                    <option>Car Insurance</option>
+                                    <option>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
                                 </select>
                             </div>
+
                             <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="City">
+                                <select class="select">
+                                    <option>Destination Coundry</option>
+
+                                </select>
                             </div>
-                            <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="State">
-                            </div>
+
+
                             <div class="form_control form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="ZIP Code">
+                                <input type="text" name="" class="inputtext" placeholder="Trip Date from">
+                            </div>
+
+
+                            <div class="form_control form_control form_control-50">
+                                <input type="text" name="" class="inputtext" placeholder="Trip Date To">
                             </div>
                         </div>
+
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>Do you already have an insurance?</h1>
@@ -155,7 +176,7 @@
 
 
                         <button type="button" name="previous" class="previous button">previous</button>
-                        <button type="button" name="next" class="next button">@Master_en.Continue</button>
+                        <button type="button" name="next" class="next button">Save & Continue</button>
 
                     </fieldset>
                     <fieldset>

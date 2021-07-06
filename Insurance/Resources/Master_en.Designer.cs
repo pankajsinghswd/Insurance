@@ -205,6 +205,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright © Insurance.
         /// </summary>
         public static string Copyright {
@@ -282,6 +291,15 @@ namespace Insurance.Resources {
         public static string IAgreeToTheTerms {
             get {
                 return ResourceManager.GetString("IAgreeToTheTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In Progress.
+        /// </summary>
+        public static string InProgress {
+            get {
+                return ResourceManager.GetString("InProgress", resourceCulture);
             }
         }
         
@@ -466,11 +484,29 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string Owner {
+            get {
+                return ResourceManager.GetString("Owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password field is required.
         /// </summary>
         public static string PasswordRequired {
             get {
                 return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending.
+        /// </summary>
+        public static string Pending {
+            get {
+                return ResourceManager.GetString("Pending", resourceCulture);
             }
         }
         
@@ -543,6 +579,15 @@ namespace Insurance.Resources {
         public static string PurposeofInsurance {
             get {
                 return ResourceManager.GetString("PurposeofInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quotes.
+        /// </summary>
+        public static string Quotes {
+            get {
+                return ResourceManager.GetString("Quotes", resourceCulture);
             }
         }
         
@@ -642,6 +687,33 @@ namespace Insurance.Resources {
         public static string ResetYourPpassword {
             get {
                 return ResourceManager.GetString("ResetYourPpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP 1.
+        /// </summary>
+        public static string Step1 {
+            get {
+                return ResourceManager.GetString("Step1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP 2.
+        /// </summary>
+        public static string Step2 {
+            get {
+                return ResourceManager.GetString("Step2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP 3.
+        /// </summary>
+        public static string Step3 {
+            get {
+                return ResourceManager.GetString("Step3", resourceCulture);
             }
         }
         

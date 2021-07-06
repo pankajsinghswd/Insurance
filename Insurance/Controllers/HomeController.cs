@@ -106,10 +106,6 @@ namespace Insurance.Controllers
             }
             return View(model);
         }
-        public ActionResult HouseHold()
-        {
-            return View();
-        }
 
         [AcceptVerbs("Get", "Post")]
         [AllowAnonymous]
@@ -193,6 +189,33 @@ namespace Insurance.Controllers
             //}
 
         }
+
+        #region Insurance Model
+        public ActionResult VehicleInsurance()
+        {
+            return View();
+        }
+        public ActionResult Medical()
+        {
+            return View();
+        }
+        public ActionResult MedicalMalpractice()
+        {
+            return View();
+        }
+        public ActionResult Travel()
+        {
+            return View();
+        }
+        public ActionResult LifeAndSavings()
+        {
+            return View();
+        }
+        public ActionResult HouseHold()
+        {
+            return View();
+        }
+        #endregion
 
         #region IDisposable Members
 

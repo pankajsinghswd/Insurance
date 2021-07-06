@@ -1,11 +1,13 @@
 ﻿@using Insurance.Utils
 @using Insurance.Resources
-@{ ViewBag.Title = "House Hold";
+@{ ViewBag.Title = "Vehicle Insurance";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+}
 <div class="stepForm">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
+
                 <div class="header_right">
                     <div class="header_tabs">
                         <div class="header_tabinner">
@@ -30,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-10">
 
@@ -50,7 +53,7 @@
                         <li>
                             <span>@Master_en.Step3</span>
                             @Master_en.Quotes
-                        <div class="progressbar_flag">@Master_en.InProgress</div>
+                            <div class="progressbar_flag">@Master_en.InProgress</div>
                         </li>
 
                     </ul>
@@ -93,6 +96,9 @@
                                 </label>
                             </div>
                         </div>
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>What's the address you'd like to ensure?</h1>
@@ -100,6 +106,26 @@
                             </div>
                         </div>
                         <div class="formfieldmn">
+                            <div class="form_control form_control">
+                                <input type="text" name="" class="inputtext" placeholder="Vehicle registration number ">
+                            </div>
+                            <div class="form_control form_control-50">
+                                <select class="select">
+                                    <option>Select Brand(drop)</option>
+                                    <option>Hyundai</option>
+                                    <option>Maruti</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form_control form_control-50">
+                                <select class="select">
+                                    <option>Select model(drop)</option>
+                                    <option>Creata</option>
+                                </select>
+                            </div>
+
+
                             <div class="form_control form_control">
                                 <input type="text" name="" class="inputtext" placeholder="Address">
                             </div>
@@ -115,12 +141,21 @@
                                 <input type="text" name="" class="inputtext" placeholder="City">
                             </div>
                             <div class="form_control form_control-50">
-                                <input type="text" name="" class="inputtext" placeholder="State">
+                                <select class="select">
+                                    <option>State</option>
+                                    <option>Home Insurance</option>
+                                    <option>Health Insurance</option>
+                                    <option>Car Insurance</option>
+                                </select>
                             </div>
                             <div class="form_control form_control form_control-50">
                                 <input type="text" name="" class="inputtext" placeholder="ZIP Code">
                             </div>
                         </div>
+
+
+
+
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
                                 <h1>Do you already have an insurance?</h1>
@@ -169,4 +204,5 @@
             </div>
         </div>
     </div>
+
 </div>
