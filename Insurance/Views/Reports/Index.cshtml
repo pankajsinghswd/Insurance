@@ -64,7 +64,7 @@
                         <td>@item.Interest_local</td>
                         <td>@(Convert.ToDateTime(item.RegisteredOn).ToString("MM-dd-yyyy")) </td>
                         <td style="text-align:center">
-                            <a onclick="View('@item.Id')" style="color: #00a65a;">View more info</a>
+                            <a onclick="ViewDetailHistory('@item.Id')" style="color: #00a65a;">View more info</a>
                             @*<a href="/Reports/EarnedUnitHistory/@item.Id" style="color: #00a65a;">View more info</a>*@
                         </td>
                     </tr>}
@@ -81,8 +81,8 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-    <div class="modal fade ashwini" id="view">
-        <div class="modal-dialog" style="width: 60%;">
+    <div class="modal fade ashwini" id="view" style="left:5%;width:90%;overflow-y:scroll!important;">
+        <div class="modal-dialog" style="width:100%;">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" id="btnClose" class="close" data-dismiss="modal" aria-label="Close">
@@ -90,64 +90,8 @@
                     </button>
                     <h4 class="modal-title">User Details</h4>
                 </div>
-                <div class="modal-body">
-                    <table class="table table-striped table-bordered">
-                        <tbody>
-                            <tr>
-                                <td colspan="2">
-                                    <h4 class="modal-title">Personal information</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 15%;">
-                                    <img style="height: 200px; width: 200px; border-radius: 50%;" id="img" src="#" alt="Alternate Text" />
-                                </td>
-                                <td style="width:75%">
-                                    <table class="table table-striped ">
-                                        <tbody>
-                                            <tr>
-                                                <td><b>Full Name_en</b></td>
-                                                <td id="first_en"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Full Name_local</b></td>
-                                                <td id="first_local"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Mobile</b></td>
-                                                <td id="Mobile"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Email</b></td>
-                                                <td id="Email"></td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Insurance Type</b></td>
-                                                <td id="insurancetype_en"></td>
-                                            </tr>
-                                            @*<tr>
-                                                <td><b>Insurance Type_local</b></td>
-                                                <td id="insurancetype_local"></td>
-                                            </tr>*@
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Interest_en</b></td>
-                                <td id="Interest_en"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Interest_local</b></td>
-                                <td id="Interest_local"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <h4 class="modal-title">User submitted information</h4>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="modal-body" id="divuserdetails">
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnClosebutton" style="float:right" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>

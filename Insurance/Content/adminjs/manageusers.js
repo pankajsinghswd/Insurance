@@ -103,3 +103,24 @@ function Block(id, status) {
     }
     return false;
 }
+
+function ViewDetailHistory(id) {
+    $.ajax({
+        type: "POST",
+        url: "/Reports/UserDetailHisotry",
+        data: '{id: "' + id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "html",
+        success: function (response) {
+            $('#divuserdetails').html(response);
+            $("#view").addClass("modal fade in");
+            $("#view").css("display", "block");
+        },
+        failure: function (response) {
+
+        },
+        error: function (response) {
+
+        }
+    });
+}

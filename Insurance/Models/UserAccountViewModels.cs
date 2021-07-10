@@ -15,8 +15,6 @@ namespace Insurance.Models
         public string Email { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Master_en), ErrorMessageResourceName = "PasswordRequired", ErrorMessage = null)]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$)")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

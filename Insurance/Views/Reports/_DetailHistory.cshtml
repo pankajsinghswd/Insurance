@@ -1,0 +1,251 @@
+﻿@model Insurance.ViewModels.UserDetailHistoryModel
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">
+                <h4 class="modal-title">Personal information</h4>
+            </td>
+        </tr>
+        <tr>
+            @*<td style="width: 15%;">
+                <img style="height: 200px; width: 200px; border-radius: 50%;" id="img" src="#" alt="Alternate Text" />
+            </td>*@
+            <td colspan="2">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td><b>User Name</b></td>
+                            <td id="first_en">@Model.userProfileDetail.FullName_en</td>
+                        </tr>
+                        <tr>
+                            <td><b>Email</b></td>
+                            <td id="Email">@Model.userProfileDetail.Email</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <!--Vehicle Insurance-->
+        @if (Model.listvehicleInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">Vehicle Insurance</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>VehicleRegNo.</td>
+                            <td>VehicleBrand </td>
+                            <td>VehicleModel</td>
+                            <td>InsuranceType</td>
+                            <td>EmailId</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listvehicleInsurance)
+                        {
+                            <tr>
+                                <td>@item.VehicleRegistrationNumber</td>
+                                <td>@item.VehicleBrand</td>
+                                <td>@item.VehicleModel</td>
+                                <td>@item.InsuranceType</td>
+                                <td>@item.EmailId</td>
+                                <td>@(item.IsInsurance ? "Yes" : "No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+        <!--Medical Insurance-->
+        @if (Model.listmedicalInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">Medical Insurance</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Name</td>
+                            <td>Age </td>
+                            <td>Gender</td>
+                            <td>InsuranceType</td>
+                            <td>EmailId</td>
+                            <td>Address</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listmedicalInsurance)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Age</td>
+                                <td>@item.Gender</td>
+                                <td>@item.InsuranceType</td>
+                                <td>@item.EmailId</td>
+                                <td>@item.Address</td>
+                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+        <!--MedicalMappractice Insurance-->
+        @if (Model.listmedicalMalpracticeInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">Medical Malpractice</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Need InsuranceFor</td>
+                            <td>EmailId</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listmedicalMalpracticeInsurance)
+                        {
+                            <tr>
+                                <td>@item.NeedInsuranceFor</td>
+                                <td>@item.EmailId</td>
+                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+        <!--Travel Insurance-->
+        @if (Model.listtravelInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">Travel Insurance</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Name</td>
+                            <td>Gender</td>
+                            <td>DestinationCountry</td>
+                            <td>Age</td>
+                            <td>FromDate</td>
+                            <td>ToDate</td>
+                            <td>EmailId</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listtravelInsurance)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Gender</td>
+                                <td>@item.DestinationCountry</td>
+                                <td>@item.Age</td>
+                                <td>@(Convert.ToDateTime(item.FromDate).ToString("dd-MM-yyyy"))</td>
+                                <td>@(Convert.ToDateTime(item.ToDate).ToString("dd-MM-yyyy"))</td>
+                                <td>@item.EmailId</td>
+                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+        <!--Life & Savings Insurance-->
+        @if (Model.listlifeSavingsInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">Life & Savings</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Name</td>
+                            <td>Gender</td>
+                            <td>Age</td>
+                            <td>AnnualIncome</td>
+                            <td>TobbacoNicotine</td>
+                            <td>EmailId</td>
+                            <td>Address</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listlifeSavingsInsurance)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Age</td>
+                                <td>@item.Gender</td>
+                                <td>@item.AnnualIncome</td>
+                                <td>@item.TobbacoNicotine</td>
+                                <td>@item.EmailId</td>
+                                <td>@item.Address</td>
+                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+        <!--HouseHold Insurance-->
+        @if (Model.listHouseHoldInsurance.Count() > 0)
+        {
+            <tr>
+                <td colspan="2">
+                    <h4 class="modal-title">HouseHold Insurance</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Home Type</td>
+                            <td>Address</td>
+                            <td>InsuranceType</td>
+                            <td>City</td>
+                            <td>State</td>
+                            <td>ZipCode</td>
+                            <td>Already have an insurance?</td>
+                            <td>CreatedOn</td>
+                        </tr>
+                        @foreach (var item in Model.listHouseHoldInsurance)
+                        {
+                            <tr>
+                                <td>@item.TellAboutHome</td>
+                                <td>@item.Address</td>
+                                <td>@item.InsuranceType</td>
+                                <td>@item.City</td>
+                                <td>@item.State</td>
+                                <td>@item.ZipCode</td>
+                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

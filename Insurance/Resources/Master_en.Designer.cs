@@ -61,6 +61,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select age.
         /// </summary>
         public static string AgeList {
@@ -196,7 +205,7 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Request request submitted sucessfully. We will contact you soon..
+        ///   Looks up a localized string similar to Your request submitted sucessfully. We will contact you soon..
         /// </summary>
         public static string ContactUsSuccessMessage {
             get {
@@ -259,6 +268,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Firstname field is required.
         /// </summary>
         public static string FirstName {
@@ -282,6 +300,96 @@ namespace Insurance.Resources {
         public static string GetaFreeInsuranceQuote {
             get {
                 return ResourceManager.GetString("GetaFreeInsuranceQuote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apartment.
+        /// </summary>
+        public static string HouseHold_Apartment {
+            get {
+                return ResourceManager.GetString("HouseHold_Apartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string HouseHold_City {
+            get {
+                return ResourceManager.GetString("HouseHold_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Condo.
+        /// </summary>
+        public static string HouseHold_Condo {
+            get {
+                return ResourceManager.GetString("HouseHold_Condo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to House.
+        /// </summary>
+        public static string HouseHold_House {
+            get {
+                return ResourceManager.GetString("HouseHold_House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string HouseHold_Other {
+            get {
+                return ResourceManager.GetString("HouseHold_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rental.
+        /// </summary>
+        public static string HouseHold_Rental {
+            get {
+                return ResourceManager.GetString("HouseHold_Rental", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string HouseHold_State {
+            get {
+                return ResourceManager.GetString("HouseHold_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell us about your home.
+        /// </summary>
+        public static string HouseHold_TellUsAboutYourHome {
+            get {
+                return ResourceManager.GetString("HouseHold_TellUsAboutYourHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What&apos;s the address you&apos;d like to ensure?.
+        /// </summary>
+        public static string HouseHold_WhatTheaddressYouLikeToEnsure {
+            get {
+                return ResourceManager.GetString("HouseHold_WhatTheaddressYouLikeToEnsure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zip Code.
+        /// </summary>
+        public static string HouseHold_ZipCode {
+            get {
+                return ResourceManager.GetString("HouseHold_ZipCode", resourceCulture);
             }
         }
         
@@ -358,6 +466,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your quotes submitted successfully. We will reach you soon..
+        /// </summary>
+        public static string InsuranceSubmittedQuote {
+            get {
+                return ResourceManager.GetString("InsuranceSubmittedQuote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vehicle insurance.
         /// </summary>
         public static string InsVehicleinsurance {
@@ -385,6 +502,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to lang.en.js.
+        /// </summary>
+        public static string LangJs {
+            get {
+                return ResourceManager.GetString("LangJs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LastName field is required.
         /// </summary>
         public static string LastName {
@@ -403,11 +529,119 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anual Income.
+        /// </summary>
+        public static string Life_AnualIncome {
+            get {
+                return ResourceManager.GetString("Life_AnualIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Tobacco/Nicotine.
+        /// </summary>
+        public static string Life_SelectTobaccoNicotine {
+            get {
+                return ResourceManager.GetString("Life_SelectTobaccoNicotine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell us about yourself.
+        /// </summary>
+        public static string Life_TellUsAboutYourself {
+            get {
+                return ResourceManager.GetString("Life_TellUsAboutYourself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Medicle_Age {
+            get {
+                return ResourceManager.GetString("Medicle_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Information.
+        /// </summary>
+        public static string Medicle_Personal_Information {
+            get {
+                return ResourceManager.GetString("Medicle_Personal Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell us about yourself.
+        /// </summary>
+        public static string Medicle_TellUsAboutYourself {
+            get {
+                return ResourceManager.GetString("Medicle_TellUsAboutYourself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Family.
+        /// </summary>
+        public static string MedicleMalpractice_MyFamily {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_MyFamily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Parents.
+        /// </summary>
+        public static string MedicleMalpractice_MyParents {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_MyParents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Myself.
+        /// </summary>
+        public static string MedicleMalpractice_Myself {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_Myself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Need Insurance for.
+        /// </summary>
+        public static string MedicleMalPractice_NeedInsuranceFor {
+            get {
+                return ResourceManager.GetString("MedicleMalPractice_NeedInsuranceFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What&apos;s the address you&apos;d like to ensure?.
+        /// </summary>
+        public static string MedicleMalPractice_WhattheaddressYouLikeToEnsure {
+            get {
+                return ResourceManager.GetString("MedicleMalPractice_WhattheaddressYouLikeToEnsure", resourceCulture);
             }
         }
         
@@ -471,6 +705,15 @@ namespace Insurance.Resources {
         public static string NewInsurance {
             get {
                 return ResourceManager.GetString("NewInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -691,6 +934,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Field is Required.
+        /// </summary>
+        public static string ReuiredField {
+            get {
+                return ResourceManager.GetString("ReuiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to STEP 1.
         /// </summary>
         public static string Step1 {
@@ -732,6 +984,69 @@ namespace Insurance.Resources {
         public static string TransferOfOwnership {
             get {
                 return ResourceManager.GetString("TransferOfOwnership", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destination Country.
+        /// </summary>
+        public static string Travel_DestinationCountry {
+            get {
+                return ResourceManager.GetString("Travel_DestinationCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Gender.
+        /// </summary>
+        public static string Travel_Gender {
+            get {
+                return ResourceManager.GetString("Travel_Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Details.
+        /// </summary>
+        public static string Travel_PersonalDetails {
+            get {
+                return ResourceManager.GetString("Travel_PersonalDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell us about your Trip.
+        /// </summary>
+        public static string Travel_TellUsAboutYourTrip {
+            get {
+                return ResourceManager.GetString("Travel_TellUsAboutYourTrip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip Date From.
+        /// </summary>
+        public static string Travel_TripDateFrom {
+            get {
+                return ResourceManager.GetString("Travel_TripDateFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip Date To.
+        /// </summary>
+        public static string Travel_TripDateTo {
+            get {
+                return ResourceManager.GetString("Travel_TripDateTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string Trravel_Age {
+            get {
+                return ResourceManager.GetString("Trravel_Age", resourceCulture);
             }
         }
         
@@ -804,6 +1119,69 @@ namespace Insurance.Resources {
         public static string UserLogin_Username {
             get {
                 return ResourceManager.GetString("UserLogin_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you already have an insurance?.
+        /// </summary>
+        public static string Vehicle_DoYouAlreadyHaveAnInsurance {
+            get {
+                return ResourceManager.GetString("Vehicle_DoYouAlreadyHaveAnInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Information.
+        /// </summary>
+        public static string Vehicle_PersonalInformation {
+            get {
+                return ResourceManager.GetString("Vehicle_PersonalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell Us about your Vehicle.
+        /// </summary>
+        public static string Vehicle_TellUsAboutYourVehicle {
+            get {
+                return ResourceManager.GetString("Vehicle_TellUsAboutYourVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Brand.
+        /// </summary>
+        public static string Vehicle_VehicleBrand {
+            get {
+                return ResourceManager.GetString("Vehicle_VehicleBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle Model.
+        /// </summary>
+        public static string Vehicle_VehicleModel {
+            get {
+                return ResourceManager.GetString("Vehicle_VehicleModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle registration number.
+        /// </summary>
+        public static string Vehicle_VehicleRegistrationNumber {
+            get {
+                return ResourceManager.GetString("Vehicle_VehicleRegistrationNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

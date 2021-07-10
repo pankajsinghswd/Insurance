@@ -193,33 +193,152 @@ namespace Insurance.Controllers
         #region Insurance Model
         public ActionResult VehicleInsurance()
         {
-            return View();
+            VehicleInsuranceModels model = new VehicleInsuranceModels();
+            try
+            {
+                model.InsuraceList = uiRepository.GetPolicyTypeList();
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex);
+            }
+            return View(model);
         }
+        [Authorize]
+        public JsonResult AddVehicleInsurance(VehicleInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddVehicleInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+            
+        }
+
         public ActionResult Medical()
         {
-            return View();
+            MedicalInsuranceModels model = new MedicalInsuranceModels();
+            model.InsuraceList = uiRepository.GetPolicyTypeList();
+            model.GenderList = uiRepository.GetGenderList();
+            return View(model);
+        }
+        [Authorize]
+        public JsonResult AddMedicalInsurance(MedicalInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddMedicalInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+
         }
         public ActionResult MedicalMalpractice()
         {
-            return View();
+            MedicalMalpracticeInsuranceModels model = new MedicalMalpracticeInsuranceModels();
+            return View(model);
         }
+        [Authorize]
+        public JsonResult AddMedicalMalpractieInsurance(MedicalMalpracticeInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddMedicalMalPracticeInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
         public ActionResult Travel()
         {
-            return View();
+            TravelInsuranceModels model = new TravelInsuranceModels();
+            model.GenderList = uiRepository.GetGenderList();
+            return View(model);
+        }
+        [Authorize]
+        public JsonResult AddTravelInsurance(TravelInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddTravelInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+
         }
         public ActionResult LifeAndSavings()
         {
-            return View();
+            LifeSavingsInsuranceModels model = new LifeSavingsInsuranceModels();
+            model.GenderList = uiRepository.GetGenderList();
+            model.TobbacoList = uiRepository.GetTobbacoNicotineList();
+            return View(model);
+        }
+        [Authorize]
+        public JsonResult AddLifeSavingsInsurance(LifeSavingsInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddLifeSavingsInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+
         }
         public ActionResult HouseHold()
         {
-            return View();
+            HouseHoldInsuranceModels model = new HouseHoldInsuranceModels();
+            model.InsuraceList = uiRepository.GetPolicyTypeList();
+            return View(model);
         }
-        #endregion
+        [Authorize]
+        public JsonResult AddHouseHoldInsurance(HouseHoldInsuranceModels model)
+        {
+            try
+            {
+                uiRepository.AddHouseHoldInsuranceQuote(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
 
-        #region IDisposable Members
+        }
 
-        private bool disposed = false;
+        public ActionResult LoginPage()
+        {
+            UserLoginViewModel model = new UserLoginViewModel();
+            return PartialView("~/Views/Home/_Login.cshtml", model);
+        }
+
+    #endregion
+
+    #region IDisposable Members
+
+    private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
         {

@@ -22,5 +22,12 @@ namespace Insurance.Controllers
             var result = adminRepository.GetUsers();
             return View(result);
         }
+
+        [HttpPost]
+        public ActionResult UserDetailHisotry(string id)
+        {
+            var result = adminRepository.UserDetailHisotry(id);
+            return PartialView("~/Views/Reports/_DetailHistory.cshtml", result);
+        }
     }
 }

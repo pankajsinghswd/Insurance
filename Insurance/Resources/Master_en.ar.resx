@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
   <data name="AgeList" xml:space="preserve">
     <value>الرجاء تحديد العمر</value>
   </data>
@@ -139,7 +142,7 @@
     <value>حقل الاسم مطلوب</value>
   </data>
   <data name="ContactUsSuccessMessage" xml:space="preserve">
-    <value>طلب تقديم الطلب بنجاح. سوف نتصل بك قريبا.</value>
+    <value>تم تقديم طلبك بنجاح. سوف نتصل بك قريبا.</value>
   </data>
   <data name="ContactUs_InformUs" xml:space="preserve">
     <value>ابلغنا</value>
@@ -183,6 +186,9 @@
   <data name="EmailLinkSent" xml:space="preserve">
     <value>يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك.</value>
   </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>مطلوب حقل الاسم الأول</value>
   </data>
@@ -191,6 +197,36 @@
   </data>
   <data name="GetaFreeInsuranceQuote" xml:space="preserve">
     <value>الحصول على الاقتباس التأمين المجاني</value>
+  </data>
+  <data name="HouseHold_Apartment" xml:space="preserve">
+    <value>شقة</value>
+  </data>
+  <data name="HouseHold_City" xml:space="preserve">
+    <value>مدينة</value>
+  </data>
+  <data name="HouseHold_Condo" xml:space="preserve">
+    <value>شقة</value>
+  </data>
+  <data name="HouseHold_House" xml:space="preserve">
+    <value>منزل</value>
+  </data>
+  <data name="HouseHold_Other" xml:space="preserve">
+    <value>آخر</value>
+  </data>
+  <data name="HouseHold_Rental" xml:space="preserve">
+    <value>تأجير</value>
+  </data>
+  <data name="HouseHold_State" xml:space="preserve">
+    <value>حالة</value>
+  </data>
+  <data name="HouseHold_TellUsAboutYourHome" xml:space="preserve">
+    <value>أخبرنا عن منزلك</value>
+  </data>
+  <data name="HouseHold_WhatTheaddressYouLikeToEnsure" xml:space="preserve">
+    <value>ما هو العنوان الذي تود التأكد منه؟</value>
+  </data>
+  <data name="HouseHold_ZipCode" xml:space="preserve">
+    <value>الرمز البريدي</value>
   </data>
   <data name="IAgreeToTheTerms" xml:space="preserve">
     <value>أوافق على شروط وأحكام الشركة</value>
@@ -216,6 +252,9 @@
   <data name="InsuraceList" xml:space="preserve">
     <value>الرجاء تحديد التأمين</value>
   </data>
+  <data name="InsuranceSubmittedQuote" xml:space="preserve">
+    <value>قدمت عروض الأسعار الخاصة بك بنجاح. سوف نصل إليك قريبا.</value>
+  </data>
   <data name="InsVehicleinsurance" xml:space="preserve">
     <value>تأمين المركبة</value>
   </data>
@@ -225,14 +264,53 @@
   <data name="Invalidloginattemptoryouraccount" xml:space="preserve">
     <value>محاولة تسجيل الدخول غير صحيحة أو تم حذف حسابك.</value>
   </data>
+  <data name="LangJs" xml:space="preserve">
+    <value>lang.ar.js</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>حقل الاسم الأخير مطلوب</value>
   </data>
   <data name="LayoutTitle" xml:space="preserve">
     <value>تأمين</value>
   </data>
+  <data name="Life_AnualIncome" xml:space="preserve">
+    <value>الدخل السنوي</value>
+  </data>
+  <data name="Life_SelectTobaccoNicotine" xml:space="preserve">
+    <value>اختر التبغ / النيكوتين</value>
+  </data>
+  <data name="Life_TellUsAboutYourself" xml:space="preserve">
+    <value>أخبرنا عن نفسك</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>تسجيل خروج</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="MedicleMalpractice_MyFamily" xml:space="preserve">
+    <value>عائلتي</value>
+  </data>
+  <data name="MedicleMalpractice_MyParents" xml:space="preserve">
+    <value>والدي</value>
+  </data>
+  <data name="MedicleMalpractice_Myself" xml:space="preserve">
+    <value>نفسي</value>
+  </data>
+  <data name="MedicleMalPractice_NeedInsuranceFor" xml:space="preserve">
+    <value>بحاجة للتأمين</value>
+  </data>
+  <data name="MedicleMalPractice_WhattheaddressYouLikeToEnsure" xml:space="preserve">
+    <value>ما هو العنوان الذي تود التأكد منه؟</value>
+  </data>
+  <data name="Medicle_Age" xml:space="preserve">
+    <value>سن</value>
+  </data>
+  <data name="Medicle_Personal Information" xml:space="preserve">
+    <value>معلومات شخصية</value>
+  </data>
+  <data name="Medicle_TellUsAboutYourself" xml:space="preserve">
+    <value>أخبرنا عن نفسك</value>
   </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>معلومات عنا</value>
@@ -254,6 +332,9 @@
   </data>
   <data name="NewInsurance" xml:space="preserve">
     <value>تأمين جديد</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
   </data>
   <data name="OurPartner" xml:space="preserve">
     <value>شريكنا</value>
@@ -327,6 +408,9 @@
   <data name="ResetYourPpassword" xml:space="preserve">
     <value>اعد ضبط كلمه السر</value>
   </data>
+  <data name="ReuiredField" xml:space="preserve">
+    <value>الحقل مطلوب</value>
+  </data>
   <data name="Step1" xml:space="preserve">
     <value>الخطوة 1</value>
   </data>
@@ -341,6 +425,27 @@
   </data>
   <data name="TransferOfOwnership" xml:space="preserve">
     <value>نقل ملكية</value>
+  </data>
+  <data name="Travel_DestinationCountry" xml:space="preserve">
+    <value>بلد المقصد</value>
+  </data>
+  <data name="Travel_Gender" xml:space="preserve">
+    <value>حدد نوع الجنس</value>
+  </data>
+  <data name="Travel_PersonalDetails" xml:space="preserve">
+    <value>تفاصيل شخصية</value>
+  </data>
+  <data name="Travel_TellUsAboutYourTrip" xml:space="preserve">
+    <value>أخبرنا عن رحلتك</value>
+  </data>
+  <data name="Travel_TripDateFrom" xml:space="preserve">
+    <value>تاريخ الرحلة من</value>
+  </data>
+  <data name="Travel_TripDateTo" xml:space="preserve">
+    <value>تاريخ الرحلة إلى</value>
+  </data>
+  <data name="Trravel_Age" xml:space="preserve">
+    <value>سن</value>
   </data>
   <data name="UserLogin_DontHaveAccount" xml:space="preserve">
     <value>ليس لديك حساب؟</value>
@@ -365,6 +470,27 @@
   </data>
   <data name="UserLogin_Username" xml:space="preserve">
     <value>اسم المستخدم</value>
+  </data>
+  <data name="Vehicle_DoYouAlreadyHaveAnInsurance" xml:space="preserve">
+    <value>هل لديك بالفعل تأمين؟</value>
+  </data>
+  <data name="Vehicle_PersonalInformation" xml:space="preserve">
+    <value>معلومات شخصية</value>
+  </data>
+  <data name="Vehicle_TellUsAboutYourVehicle" xml:space="preserve">
+    <value>أخبرنا عن سيارتك</value>
+  </data>
+  <data name="Vehicle_VehicleBrand" xml:space="preserve">
+    <value>ماركة السيارة</value>
+  </data>
+  <data name="Vehicle_VehicleModel" xml:space="preserve">
+    <value>طراز السيارة</value>
+  </data>
+  <data name="Vehicle_VehicleRegistrationNumber" xml:space="preserve">
+    <value>رقم تسجيل المركبة</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
   </data>
   <data name="YouAreNotAllowedToLogInHere" xml:space="preserve">
     <value>لا يسمح لك للدخول هنا.</value>

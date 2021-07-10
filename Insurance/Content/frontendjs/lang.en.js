@@ -1,4 +1,7 @@
 ﻿lang = {
+    Error: "Oops something went wrong !",
+    logout:"Logout",
+    //not in use
     SelectAll: "Select All",
     DeSelectAll: "Deselect All",
     PleaseSelectAtleastOneImage: "Please select atleast one image!",

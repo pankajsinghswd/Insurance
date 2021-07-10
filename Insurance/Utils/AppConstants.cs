@@ -155,5 +155,11 @@ namespace Insurance.Utils
     public static class QueryTypeFrontendUI
     {
         public const int SaveInsuranceQuote = 1;
+        public const int SaveVehicleInsurance = 2;
+        public const int SaveMedcalInsurance = 3;
+        public const int SaveMedicalMalpractice = 4;
+        public const int SaveTravelInsurance = 5;
+        public const int SaveLifeSavingsInsurance = 6;
+        public const int SaveHouseHoldInsurance = 7;
     }
 }

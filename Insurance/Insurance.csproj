@@ -614,6 +614,7 @@
     <Content Include="Content\adminlte\img\user7-128x128.jpg" />
     <Content Include="Content\adminlte\img\user8-128x128.jpg" />
     <Content Include="Content\adminlte\img\userlogo.png" />
+    <Content Include="Content\frontendjs\insuranceform.js" />
     <Content Include="Content\frontendjs\lang.ar.js" />
     <Content Include="Content\frontendjs\lang.en.js" />
     <Content Include="Content\frontenten\css\aboutus.css" />
@@ -4660,7 +4661,13 @@
     <Compile Include="Models\DropdownList.cs" />
     <Compile Include="Models\GeneralModel.cs" />
     <Compile Include="Models\InsuranceQuoteModel.cs" />
+    <Compile Include="Models\MedicalMalpracticeModels.cs" />
+    <Compile Include="Models\MedicalInsuranceModels.cs" />
+    <Compile Include="Models\LifeSavingsInsuranceModes.cs" />
+    <Compile Include="Models\HousHoldInsuranceModels.cs" />
+    <Compile Include="Models\TravelInsuranceModels.cs" />
     <Compile Include="Models\UserAccountViewModels.cs" />
+    <Compile Include="Models\VehicleInsuranceModels.cs" />
     <Compile Include="Resources\Master_en.ar.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4672,6 +4679,7 @@
       <DependentUpon>Master_en.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\AppConstants.cs" />
+    <Compile Include="Utils\CommonFunctions.cs" />
     <Compile Include="Utils\Crypto.cs" />
     <Compile Include="Utils\EmailService.cs" />
     <Compile Include="Utils\ErrorDetails.cs" />
@@ -4703,6 +4711,7 @@
     <Compile Include="ViewModels\StaticContentUpdate.cs" />
     <Compile Include="ViewModels\StaticContentView.cs" />
     <Compile Include="ViewModels\UserCreateModel.cs" />
+    <Compile Include="ViewModels\UserDetailHistoryModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -4829,6 +4838,8 @@
     <Content Include="Views\Home\MedicalMalpractice.cshtml" />
     <Content Include="Views\Home\Medical.cshtml" />
     <Content Include="Views\Home\VehicleInsurance.cshtml" />
+    <Content Include="Views\Home\_Login.cshtml" />
+    <Content Include="Views\Reports\_DetailHistory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

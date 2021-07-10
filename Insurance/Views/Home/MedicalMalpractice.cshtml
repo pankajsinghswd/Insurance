@@ -2,11 +2,11 @@
 @using Insurance.Resources
 @{ ViewBag.Title = "Medical Malpractice";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
+@model Insurance.Models.MedicalMalpracticeInsuranceModels
 <div class="stepForm">
     <div class="container">
         <div class="row">
             <div class="col-lg-2">
-
                 <div class="header_right">
                     <div class="header_tabs">
                         <div class="header_tabinner">
@@ -34,22 +34,23 @@
 
             </div>
             <div class="col-lg-10">
-
-                <form id="msform">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frminsurance" }))
+                {
+                    @Html.AntiForgeryToken()
                     <!-- progressbar -->
                     <ul id="progressbar">
 
-                        <li class="active">
+                        <li class="active" id="listep1">
                             <span>@Master_en.Step1</span>
                             @Master_en.MenuHome
                             <div class="progressbar_flag">@Master_en.InProgress</div>
                         </li>
-                        <li>
+                        <li id="listep2">
                             <span>@Master_en.Step2</span>
                             @Master_en.Owner
-                            <div class="progressbar_flag">Pending</div>
+                            <div class="progressbar_flag">@Master_en.Pending</div>
                         </li>
-                        <li>
+                        <li id="listep3">
                             <span>@Master_en.Step3</span>
                             @Master_en.Quotes
                             <div class="progressbar_flag">@Master_en.InProgress</div>
@@ -58,111 +59,128 @@
                     </ul>
                     <!-- fieldsets -->
                     <br>
-                    <br>
-                    <br>
-
-
-                    <fieldset>
+                    <fieldset id="div1">
+                        <input type="hidden" id="userlgn" value="@(SessionHelper.IsUser()?"true":"false")" />
+                        @Html.HiddenFor(m => m.IsInsurance)
+                        @Html.HiddenFor(m=>m.NeedInsuranceFor)
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
-                                <h1>Need Insurance for</h1>
+                                <h1>@Master_en.MedicleMalPractice_NeedInsuranceFor</h1>
                             </div>
                         </div>
                         <div class="formfieldmn">
-
-
                             <div class="button-group-pills text-center" data-toggle="buttons">
-
                                 <label class="btn btn-default active">
-                                    <input type="radio" name="options" checked="">
-                                    <div>myself </div>
+                                    <input type="radio" name="options" checked="" value="@Master_en.MedicleMalpractice_Myself">
+                                    <div>@Master_en.MedicleMalpractice_Myself</div>
                                 </label>
 
                                 <label class="btn btn-default">
-                                    <input type="radio" name="options">
-                                    <div>my family</div>
+                                    <input type="radio" name="options" value="@Master_en.MedicleMalpractice_MyFamily">
+                                    <div>@Master_en.MedicleMalpractice_MyFamily</div>
                                 </label>
 
                                 <label class="btn btn-default">
-                                    <input type="radio" name="options">
-                                    <div>my parents</div>
+                                    <input type="radio" name="options" value="@Master_en.MedicleMalpractice_MyParents">
+                                    <div>@Master_en.MedicleMalpractice_MyParents</div>
                                 </label>
-
                             </div>
                         </div>
-
-
-
+                        
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
-                                <h1>What's the address you'd like to ensure?</h1>
-                                <h3 class="fs-subtitle">We'll only ask the required details.</h3>
+                                <h1>@Master_en.MedicleMalPractice_WhattheaddressYouLikeToEnsure</h1>
                             </div>
                         </div>
                         <div class="formfieldmn">
-
-
-
-
-
                             <div class="form_control form_control">
-                                <input type="text" name="" class="inputtext" placeholder="Email">
+                                @Html.TextBoxFor(m => m.EmailId, new { @class = "inputtext", @type = "email", @placeholder = Master_en.PHolderEmail })
+                                @Html.ValidationMessageFor(a => a.EmailId, string.Empty, new { @class = "text-danger" })
                             </div>
                         </div>
 
-
-
-
                         <div class="formfieldmn">
                             <div class="formfieldmn_item formfieldmn_head">
-                                <h1>Do you already have an insurance?</h1>
+                                <h1>@Master_en.Vehicle_DoYouAlreadyHaveAnInsurance</h1>
                             </div>
                             <div class="formfieldmn_item formfieldmn_form">
 
                                 <div class="toggleBtn">
-                                    <div class="toggleBtn_txt">YES</div>
+                                    <div class="toggleBtn_txt">@Master_en.Yes</div>
                                     <div class="btn-container">
                                         <div class="toggle-btn">
                                             <div class="inner-circle"> </div>
                                         </div>
                                     </div>
-                                    <div class="toggleBtn_txt">NO</div>
+                                    <div class="toggleBtn_txt">@Master_en.No</div>
                                 </div>
                             </div>
                         </div>
 
                         <br><br>
                         <div class="button_div">
-                            <button type="button" name="next" class="next button">@Master_en.Continue</button>
+                            <button type="button" name="next" id="btnsubmit" class="button">@Master_en.Continue</button>
                         </div>
 
-                        <!-- <input type="button" name="next" class="next button" value="Save & Continue"/> -->
-
                     </fieldset>
-                    <fieldset>
-
-
-                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                        <input type="button" name="next" class="next action-button" value="Next"/> -->
-
-
-                        <button type="button" name="previous" class="previous button">previous</button>
-                        <button type="button" name="next" class="next button">@Master_en.Continue</button>
-
+                    <fieldset id="div2" style="display:none;">
+                        <div class="formfieldmn">
+                            @{Html.RenderAction("LoginPage", "Home");}
+                        </div>
                     </fieldset>
-                    <fieldset>
-
-
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    <fieldset id="div3" style="display:none;">
+                        <div class="formfieldmn" style="display:block;left:10%">
+                            <div id="divmsg">
+                                <h3 style="color:red;">@Master_en.InsuranceSubmittedQuote</h3>
+                            </div>
+                        </div>
                     </fieldset>
-                </form>
-
+                }
             </div>
         </div>
     </div>
-
-
-
-
 </div>
+@Scripts.Render("~/bundles/jqueryval")
+<script src="~/Content/frontendjs/insuranceform.js"></script>
+<script>
+    $("#btnsubmit").click(function (e) {
+        e.preventDefault();
+        // now trigger the form validation, result is 1 or 0
+        var result = $('form').valid();
+        if (result) {
+            //Check IsInsurance
+            if ($('.toggle-btn').hasClass('active')) {
+                $('#IsInsurance').val('No');
+            }
+            else {
+                $('#IsInsurance').val('Yes');
+            }
+            $('#NeedInsuranceFor').val($('input[type="radio"]:checked').val());
+            //Check step form
+            if ($('#userlgn').val() == "true") {
+                if (EnableStep3('AddMedicalMalpractieInsurance')) {
+                    return false;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                EnableStep2();
+            }
+        }
+    });
+    $("#btnloginsubmit").click(function (e) {
+        e.preventDefault();
+        // now trigger the form validation, result is 1 or 0
+        var result = $('form').valid();
+        if (result) {
+            if (AccountLogin('AddMedicalMalpractieInsurance')) {
+                return false;
+            }
+            else {
+                return false;
+            }
+        }
+    });
+</script>

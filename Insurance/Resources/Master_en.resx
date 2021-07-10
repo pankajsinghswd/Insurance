@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="AgeList" xml:space="preserve">
     <value>Please select age</value>
   </data>
@@ -139,7 +142,7 @@
     <value>Name field is required</value>
   </data>
   <data name="ContactUsSuccessMessage" xml:space="preserve">
-    <value>Request request submitted sucessfully. We will contact you soon.</value>
+    <value>Your request submitted sucessfully. We will contact you soon.</value>
   </data>
   <data name="ContactUs_InformUs" xml:space="preserve">
     <value>inform us</value>
@@ -183,6 +186,9 @@
   <data name="EmailLinkSent" xml:space="preserve">
     <value>Please check your email to reset your password.</value>
   </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Firstname field is required</value>
   </data>
@@ -191,6 +197,36 @@
   </data>
   <data name="GetaFreeInsuranceQuote" xml:space="preserve">
     <value>Get a Free Insurance Quote</value>
+  </data>
+  <data name="HouseHold_Apartment" xml:space="preserve">
+    <value>Apartment</value>
+  </data>
+  <data name="HouseHold_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="HouseHold_Condo" xml:space="preserve">
+    <value>Condo</value>
+  </data>
+  <data name="HouseHold_House" xml:space="preserve">
+    <value>House</value>
+  </data>
+  <data name="HouseHold_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="HouseHold_Rental" xml:space="preserve">
+    <value>Rental</value>
+  </data>
+  <data name="HouseHold_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="HouseHold_TellUsAboutYourHome" xml:space="preserve">
+    <value>Tell us about your home</value>
+  </data>
+  <data name="HouseHold_WhatTheaddressYouLikeToEnsure" xml:space="preserve">
+    <value>What's the address you'd like to ensure?</value>
+  </data>
+  <data name="HouseHold_ZipCode" xml:space="preserve">
+    <value>Zip Code</value>
   </data>
   <data name="IAgreeToTheTerms" xml:space="preserve">
     <value>I agree to the terms and conditions of the company</value>
@@ -216,6 +252,9 @@
   <data name="InsuraceList" xml:space="preserve">
     <value>Please select insurance</value>
   </data>
+  <data name="InsuranceSubmittedQuote" xml:space="preserve">
+    <value>Your quotes submitted successfully. We will reach you soon.</value>
+  </data>
   <data name="InsVehicleinsurance" xml:space="preserve">
     <value>Vehicle insurance</value>
   </data>
@@ -225,14 +264,53 @@
   <data name="Invalidloginattemptoryouraccount" xml:space="preserve">
     <value>Invalid login attempt or your account has been deleted.</value>
   </data>
+  <data name="LangJs" xml:space="preserve">
+    <value>lang.en.js</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>LastName field is required</value>
   </data>
   <data name="LayoutTitle" xml:space="preserve">
     <value>Insurance</value>
   </data>
+  <data name="Life_AnualIncome" xml:space="preserve">
+    <value>Anual Income</value>
+  </data>
+  <data name="Life_SelectTobaccoNicotine" xml:space="preserve">
+    <value>Select Tobacco/Nicotine</value>
+  </data>
+  <data name="Life_TellUsAboutYourself" xml:space="preserve">
+    <value>Tell us about yourself</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="MedicleMalpractice_MyFamily" xml:space="preserve">
+    <value>My Family</value>
+  </data>
+  <data name="MedicleMalpractice_MyParents" xml:space="preserve">
+    <value>My Parents</value>
+  </data>
+  <data name="MedicleMalpractice_Myself" xml:space="preserve">
+    <value>Myself</value>
+  </data>
+  <data name="MedicleMalPractice_NeedInsuranceFor" xml:space="preserve">
+    <value>Need Insurance for</value>
+  </data>
+  <data name="MedicleMalPractice_WhattheaddressYouLikeToEnsure" xml:space="preserve">
+    <value>What's the address you'd like to ensure?</value>
+  </data>
+  <data name="Medicle_Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Medicle_Personal Information" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="Medicle_TellUsAboutYourself" xml:space="preserve">
+    <value>Tell us about yourself</value>
   </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>About Us</value>
@@ -254,6 +332,9 @@
   </data>
   <data name="NewInsurance" xml:space="preserve">
     <value>New Insurance</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="OurPartner" xml:space="preserve">
     <value>Our Partner</value>
@@ -327,6 +408,9 @@
   <data name="ResetYourPpassword" xml:space="preserve">
     <value>Reset your password</value>
   </data>
+  <data name="ReuiredField" xml:space="preserve">
+    <value>Field is Required</value>
+  </data>
   <data name="Step1" xml:space="preserve">
     <value>STEP 1</value>
   </data>
@@ -341,6 +425,27 @@
   </data>
   <data name="TransferOfOwnership" xml:space="preserve">
     <value>Transfer of ownership</value>
+  </data>
+  <data name="Travel_DestinationCountry" xml:space="preserve">
+    <value>Destination Country</value>
+  </data>
+  <data name="Travel_Gender" xml:space="preserve">
+    <value>Select Gender</value>
+  </data>
+  <data name="Travel_PersonalDetails" xml:space="preserve">
+    <value>Personal Details</value>
+  </data>
+  <data name="Travel_TellUsAboutYourTrip" xml:space="preserve">
+    <value>Tell us about your Trip</value>
+  </data>
+  <data name="Travel_TripDateFrom" xml:space="preserve">
+    <value>Trip Date From</value>
+  </data>
+  <data name="Travel_TripDateTo" xml:space="preserve">
+    <value>Trip Date To</value>
+  </data>
+  <data name="Trravel_Age" xml:space="preserve">
+    <value>Age</value>
   </data>
   <data name="UserLogin_DontHaveAccount" xml:space="preserve">
     <value>Don't have an account?</value>
@@ -365,6 +470,27 @@
   </data>
   <data name="UserLogin_Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Vehicle_DoYouAlreadyHaveAnInsurance" xml:space="preserve">
+    <value>Do you already have an insurance?</value>
+  </data>
+  <data name="Vehicle_PersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="Vehicle_TellUsAboutYourVehicle" xml:space="preserve">
+    <value>Tell Us about your Vehicle</value>
+  </data>
+  <data name="Vehicle_VehicleBrand" xml:space="preserve">
+    <value>Vehicle Brand</value>
+  </data>
+  <data name="Vehicle_VehicleModel" xml:space="preserve">
+    <value>Vehicle Model</value>
+  </data>
+  <data name="Vehicle_VehicleRegistrationNumber" xml:space="preserve">
+    <value>Vehicle registration number</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="YouAreNotAllowedToLogInHere" xml:space="preserve">
     <value>You are not allowed to log in here.</value>

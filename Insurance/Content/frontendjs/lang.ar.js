@@ -1,10 +1,14 @@
 ﻿lang = {
+    Error: "تبا شيء ما حدث بشكل خاطئ !",
+    logout:"تسجيل خروج",
+
+    //not in use
     SelectAll: "اختر الكل",
     DeSelectAll: "الغاء تحديد الكل",
     PleaseSelectAtleastOneImage: "الرجاء تحديد أتلست صورة واحدة !",
     PleaseSelectImage: "الرجاء تحديد صورة !",
     AreYouSureWantToDelete: "هل أنت متأكد تريد حذف ؟",
-    Error: "تبا شيء ما حدث بشكل خاطئ !",
+   
     PleaseLoginFrst: "يرجى الدخول أولاً !",
     Page: "صفحة",
     UserCancelledLoginOrDidNotFullyAuthorize: "إلغاء المستخدم تسجيل الدخول أو لم يأذن بالكامل .",

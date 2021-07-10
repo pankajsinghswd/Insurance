@@ -1,0 +1,23 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.UserLoginViewModel
+<div class="row">
+    <div class="card-body" style="width:450px;">
+        <h1 class="card-title text-center">@Master_en.UserLogin_SignIn</h1>
+        @using (Html.BeginForm("", "", FormMethod.Post, new { @id= "frmlogin", @class = "form-signin" }))
+        {
+         @Html.AntiForgeryToken()
+        <div class="card_form">
+            <div class="card_control">
+                @Html.TextBoxFor(m => m.Email, new { @class = "card_control_input", @type = "text", @placeholder = Master_en.PHolderEmail })
+                @Html.ValidationMessageFor(a => a.Email, string.Empty, new { @class = "text-danger" })
+            </div>
+            <div class="card_control">
+                @Html.TextBoxFor(m => m.Password, new { @class = "card_control_input", @type = "password", @placeholder = Master_en.UserLogin_Password })
+                @Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })
+            </div>
+        </div>
+      <button class="btn btn-lg btn-block login_btn" type="button" id="btnloginsubmit">@Master_en.UserLogin_LogIn</button>}
+    </div>
+</div>
+               
+            

@@ -580,6 +580,69 @@ namespace Insurance.Interface
         #endregion
 
         #region Report methods
+        public UserDetailHistoryModel UserDetailHisotry(string Id)
+        {
+            UserDetailHistoryModel objmodel = new UserDetailHistoryModel();
+            IDictionary<string, object> sqlParams = null;
+            var context = HttpContext.Current;
+            try
+            {
+                sqlParams = new Dictionary<string, object>();
+                sqlParams.Add("@Qtype", QueryTypeAdmin.GetProfile);
+                sqlParams.Add("@AspNetUserId", Id);
+                ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsAdmin, sqlParams);
+                if (ds != null && ds.Tables.Count > 0)
+                {
+
+                    //User detail model
+                    UserProfileDetailModel userProfile = new UserProfileDetailModel();
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            userProfile.Id = Convert.ToString(dr["Id"]);
+                            userProfile.FullName_en = Convert.ToString(dr["FullName_en"]);
+                            userProfile.FullName_local = Convert.ToString(dr["FullName_local"]);
+                            userProfile.Email = Convert.ToString(dr["Email"]);
+                            userProfile.Mobile = Convert.ToString(dr["PhoneNumber"]);
+                            userProfile.Interest_en = Convert.ToString(dr["Interest_en"]);
+                            userProfile.Interest_local = Convert.ToString(dr["Interest_local"]);
+                            userProfile.InsuranceType_en = Convert.ToString(dr["InsuranceName_en"]);
+                            userProfile.InsuranceType_local = Convert.ToString(dr["InsuranceName_local"]);
+                            if (Convert.ToString(dr["ProfilePath"]) != "avtar.png")
+                            {
+                                userProfile.ProfilePath = GetBaseUrl() + "Content/userProfile/" + Convert.ToString(dr["ProfilePath"]);
+                            }
+                            else
+                            {
+                                userProfile.ProfilePath = GetBaseUrl() + "Content/images/" + Convert.ToString(dr["ProfilePath"]);
+                            }
+
+                        }
+                    objmodel.userProfileDetail = userProfile;
+                    //Vehicle Insurance model model
+                    objmodel.listvehicleInsurance = CommonFunctions.ConvertDataTable<VehicleInsurance>(ds.Tables[1]);
+                    //Medical Insurance model model
+                    objmodel.listmedicalInsurance = CommonFunctions.ConvertDataTable<MedicalInsurance>(ds.Tables[2]);
+                    //MedicalMalpracticeInsurance
+                    objmodel.listmedicalMalpracticeInsurance = CommonFunctions.ConvertDataTable<MedicalMalpracticeInsurance>(ds.Tables[3]);
+                    //TravelInsurance
+                    objmodel.listtravelInsurance = CommonFunctions.ConvertDataTable<TravelInsurance>(ds.Tables[4]);
+                    //LIfe & Sagings
+                    objmodel.listlifeSavingsInsurance = CommonFunctions.ConvertDataTable<LifeSavingInsurance>(ds.Tables[5]);
+                    //HouseHoldInsurance
+                    objmodel.listHouseHoldInsurance = CommonFunctions.ConvertDataTable<HouseHoldInsurance>(ds.Tables[6]);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message.ToString());
+
+            }
+            finally
+            {
+                ds.Dispose();
+            }
+            return objmodel;
+        }
 
         #endregion
 

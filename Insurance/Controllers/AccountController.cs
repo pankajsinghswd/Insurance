@@ -679,6 +679,53 @@ namespace Insurance.Controllers
             }
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> UserLoginQuote(string Email,string Password)
+        {
+
+            UserLoginViewModel model = new UserLoginViewModel();
+            model.Email = Email;
+            model.Password = Password;
+            model.RememberMe = true;
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                if (user.EmailConfirmed)
+                {
+                    return Json(Master_en.Invalidloginattemptoryouraccount, JsonRequestBehavior.AllowGet);
+                }
+                if (!user.LockoutEnabled)
+                {
+                    return Json("error", JsonRequestBehavior.AllowGet);
+                }
+                var roles = await UserManager.GetRolesAsync(user.Id);
+                if (roles[0].Contains("User"))
+                {
+                    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                    switch (result)
+                    {
+                        case SignInStatus.Success:
+                                return Json("success", JsonRequestBehavior.AllowGet);
+                        case SignInStatus.LockedOut:
+                            return View("Lockout");
+                        case SignInStatus.RequiresVerification:
+                            return Json("error", JsonRequestBehavior.AllowGet);
+                        case SignInStatus.Failure:
+                        default:
+                            return Json(Master_en.InvalidLoginAttempt, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    return Json(Master_en.YouAreNotAllowedToLogInHere, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(Master_en.InvalidLoginAttempt, JsonRequestBehavior.AllowGet);
+            }
+        }
         [AllowAnonymous]
         public ActionResult UserSignup(string returnUrl)
         {
