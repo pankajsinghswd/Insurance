@@ -35,6 +35,8 @@
     UserAccountlockedPleaseContact: "تم تأمين حساب المستخدم ، يرجى الاتصال بمسؤول Insurance",
     KindlyActivateYourAccountLogin: "يرجى تفعيل حسابك للدخول",
     NoOffersFound: "لا يوجد عروض .",
+    InvalidCaptcha: "إجابة captcha غير صالحة",
+    InsuranceSubmittedQuote:"قدمت عروض الأسعار الخاصة بك بنجاح. سوف نصل إليك قريبا.",
 };
 function countOffer() {
     var URLPATH = $("#URLPATH").val();

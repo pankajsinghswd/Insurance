@@ -34,6 +34,8 @@
     IncorrectPasswordOrEmailID: "Incorrect password or email ID.",
     UserAccountlockedPleaseContact: "User account is locked, please contact Insurance Administrator",
     KindlyActivateYourAccountLogin: "Kindly activate your account to login.",
+    InvalidCaptcha: "Invalid captcha answer.",
+    InsuranceSubmittedQuote: "Your quotes submitted successfully. We will reach you soon.",
 };
 
 function countOffer() {

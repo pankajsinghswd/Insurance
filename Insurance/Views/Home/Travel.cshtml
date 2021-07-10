@@ -3,188 +3,156 @@
 @{ ViewBag.Title = "Travel";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
 @model Insurance.Models.TravelInsuranceModels
-<div class="stepForm">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2">
-
-                <div class="header_right">
-                    <div class="header_tabs">
-                        <div class="header_tabinner">
-                            <a class="header_tab icon2" href="/home/VehicleInsurance">
-                                <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
-                            </a>
-                            <a class="header_tab icon5" href="/home/Medical">
-                                <div class="header_tabtooltip">@Master_en.InsMedical</div>
-                            </a>
-                            <a class="header_tab icon6" href="/home/MedicalMalpractice">
-                                <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
-                            </a>
-                            <a class="header_tab icon4" href="/home/Travel">
-                                <div class="header_tabtooltip">@Master_en.InsTravel</div>
-                            </a>
-                            <a class="header_tab icon3" href="/home/LifeAndSavings">
-                                <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
-                            </a>
-                            <a class="header_tab icon1" href="/Home/HouseHold">
-                                <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-10">
-                @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frminsurance" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <!-- progressbar -->
-                    <ul id="progressbar">
-
-                        <li class="active" id="listep1">
-                            <span>@Master_en.Step1</span>
-                            @Master_en.MenuHome
-                            <div class="progressbar_flag">@Master_en.InProgress</div>
-                        </li>
-                        <li id="listep2">
-                            <span>@Master_en.Step2</span>
-                            @Master_en.Owner
-                        <div class="progressbar_flag">@Master_en.Pending</div>
-                        </li>
-                        <li id="listep3">
-                            <span>@Master_en.Step3</span>
-                            @Master_en.Quotes
-                            <div class="progressbar_flag">@Master_en.InProgress</div>
-                        </li>
-
-                    </ul>
-                    <!-- fieldsets -->
-                    <br>
-                    <fieldset id="div1">
+<style>
+    .card-body {
+        width: 450px !important;
+        left: 15%;
+    }
+</style>
+<div class="banner_1" id="div1">
+    <div class="newForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frminsurance" }))
+                    {
+                        @Html.AntiForgeryToken()
                         <input type="hidden" id="userlgn" value="@(SessionHelper.IsUser()?"true":"false")" />
-                         @Html.HiddenFor(m=>m.IsInsurance)
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.Travel_PersonalDetails</h1>
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
+                        <div class="stepForm_mn">
+                            <div class="stepForm_item">
+                                <div class="stepForm_1">
+                                    @Master_en.InsTravel
+                                </div>
 
-                            <div class="form_control form_control-50">
-                                @Html.TextBoxFor(m => m.Name, new { @class = "inputtext", @type = "text", @placeholder = Master_en.Contact_Name })
-                                @Html.ValidationMessageFor(a => a.Name, string.Empty, new { @class = "text-danger" })
-                            </div>
-                            <div class="form_control form_control-50">
-                                @Html.TextBoxFor(m => m.Age, new { @class = "inputtext", @type = "text", @placeholder = Master_en.Trravel_Age })
-                                @Html.ValidationMessageFor(a => a.Age, string.Empty, new { @class = "text-danger" })
-                            </div>
+                                <div class="stepForm_2">
 
-                            <div class="form_control form_control-50">
-                                @Html.DropDownListFor(m => m.Gender, Model.GenderList, Master_en.Travel_Gender, new { @class = "select" })
-                                @Html.ValidationMessageFor(a => a.Gender, string.Empty, new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.Travel_TellUsAboutYourTrip</h1>
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
-                            <div class="form_control">
-                                @Html.TextBoxFor(m => m.DestinationCountry, new { @class = "inputtext", @type = "text", @placeholder = Master_en.Travel_DestinationCountry })
-                                @Html.ValidationMessageFor(a => a.DestinationCountry, string.Empty, new { @class = "text-danger" })
-                            </div>
-
-                            <div class="form_control form_control form_control-50">
-                                @Html.TextBoxFor(m => m.FromDate, new { @class = "inputtext",@type="date", @placeholder = Master_en.Travel_TripDateFrom })
-                                @Html.ValidationMessageFor(a => a.FromDate, string.Empty, new { @class = "text-danger" })
-                            </div>
-
-                            <div class="form_control form_control form_control-50">
-                                @Html.TextBoxFor(m => m.ToDate, new { @class = "inputtext", @type = "date", @placeholder = Master_en.Travel_TripDateTo })
-                                @Html.ValidationMessageFor(a => a.ToDate, string.Empty, new { @class = "text-danger" })
-                            </div>
-                            <div class="form_control">
-                                @Html.TextBoxFor(m => m.EmailId, new { @class = "inputtext", @placeholder = Master_en.PHolderEmail })
-                                @Html.ValidationMessageFor(a => a.EmailId, string.Empty, new { @class = "text-danger" })
-                            </div>
-
-                        </div>
-
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.Vehicle_DoYouAlreadyHaveAnInsurance</h1>
-                            </div>
-                            <div class="formfieldmn_item formfieldmn_form">
-
-                                <div class="toggleBtn">
-                                    <div class="toggleBtn_txt">@Master_en.Yes</div>
-                                    <div class="btn-container">
-                                        <div class="toggle-btn">
-                                            <div class="inner-circle"> </div>
-                                        </div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_Id</div>
+                                        @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
                                     </div>
-                                    <div class="toggleBtn_txt">@Master_en.No</div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.Travel_Duration</div>
+                                        @Html.TextBoxFor(m => m.Duration, new { @class = "inputtext", @placeholder = @Master_en.Travel_Duration, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.Duration, string.Empty, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.Travel_PassportNumber</div>
+                                        @Html.TextBoxFor(m => m.PassportNumber, new { @class = "inputtext", @placeholder = @Master_en.Travel_EnterPassportNumber, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.PassportNumber, string.Empty, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.Travel_Destination</div>
+                                        @Html.TextBoxFor(m => m.Destination, new { @class = "inputtext", @placeholder = @Master_en.Travel_Destination, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.Destination, string.Empty, new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="stepForm_item">
+
+                                <div class="stepForm_3">
+                                    <div id="divCaptcha">
+                                        <img src="@String.Format("data:image/png;base64,{0}", Model.CaptchaImage)" />
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="ReloadCaptchaCode();" style="margin: 0 0 0 8px; text-decoration: none;"> <img src="~/Content/frontenten/images/refress_icon.png" border="0" /><b>Reload Captcha</b></a>
+                                    <input type="text" name="Code" class="inputtext" id="txtCaptcha" style="width:100%;" required oninvalid="this.setCustomValidity('Please enter captcha code.')" oninput="this.setCustomValidity('')" autocomplete="off" />
+                                </div>
+                                <div class="stepForm_4">
+                                    <button type="button" name="next" id="btnsubmit" class="button">@Master_en.HouseHold_GetQuotation</button>
+                                </div>
+                                <div class="stepForm_5">
+                                    @Html.CheckBoxFor(m => m.TermsCondition, new { @type = "checkbox" })
+                                    @Html.ValidationMessageFor(a => a.TermsCondition, string.Empty, new { @class = "text-danger" })
+                                    @*<input type="checkbox">*@
+                                    @Master_en.HouseHold_IAgreeToGrant
                                 </div>
                             </div>
                         </div>
-
-                        <br><br>
-                        <div class="button_div">
-                            <button type="button" name="next" id="btnsubmit" class="button">@Master_en.Continue</button>
-                        </div>
-                    </fieldset>
-                    <fieldset id="div2" style="display:none;">
-                        <div class="formfieldmn">
-                            @{Html.RenderAction("LoginPage", "Home");}
-                        </div>
-                    </fieldset>
-                    <fieldset id="div3" style="display:none;">
-                        <div class="formfieldmn" style="display:block;left:10%">
-                            <div id="divmsg">
-                                <h3 style="color:red;">@Master_en.InsuranceSubmittedQuote</h3>
-                            </div>
-                        </div>
-                    </fieldset>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
+    <div class="header_tabinner">
+        <a class="header_tab icon2" href="/home/VehicleInsurance">
+            <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
+        </a>
+        <a class="header_tab icon5" href="/home/Medical">
+            <div class="header_tabtooltip">@Master_en.InsMedical</div>
+        </a>
+        <a class="header_tab icon6" href="/home/MedicalMalpractice">
+            <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
+        </a>
+        <a class="header_tab icon4" href="/home/Travel">
+            <div class="header_tabtooltip">@Master_en.InsTravel</div>
+        </a>
+        <a class="header_tab icon3" href="/home/LifeAndSavings">
+            <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
+        </a>
+        <a class="header_tab icon1" href="/Home/HouseHold">
+            <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
+        </a>
+    </div>
+</div>
+<div id="dialog" title="User Login" style="display:none;z-index:9999999;overflow:hidden;">
+    @{Html.RenderAction("LoginPage", "Home");}
 </div>
 @Scripts.Render("~/bundles/jqueryval")
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="~/Content/frontendjs/insuranceform.js"></script>
 <script>
+    (function ($) {
+        $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+    }(jQuery));
     $("#btnsubmit").click(function (e) {
         e.preventDefault();
         // now trigger the form validation, result is 1 or 0
         var result = $('form').valid();
         if (result) {
-            //Check IsInsurance
-            if ($('.toggle-btn').hasClass('active')) {
-                $('#IsInsurance').val('No');
-            }
-            else {
-                $('#IsInsurance').val('Yes');
-            }
-            //Check step form
-            if ($('#userlgn').val() == "true") {
-                if (EnableStep3('AddTravelInsurance')) {
-                    return false;
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                EnableStep2();
+            //verify captcha
+            var captchacode = $("#txtCaptcha").val();
+            if (captchacode != "") {
+                var url = "/Home/ValidateCaptcha?Code=" + captchacode;
+                $('#divVerify').html("Please wait....");
+                $.ajax({
+                    url: url,
+                    cache: false,
+                    success: function (data) {
+                        if (data == "0") {
+                            alert("Please enter a valid captcha");
+                        } else {
+                            //if captcha true then
+                            //Check step form
+                            if ($('#userlgn').val() == "true") {
+                                if (EnableStep3('AddTravelInsurance')) {
+                                    return false;
+                                }
+                                else {
+                                    return false;
+                                }
+                            }
+                            else {
+                                //debugger;
+                                EnableStep2();
+                            }
+                        }
+                    },
+                    error: function (reponse) {
+                        alert("Error while sending detail. Pleae refresh page and try again.");
+                    }
+
+                });
+            } else {
+                alert("Please enter captcha code.");
             }
         }
     });
     $("#btnloginsubmit").click(function (e) {
         e.preventDefault();
         // now trigger the form validation, result is 1 or 0
-        var result = $('form').valid();
+        var result = $('#frmlogin').valid();
         if (result) {
             if (AccountLogin('AddTravelInsurance')) {
                 return false;

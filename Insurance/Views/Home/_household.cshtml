@@ -1,0 +1,33 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.HouseHoldInsuranceModels
+@Html.HiddenFor(m => m.SelectedInsurance)
+@Html.HiddenFor(m => m.SelectedDate)
+<div class="form_control  form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_Id</h3>
+    @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
+</div>
+
+<div class="form_control  form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_SumInsured</h3>
+    @Html.TextBoxFor(m => m.SumAssured, new { @class = "inputtext", @placeholder = Master_en.HouseHold_EnterSumAssured, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.SumAssured, string.Empty, new { @class = "text-danger" })
+</div>
+
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_Location</h3>
+    @Html.TextBoxFor(m => m.Location, new { @class = "inputtext", @placeholder = Master_en.HouseHold_EnterLocation, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.Location, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_StartDate</h3>
+    @Html.TextBoxFor(m => m.StartDate, new { @class = "inputtext", @type = "date" })
+    @Html.ValidationMessageFor(a => a.StartDate, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control household comnBox comnfld">
+    <h3>@Master_en.HouseHold_TypeOfCoverage</h3>
+    @Html.DropDownListFor(m => m.TypeOfCoverage, Model.TypeOfCoverageList, Master_en.InsuraceList, new { @class = "select" })
+    @Html.ValidationMessageFor(a => a.TypeOfCoverage, string.Empty, new { @class = "text-danger" })
+</div>
+
+

@@ -18,66 +18,51 @@ namespace Insurance.ViewModels
 
     public class VehicleInsurance
     {
-        public string VehicleRegistrationNumber { get; set; }
-        public string VehicleBrand { get; set; }
-        public string VehicleModel { get; set; }
-        public string InsuranceType { get; set; }
-        public string EmailId { get; set; }
-        public bool IsInsurance { get; set; }
+        public string PurposeOfInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string RegistrationType { get; set; }
+        public string RegistrationTypeNo { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime CreatedOn { get; set; }
     }
     public class MedicalInsurance
     {
-        public string Name { get; set; }
-        public string Age { get; set; }
-        public string Gender { get; set; }
-        public string InsuranceType { get; set; }
-        public string EmailId { get; set; }
-        public string Address { get; set; }
-        public bool IsInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string TypeInsuranceCoverage { get; set; }
+        public DateTime StartDateofInsurance { get; set; }
         public DateTime CreatedOn { get; set; }
     }
     public class MedicalMalpracticeInsurance
     {
-        public string NeedInsuranceFor { get; set; }
-        public string EmailId { get; set; }
-        public bool IsInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string Speciality { get; set; }
+        public string LimitofLiability { get; set; }
+        public DateTime StartDateInsurance { get;set;}
         public DateTime CreatedOn { get; set; }
     }
     public class TravelInsurance
     {
-        public string Name { get; set; }
-        public string Gender { get; set; }
-        public string DestinationCountry { get; set; }
-        public string Age { get; set; }
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
-        public string EmailId { get; set; }
-        public bool IsInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string Duration { get; set; }
+        public string PassportNumber{ get; set; }
+        public string Destination { get; set; }
         public DateTime CreatedOn { get; set; }
     }
     public class LifeSavingInsurance
     {
-        public string Name { get; set; }
-        public string Gender { get; set; }
-        public string Age { get; set; }
-        public string AnnualIncome { get; set; }
-        public string TobbacoNicotine { get; set; }
-        public string EmailId { get; set; }
-        public string Address { get; set; }
-        public bool IsInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string LimitCoverage { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 
     public class HouseHoldInsurance
     {
-        public string TellAboutHome { get; set; }
-        public string Address { get; set; }
-        public string InsuranceType { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
-        public bool IsInsurance { get; set; }
+        public string IdNumber { get; set; }
+        public string SumInsurred { get; set; }
+        public string Location { get; set; }
+        public string TypeofCoverage { get; set; }
+        public DateTime StartDate { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }

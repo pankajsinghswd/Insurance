@@ -3,197 +3,164 @@
 @{ ViewBag.Title = "House Hold";
     Layout = "~/Views/Shared/_LayoutStatic_en.cshtml"; }
 @model Insurance.Models.HouseHoldInsuranceModels
-<div class="stepForm">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2">
-                <div class="header_right">
-                    <div class="header_tabs">
-                        <div class="header_tabinner">
-                            <a class="header_tab icon2" href="/home/VehicleInsurance">
-                                <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
-                            </a>
-                            <a class="header_tab icon5" href="/home/Medical">
-                                <div class="header_tabtooltip">@Master_en.InsMedical</div>
-                            </a>
-                            <a class="header_tab icon6" href="/home/MedicalMalpractice">
-                                <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
-                            </a>
-                            <a class="header_tab icon4" href="/home/Travel">
-                                <div class="header_tabtooltip">@Master_en.InsTravel</div>
-                            </a>
-                            <a class="header_tab icon3" href="/home/LifeAndSavings">
-                                <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
-                            </a>
-                            <a class="header_tab icon1" href="/Home/HouseHold">
-                                <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-10">
-                @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frminsurance" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <!-- progressbar -->
-                    <ul id="progressbar">
+<style>
+    .card-body {
+        width: 450px !important;
+        left: 15%;
+    }
+</style>
+<div class="banner_1" id="div1">
+    <div class="newForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frminsurance" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.SelectedDate)
+                        <input type="hidden" id="userlgn" value="@(SessionHelper.IsUser() ? "true" : "false")" />
+                        <div class="stepForm_mn">
+                            <div class="stepForm_item">
+                                <div class="stepForm_1">
+                                    @Master_en.InsHouseHold
+                                </div>
 
-                        <li class="active" id="listep1">
-                            <span>@Master_en.Step1</span>
-                            @Master_en.MenuHome
-                            <div class="progressbar_flag">@Master_en.InProgress</div>
-                        </li>
-                        <li id="listep2">
-                            <span>@Master_en.Step2</span>
-                            @Master_en.Owner
-                        <div class="progressbar_flag">@Master_en.Pending</div>
-                        </li>
-                        <li id="listep3">
-                            <span>@Master_en.Step3</span>
-                            @Master_en.Quotes
-                            <div class="progressbar_flag">@Master_en.InProgress</div>
-                        </li>
-                    </ul>
-                    <!-- fieldsets -->
-                    <br>
-                    <fieldset id="div1">
-                        <input type="hidden" id="userlgn" value="@(SessionHelper.IsUser()?"true":"false")" />
-                        @Html.HiddenFor(m => m.IsInsurance)
-                        @Html.HiddenFor(m => m.TellUsAboutHome)
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.HouseHold_TellUsAboutYourHome</h1>
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
-                            <div class="button-group-pills text-center" data-toggle="buttons">
-                                <label class="btn btn-default active">
-                                    <input type="radio" name="options" checked="" value="@Master_en.HouseHold_House">
-                                    <div>@Master_en.HouseHold_House</div>
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options" value="@Master_en.HouseHold_Condo">
-                                    <div>@Master_en.HouseHold_Condo</div>
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options" value="@Master_en.HouseHold_Rental">
-                                    <div>@Master_en.HouseHold_Rental</div>
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options" value="@Master_en.HouseHold_Apartment">
-                                    <div>@Master_en.HouseHold_Apartment</div>
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" name="options" value="@Master_en.HouseHold_Other">
-                                    <div>@Master_en.HouseHold_Other</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.HouseHold_WhatTheaddressYouLikeToEnsure</h1>
-                                @*<h3 class="fs-subtitle">We'll only ask the required details.</h3>*@
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
-                            <div class="form_control form_control">
-                                @Html.TextBoxFor(m => m.Address, new { @class = "inputtext", @placeholder = Master_en.Address })
-                                @Html.ValidationMessageFor(a => a.Address, string.Empty, new { @class = "text-danger" })
-                            </div>
-                            <div class="form_control form_control-50">
-                                @Html.DropDownListFor(m => m.IssuranceId, Model.InsuraceList, Master_en.InsuraceList, new { @class = "select" })
-                                @Html.ValidationMessageFor(a => a.IssuranceId, string.Empty, new { @class = "text-danger" })
-                            </div>
+                                <div class="stepForm_2">
 
-                            <div class="form_control form_control-50">
-                                @Html.TextBoxFor(m => m.City, new { @class = "inputtext", @placeholder = Master_en.HouseHold_City })
-                                @Html.ValidationMessageFor(a => a.City, string.Empty, new { @class = "text-danger" })
-                            </div>
-                            <div class="form_control form_control-50">
-                                @Html.TextBoxFor(m => m.State, new { @class = "inputtext", @placeholder = Master_en.HouseHold_State })
-                                @Html.ValidationMessageFor(a => a.State, string.Empty, new { @class = "text-danger" })
-                            </div>
-                            <div class="form_control form_control form_control-50">
-                                @Html.TextBoxFor(m => m.ZipCode, new { @class = "inputtext", @placeholder = Master_en.HouseHold_ZipCode })
-                                @Html.ValidationMessageFor(a => a.ZipCode, string.Empty, new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="formfieldmn">
-                            <div class="formfieldmn_item formfieldmn_head">
-                                <h1>@Master_en.Vehicle_DoYouAlreadyHaveAnInsurance</h1>
-                            </div>
-                            <div class="formfieldmn_item formfieldmn_form">
-
-                                <div class="toggleBtn">
-                                    <div class="toggleBtn_txt">@Master_en.Yes</div>
-                                    <div class="btn-container">
-                                        <div class="toggle-btn">
-                                            <div class="inner-circle"> </div>
-                                        </div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_Id</div>
+                                        @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
                                     </div>
-                                    <div class="toggleBtn_txt">@Master_en.No</div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_SumInsured</div>
+                                        @Html.TextBoxFor(m => m.SumAssured, new { @class = "inputtext", @placeholder = Master_en.HouseHold_EnterSumAssured, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.SumAssured, string.Empty, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_Location</div>
+                                        @Html.TextBoxFor(m => m.Location, new { @class = "inputtext", @placeholder = Master_en.HouseHold_EnterLocation, @autocomplete = "off" })
+                                        @Html.ValidationMessageFor(a => a.Location, string.Empty, new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_TypeOfCoverage</div>
+                                        @Html.DropDownListFor(m => m.TypeOfCoverage, Model.TypeOfCoverageList, Master_en.InsuraceList, new { @class = "select" })
+                                        @Html.ValidationMessageFor(a => a.TypeOfCoverage, string.Empty, new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form_control ">
+                                        <div class="textHead">@Master_en.HouseHold_StartDate</div>
+                                        @Html.TextBoxFor(m => m.StartDate, new { @class = "inputtext", @type = "date" })
+                                        @Html.ValidationMessageFor(a => a.StartDate, string.Empty, new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stepForm_item">
+
+                                <div class="stepForm_3">
+                                    <div id="divCaptcha">
+                                        <img src="@String.Format("data:image/png;base64,{0}", Model.CaptchaImage)" />
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="ReloadCaptchaCode();" style="margin: 0 0 0 8px; text-decoration: none;"> <img src="~/Content/frontenten/images/refress_icon.png" border="0" /><b>Reload Captcha</b></a>
+                                    <input type="text" name="Code" class="inputtext" id="txtCaptcha" style="width:100%;" required oninvalid="this.setCustomValidity('Please enter captcha code.')" oninput="this.setCustomValidity('')" autocomplete="off" />
+                                </div>
+                                <div class="stepForm_4">
+                                    <button type="button" name="next" id="btnsubmit" class="button">@Master_en.HouseHold_GetQuotation</button>
+                                </div>
+                                <div class="stepForm_5">
+                                    @Html.CheckBoxFor(m => m.TermsCondition, new { @type = "checkbox" })
+                                    @Html.ValidationMessageFor(a => a.TermsCondition, string.Empty, new { @class = "text-danger" })
+                                    @*<input type="checkbox">*@
+                                    @Master_en.HouseHold_IAgreeToGrant
                                 </div>
                             </div>
                         </div>
-
-                        <br><br>
-                        <div class="button_div">
-                            <button type="button" name="next" id="btnsubmit" class="button">@Master_en.Continue</button>
-                        </div>
-                    </fieldset>
-                    <fieldset id="div2" style="display:none;">
-                        <div class="formfieldmn">
-                            @{Html.RenderAction("LoginPage", "Home");}
-                        </div>
-                    </fieldset>
-                    <fieldset id="div3" style="display:none;">
-                        <div class="formfieldmn" style="display:block;left:10%">
-                            <div id="divmsg">
-                                <h3 style="color:red;">@Master_en.InsuranceSubmittedQuote</h3>
-                            </div>
-                        </div>
-                    </fieldset>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
+    <div class="header_tabinner">
+        <a class="header_tab icon2" href="/home/VehicleInsurance">
+            <div class="header_tabtooltip">@Master_en.InsVehicleinsurance</div>
+        </a>
+        <a class="header_tab icon5" href="/home/Medical">
+            <div class="header_tabtooltip">@Master_en.InsMedical</div>
+        </a>
+        <a class="header_tab icon6" href="/home/MedicalMalpractice">
+            <div class="header_tabtooltip">@Master_en.InsMedicalMalpractice</div>
+        </a>
+        <a class="header_tab icon4" href="/home/Travel">
+            <div class="header_tabtooltip">@Master_en.InsTravel</div>
+        </a>
+        <a class="header_tab icon3" href="/home/LifeAndSavings">
+            <div class="header_tabtooltip">@Master_en.InsLifeAndSavings</div>
+        </a>
+        <a class="header_tab icon1" href="/Home/HouseHold">
+            <div class="header_tabtooltip">@Master_en.InsHouseHold</div>
+        </a>
+    </div>
+</div>
+<div id="dialog" title="User Login" style="display:none;z-index:9999999;overflow:hidden;">
+    @{Html.RenderAction("LoginPage", "Home");}
 </div>
 @Scripts.Render("~/bundles/jqueryval")
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="~/Content/frontendjs/insuranceform.js"></script>
 <script>
+    (function ($) {
+        $.validator.unobtrusive.adapters.addBool("checkboxrequired", "required");
+    }(jQuery));
     $("#btnsubmit").click(function (e) {
         e.preventDefault();
         // now trigger the form validation, result is 1 or 0
         var result = $('form').valid();
         if (result) {
-            //Check IsInsurance
-            if ($('.toggle-btn').hasClass('active')) {
-                $('#IsInsurance').val('No');
-            }
-            else {
-                $('#IsInsurance').val('Yes');
-            }
-            alert($('input[type="radio"]:checked').val());
-            $('#TellUsAboutHome').val($('input[type="radio"]:checked').val());
-            //Check step form
-            if ($('#userlgn').val() == "true") {
-                if (EnableStep3('AddHouseHoldInsurance')) {
-                    return false;
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                EnableStep2();
+            $('#SelectedDate').val($('#StartDate').val());
+            //verify captcha
+            var captchacode = $("#txtCaptcha").val();
+            if (captchacode != "") {
+                var url = "/Home/ValidateCaptcha?Code=" + captchacode;
+                $('#divVerify').html("Please wait....");
+                $.ajax({
+                    url: url,
+                    cache: false,
+                    success: function (data) {
+                        if (data == "0") {
+                            alert("Please enter a valid captcha");
+                        } else {
+                           //if captcha true then
+                            //Check step form
+                            if ($('#userlgn').val() == "true") {
+                                if (EnableStep3('AddHouseHoldInsurance')) {
+                                    return false;
+                                }
+                                else {
+                                    return false;
+                                }
+                            }
+                            else {
+                               // debugger;
+                                EnableStep2();
+                            }
+                        }
+                    },
+                    error: function (reponse) {
+                        alert("Error while sending detail. Pleae refresh page and try again.");
+                    }
+
+                });
+            } else {
+                alert("Please enter captcha code.");
             }
         }
     });
     $("#btnloginsubmit").click(function (e) {
         e.preventDefault();
         // now trigger the form validation, result is 1 or 0
-        var result = $('form').valid();
+        var result = $('#frmlogin').valid();
         if (result) {
             if (AccountLogin('AddHouseHoldInsurance')) {
                 return false;

@@ -37,25 +37,23 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>VehicleRegNo.</td>
-                            <td>VehicleBrand </td>
-                            <td>VehicleModel</td>
-                            <td>InsuranceType</td>
-                            <td>EmailId</td>
-                            <td>Already have an insurance?</td>
+                            <td>PurposeOfInsurance</td>
+                            <td>NatinalId-Iqama </td>
+                            <td>RegistrationType</td>
+                            <td>RegistrationTypeNo</td>
+                            <td>StartDate</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listvehicleInsurance)
                         {
-                            <tr>
-                                <td>@item.VehicleRegistrationNumber</td>
-                                <td>@item.VehicleBrand</td>
-                                <td>@item.VehicleModel</td>
-                                <td>@item.InsuranceType</td>
-                                <td>@item.EmailId</td>
-                                <td>@(item.IsInsurance ? "Yes" : "No")</td>
-                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
-                            </tr>
+                    <tr>
+                        <td>@item.PurposeOfInsurance</td>
+                        <td>@item.IdNumber</td>
+                        <td>@item.RegistrationType</td>
+                        <td>@item.RegistrationTypeNo</td>
+                        <td>@(Convert.ToDateTime(item.StartDate).ToString("dd-MM-yyyy"))</td>
+                        <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                    </tr>
                         }
                     </table>
                 </td>
@@ -73,27 +71,19 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>Name</td>
-                            <td>Age </td>
-                            <td>Gender</td>
-                            <td>InsuranceType</td>
-                            <td>EmailId</td>
-                            <td>Address</td>
-                            <td>Already have an insurance?</td>
+                            <td>IDNumber</td>
+                            <td>TypeofInsuranceCoverage</td>
+                            <td>StartDateofInsurance</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listmedicalInsurance)
                         {
-                            <tr>
-                                <td>@item.Name</td>
-                                <td>@item.Age</td>
-                                <td>@item.Gender</td>
-                                <td>@item.InsuranceType</td>
-                                <td>@item.EmailId</td>
-                                <td>@item.Address</td>
-                                <td>@(item.IsInsurance?"Yes":"No")</td>
-                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
-                            </tr>
+                    <tr>
+                        <td>@item.IdNumber</td>
+                        <td>@item.TypeInsuranceCoverage</td>
+                        <td>@(Convert.ToDateTime(item.StartDateofInsurance).ToString("dd-MM-yyyy"))</td>
+                        <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                    </tr>
                         }
                     </table>
                 </td>
@@ -111,19 +101,21 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>Need InsuranceFor</td>
-                            <td>EmailId</td>
-                            <td>Already have an insurance?</td>
+                            <td>IDNumber</td>
+                            <td>Speciality</td>
+                            <td>LimitofLiability</td>
+                            <td>StartDateOfInsurance</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listmedicalMalpracticeInsurance)
                         {
-                            <tr>
-                                <td>@item.NeedInsuranceFor</td>
-                                <td>@item.EmailId</td>
-                                <td>@(item.IsInsurance?"Yes":"No")</td>
-                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
-                            </tr>
+                    <tr>
+                        <td>@item.IdNumber</td>
+                        <td>@item.Speciality</td>
+                        <td>@item.LimitofLiability</td>
+                        <td>@(Convert.ToDateTime(item.StartDateInsurance).ToString("dd-MM-yyyy"))</td>
+                        <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                    </tr>
                         }
                     </table>
                 </td>
@@ -141,27 +133,19 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>Name</td>
-                            <td>Gender</td>
-                            <td>DestinationCountry</td>
-                            <td>Age</td>
-                            <td>FromDate</td>
-                            <td>ToDate</td>
-                            <td>EmailId</td>
-                            <td>Already have an insurance?</td>
+                            <td>IDNumber</td>
+                            <td>Duration</td>
+                            <td>PassportNumber</td>
+                            <td>Destination</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listtravelInsurance)
                         {
                             <tr>
-                                <td>@item.Name</td>
-                                <td>@item.Gender</td>
-                                <td>@item.DestinationCountry</td>
-                                <td>@item.Age</td>
-                                <td>@(Convert.ToDateTime(item.FromDate).ToString("dd-MM-yyyy"))</td>
-                                <td>@(Convert.ToDateTime(item.ToDate).ToString("dd-MM-yyyy"))</td>
-                                <td>@item.EmailId</td>
-                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@item.IdNumber</td>
+                                <td>@item.Duration</td>
+                                <td>@item.PassportNumber</td>
+                                <td>@item.Destination</td>
                                 <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
                             </tr>
                         }
@@ -181,29 +165,19 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>Name</td>
-                            <td>Gender</td>
-                            <td>Age</td>
-                            <td>AnnualIncome</td>
-                            <td>TobbacoNicotine</td>
-                            <td>EmailId</td>
-                            <td>Address</td>
-                            <td>Already have an insurance?</td>
+                            <td>IdNumber</td>
+                            <td>LimitofCoverage</td>
+                            <td>StartDateofInsurance</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listlifeSavingsInsurance)
                         {
-                            <tr>
-                                <td>@item.Name</td>
-                                <td>@item.Age</td>
-                                <td>@item.Gender</td>
-                                <td>@item.AnnualIncome</td>
-                                <td>@item.TobbacoNicotine</td>
-                                <td>@item.EmailId</td>
-                                <td>@item.Address</td>
-                                <td>@(item.IsInsurance?"Yes":"No")</td>
-                                <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
-                            </tr>
+                    <tr>
+                        <td>@item.IdNumber</td>
+                        <td>@item.LimitCoverage</td>
+                        <td>@(Convert.ToDateTime(item.StartDate).ToString("dd-MM-yyyy"))</td>
+                        <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
+                    </tr>
                         }
                     </table>
                 </td>
@@ -221,25 +195,21 @@
                 <td colspan="2">
                     <table class="table table-striped">
                         <tr>
-                            <td>Home Type</td>
-                            <td>Address</td>
-                            <td>InsuranceType</td>
-                            <td>City</td>
-                            <td>State</td>
-                            <td>ZipCode</td>
-                            <td>Already have an insurance?</td>
+                            <td>IdNumber</td>
+                            <td>SumInsured</td>
+                            <td>Location</td>
+                            <td>TypeofCoverage</td>
+                            <td>StartDate</td>
                             <td>CreatedOn</td>
                         </tr>
                         @foreach (var item in Model.listHouseHoldInsurance)
                         {
                             <tr>
-                                <td>@item.TellAboutHome</td>
-                                <td>@item.Address</td>
-                                <td>@item.InsuranceType</td>
-                                <td>@item.City</td>
-                                <td>@item.State</td>
-                                <td>@item.ZipCode</td>
-                                <td>@(item.IsInsurance?"Yes":"No")</td>
+                                <td>@item.IdNumber</td>
+                                <td>@item.SumInsurred</td>
+                                <td>@item.Location</td>
+                                <td>@item.TypeofCoverage</td>
+                                <td>@(Convert.ToDateTime(item.StartDate).ToString("dd-MM-yyyy"))</td>
                                 <td>@(Convert.ToDateTime(item.CreatedOn).ToString("dd-MM-yyyy"))</td>
                             </tr>
                         }

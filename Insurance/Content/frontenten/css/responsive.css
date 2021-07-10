@@ -1,4 +1,35 @@
 @media screen and (max-width:1200px){
+    .h1, h1 {
+        font-size: 1.5rem;
+    }
+    .h4, h4 {
+        font-size: 1rem;
+    }
+
+    .abouthead_item img {
+        max-width: 90%;
+        margin: 0px auto;
+    }
+    .about_mainimage img {
+        min-width: 90%;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .abouthead_item:nth-child(2) {
+        padding: 0 0px;
+    }
+    .abouthead_item:nth-child(2) p {
+      
+        font-size: 16px;
+    }
+    .tab_item:before{
+        margin-right: 5px;
+    }
+
+    ul.vm_list li {
+        
+        font-size: 16px;
+    }
 
     .header_tabinner{
         display: flex;
@@ -182,8 +213,53 @@
     .bannerForm{
         width: 100%;
     }
+    .tab_item{
+        font-size: .9em;
+    }
+    .banner_1 .header_tabinner{
+        width: 100%;
+        position: absolute;
+        top: 420px;
+    }
+
+    .stepForm_1{
+        padding-left: 0px !important;
+    }
+    .stepForm_2{
+        flex-direction: column;
+    }
+    .stepForm_2 .form_control {
+        padding: 0 0px;
+    }
+    .stepForm_mn{
+        height: auto;
+        flex-direction: column;
+    }
+    .newForm{
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .stepForm_item:nth-child(1){
+        margin: 0;
+        padding: 0;
+        border-right: 0;
+        width: 100%;
+        border-bottom: 1px solid #a5a4a4;
+        margin-bottom: 15px;
+    }
+
 }
 
 
 
+
+@media screen and (min-width: 1367px){
+
+    .banner_1 .header_tabinner{
+        position: absolute;
+        top: 25px;
+    }
+
+}
 

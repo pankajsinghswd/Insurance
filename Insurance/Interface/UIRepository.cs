@@ -60,7 +60,7 @@ namespace Insurance.Interface
             {
                 ds.Dispose();
             }
-            return model;
+            return model.OrderBy(x=>x.Text).ToList();
         }
         public List<SelectListItem> GetAgeList()
         {
@@ -99,27 +99,27 @@ namespace Insurance.Interface
             return model;
         }
 
-        public int SaveInsuranceQuote(InsuranceQuoteModel model)
+        public int SaveInsuranceQuote<T>( T model,string insuranceTye)
         {
             int count = 0;
             IDictionary<string, object> sqlParams = null;
             try
             {
 
-                sqlParams = new Dictionary<string, object>();
-                sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveInsuranceQuote);
-                sqlParams.Add("@PurposeofInsurance", model.PurposeofInsurance);
-                sqlParams.Add("@FirstName_en", (IsEnglish) ? model.FirstName : "");
-                sqlParams.Add("@FirstName_local", !(IsEnglish) ? model.FirstName : "");
-                sqlParams.Add("@LastName_en", (IsEnglish) ? model.LastName : "");
-                sqlParams.Add("@LastName_local", !(IsEnglish) ? model.LastName : "");
-                sqlParams.Add("@Email", model.EmailAddress);
-                sqlParams.Add("@PhoneNumber", model.PhoneNumber);
-                sqlParams.Add("@Age", model.Age);
-                ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
-                count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+                //sqlParams = new Dictionary<string, object>();
+                //sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveInsuranceQuote);
+                //sqlParams.Add("@PurposeofInsurance", model.PurposeofInsurance);
+                //sqlParams.Add("@FirstName_en", (IsEnglish) ? model.FirstName : "");
+                //sqlParams.Add("@FirstName_local", !(IsEnglish) ? model.FirstName : "");
+                //sqlParams.Add("@LastName_en", (IsEnglish) ? model.LastName : "");
+                //sqlParams.Add("@LastName_local", !(IsEnglish) ? model.LastName : "");
+                //sqlParams.Add("@Email", model.EmailAddress);
+                //sqlParams.Add("@PhoneNumber", model.PhoneNumber);
+                //sqlParams.Add("@Age", model.Age);
+                //ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
+                //count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
                 //sent email
-                _mailer.SendEmailInsuracneQuote(model, IsEnglish);
+                _mailer.SendEmailInsuracneQuote(model, IsEnglish, insuranceTye);
             }
             catch (Exception ex)
             {
@@ -198,6 +198,26 @@ namespace Insurance.Interface
         #endregion
 
         #region Insurance form methods
+        public List<SelectListItem> GetTypeOfCoverage()
+        {
+            List<SelectListItem> model = new List<SelectListItem>();
+            try
+            {
+                SelectListItem viewModel = new SelectListItem();
+                viewModel.Value ="Public Liability Coverage";
+                viewModel.Text = (IsEnglish) ? "Public Liability Coverage" : "تغطية المسؤولية العامة";
+                model.Add(viewModel);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(string.Format("Class Name:{0},Methode Name: {1}, Error {2}", "DropdownList", "GetPolicyTypeList", ex.Message.ToString()));
+            }
+            finally
+            {
+                ds.Dispose();
+            }
+            return model;
+        }
         public int AddVehicleInsuranceQuote(VehicleInsuranceModels model)
         {
             int count = 0;
@@ -207,12 +227,11 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveVehicleInsurance);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@VehicleRegistrationNumber", model.VehicleRegistrationNo);
-                sqlParams.Add("@VehicleBrand", model.VehicleBrand);
-                sqlParams.Add("@VehicleModel", model.VehicleModel);
-                sqlParams.Add("@InsuranceId", model.IssuranceId);
-                sqlParams.Add("@Email", model.EmailId);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@PurposeofInsurance", model.PurposeOfInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@RegistrationType", model.RegistrationType);
+                sqlParams.Add("@RegistrationTypeNo", model.RegistrationTypeNo);
+                sqlParams.Add("@StartDate", model.SelectedDate);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -236,13 +255,9 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveMedcalInsurance);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@Name", model.Name);
-                sqlParams.Add("@Age", model.Age);
-                sqlParams.Add("@Gender", model.Gender);
-                sqlParams.Add("@InsuranceId", model.IssuranceId);
-                sqlParams.Add("@Address", model.Address);
-                sqlParams.Add("@Email", model.EmailId);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@TypeInsuranceCoverage", model.InsuranceCoverage);
+                sqlParams.Add("@StartDateOfInsurance", model.SelectedDate);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -266,9 +281,10 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveMedicalMalpractice);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@NeedInsuranceFor", model.NeedInsuranceFor);
-                sqlParams.Add("@Email", model.EmailId);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@Speciality", model.Speciality);
+                sqlParams.Add("@LimitOfLiability", model.LimitOfLiability);
+                sqlParams.Add("@StartDateInsurance", model.SelectedDate);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -292,14 +308,10 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveTravelInsurance);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@Name", model.Name);
-                sqlParams.Add("@Gender", model.Gender);
-                sqlParams.Add("@DestinationCountry", model.DestinationCountry);
-                sqlParams.Add("@Age", model.Age);
-                sqlParams.Add("@FromDate", model.FromDate);
-                sqlParams.Add("@ToDate", model.ToDate);
-                sqlParams.Add("@Email", model.EmailId);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@Duration", model.Duration);
+                sqlParams.Add("@PassportNumber", model.PassportNumber);
+                sqlParams.Add("@Destination", model.Destination);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -323,14 +335,9 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveLifeSavingsInsurance);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@Name", model.Name);
-                sqlParams.Add("@Age", model.Age);
-                sqlParams.Add("@Gender", model.Gender);
-                sqlParams.Add("@AnnualIncome", model.AnnualIncome);
-                sqlParams.Add("@TobbacoNicotine", model.Tobbaco);
-                sqlParams.Add("@Email", model.EmailId);
-                sqlParams.Add("@Address", model.Address);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@LimitCoverage", model.LimitOfCoverage);
+                sqlParams.Add("@StartDate", model.SelectedDate);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -354,13 +361,11 @@ namespace Insurance.Interface
                 sqlParams = new Dictionary<string, object>();
                 sqlParams.Add("@Qtype", QueryTypeFrontendUI.SaveHouseHoldInsurance);
                 sqlParams.Add("@AspnetUserId", SessionHelper.AspnetUserId());
-                sqlParams.Add("@TellAboutHome", model.TellUsAboutHome);
-                sqlParams.Add("@Address", model.Address);
-                sqlParams.Add("@InsuranceId", model.IssuranceId);
-                sqlParams.Add("@City", model.City);
-                sqlParams.Add("@State", model.State);
-                sqlParams.Add("@ZipCode", model.ZipCode);
-                sqlParams.Add("@IsInsurance", model.IsInsurance);
+                sqlParams.Add("@IdNumber", model.ID);
+                sqlParams.Add("@SumInsurred", model.SumAssured);
+                sqlParams.Add("@Location", model.Location);
+                sqlParams.Add("@TypeofCoverage", model.TypeOfCoverage);
+                sqlParams.Add("@StartDate", model.SelectedDate);
                 ds = SqlHelper.ExecuteProcedure(connectionString, storeProcedureName.spInsFrontendUI, sqlParams);
                 count = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
@@ -417,6 +422,90 @@ namespace Insurance.Interface
             {
                 logger.Error(string.Format("Class Name:{0},Methode Name: {1}, Error {2}", "DropdownList", "GetPolicyTypeList", ex.Message.ToString()));
 
+            }
+            finally
+            {
+                ds.Dispose();
+            }
+            return model;
+        }
+        public List<SelectListItem> GetSpeciality()
+        {
+            List<SelectListItem> model = new List<SelectListItem>();
+            try
+            {
+                SelectListItem viewModel = new SelectListItem();
+                viewModel.Value = "Orthopedic";
+                viewModel.Text = (IsEnglish) ? "Orthopedic" : "تقويم العظام";
+                model.Add(viewModel);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(string.Format("Class Name:{0},Methode Name: {1}, Error {2}", "DropdownList", "GetPolicyTypeList", ex.Message.ToString()));
+            }
+            finally
+            {
+                ds.Dispose();
+            }
+            return model;
+        }
+        public List<SelectListItem> GetLimitLiability()
+        {
+            List<SelectListItem> model = new List<SelectListItem>();
+            try
+            {
+                SelectListItem viewModel = new SelectListItem();
+                viewModel.Value = "500";
+                viewModel.Text = "500";
+                model.Add(viewModel);
+                viewModel = new SelectListItem();
+                viewModel.Value = "1000";
+                viewModel.Text = "1000";
+                model.Add(viewModel);
+                 viewModel = new SelectListItem();
+                viewModel.Value = "5000";
+                viewModel.Text = "5000";
+                model.Add(viewModel);
+                 viewModel = new SelectListItem();
+                viewModel.Value = "10000";
+                viewModel.Text = "10000";
+                model.Add(viewModel);
+                 viewModel = new SelectListItem();
+                viewModel.Value = "50000";
+                viewModel.Text = "50000";
+                model.Add(viewModel);
+                 viewModel = new SelectListItem();
+                viewModel.Value = "100000";
+                viewModel.Text = "10000";
+                model.Add(viewModel);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(string.Format("Class Name:{0},Methode Name: {1}, Error {2}", "DropdownList", "GetPolicyTypeList", ex.Message.ToString()));
+            }
+            finally
+            {
+                ds.Dispose();
+            }
+            return model;
+        }
+        public List<SelectListItem> GetTypeOfInsuranceCoverage()
+        {
+            List<SelectListItem> model = new List<SelectListItem>();
+            try
+            {
+                SelectListItem viewModel = new SelectListItem();
+                viewModel.Value = "Individual Health";
+                viewModel.Text = (IsEnglish) ? "Individual Health" : "صحة الفرد";
+                model.Add(viewModel);
+                 viewModel = new SelectListItem();
+                viewModel.Value = "Critical Illness";
+                viewModel.Text = (IsEnglish) ? "Critical Illness" : "مرض حرج";
+                model.Add(viewModel);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(string.Format("Class Name:{0},Methode Name: {1}, Error {2}", "DropdownList", "GetPolicyTypeList", ex.Message.ToString()));
             }
             finally
             {

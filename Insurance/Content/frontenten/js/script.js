@@ -21,5 +21,31 @@
     setTimeout(function(){
         page.init();
     }, 500);
+
+
+    $('.header_language-2').on('click', function() {
+        $('body').removeClass('arabic');
+    })
+
+    $('.header_language-1').on('click', function() {
+        $('body').addClass('arabic');
+    })
+
+
+    $('.form_control .select').on('change', function() {
+        $('.comnBox').hide();
+        $('.comnfld').hide();
+        var val = $(this).val();
+        console.log(val)
+
+        $('.'+val).show();
+
+        if( val === 'noselect' )
+        {
+            $('.comnfld').show();
+        }
+
+    })
+    
     
 

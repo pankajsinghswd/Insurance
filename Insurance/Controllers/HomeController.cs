@@ -11,6 +11,7 @@ using Insurance.ViewModels;
 using System;
 using Insurance.Helpers;
 using Insurance.Resources;
+using System.Drawing;
 
 namespace Insurance.Controllers
 {
@@ -37,32 +38,127 @@ namespace Insurance.Controllers
                 _userManager = value;
             }
         }
+        #region Home page code
         public ActionResult Index()
         {
             InsuranceQuoteModel quoteModel = new InsuranceQuoteModel();
             quoteModel.InsuraceList = uiRepository.GetPolicyTypeList();
-            quoteModel.AgeList = uiRepository.GetAgeList();
             return View(quoteModel);
         }
-
         [HttpPost]
         public ActionResult Index(InsuranceQuoteModel model)
         {
             //ModelState.Remove("AgeList");
             //ModelState.Remove("InsuraceList");
-            if (model!=null)
-            {
-                uiRepository.SaveInsuranceQuote(model);
-                TempData["success"] = Master_en.QuoteSuccessMessage;
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                model.InsuraceList = uiRepository.GetPolicyTypeList();
-                model.AgeList = uiRepository.GetAgeList();
-            }
+            //if (model != null)
+            //{
+            //    uiRepository.SaveInsuranceQuote(model);
+            //    TempData["success"] = Master_en.QuoteSuccessMessage;
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    model.InsuraceList = uiRepository.GetPolicyTypeList();
+            //    model.AgeList = uiRepository.GetAgeList();
+            //}
             return View(model);
         }
+
+        public ActionResult HouseHoldPartial()
+        {
+            HouseHoldInsuranceModels model = new HouseHoldInsuranceModels();
+            model.TypeOfCoverageList = uiRepository.GetTypeOfCoverage();
+            return PartialView("_household", model);
+        }
+        [HttpPost]
+        public ActionResult HouseHoldQuote(HouseHoldInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.HouseHold);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult LifeSavingPartial()
+        {
+            LifeSavingsInsuranceModels model = new LifeSavingsInsuranceModels();
+            return PartialView("_lifesaving", model);
+        }
+        [HttpPost]
+        public ActionResult LifeSavingQuote(LifeSavingsInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.LifeSavings);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult MedicalPartial()
+        {
+            MedicalInsuranceModels model = new MedicalInsuranceModels();
+            model.InsuranceCoverageList = uiRepository.GetTypeOfInsuranceCoverage();
+            return PartialView("_medicalinsurance",model);
+        }
+        [HttpPost]
+        public ActionResult MedicalQuote(MedicalInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.Medical);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult MedicalMalpracticePartial()
+        {
+            MedicalMalpracticeInsuranceModels model = new MedicalMalpracticeInsuranceModels();
+            model.SpecialityList = uiRepository.GetSpeciality();
+            model.LimitOfLiabilityList = uiRepository.GetLimitLiability();
+            return PartialView("_medicalmalparctice",model);
+        }
+        [HttpPost]
+        public ActionResult MedicalMalpracticeQuote(MedicalMalpracticeInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.MedicalMalpractice);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult TravelPartial()
+        {
+            TravelInsuranceModels model = new TravelInsuranceModels();
+            return PartialView("_travelinsurance",model);
+        }
+        [HttpPost]
+        public ActionResult TravelQuote(TravelInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.Travel);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult VehiclePartial()
+        {
+            VehicleInsuranceModels model = new VehicleInsuranceModels();
+            return PartialView("_vehicleInsurance",model);
+        }
+        [HttpPost]
+        public ActionResult VehicleQuote(VehicleInsuranceModels model)
+        {
+            if (model != null)
+            {
+                uiRepository.SaveInsuranceQuote(model, InsuranceType.VehicleInsurance);
+                TempData["success"] = Master_en.QuoteSuccessMessage;
+            }
+            return RedirectToAction("Index");
+        }
+        #endregion
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -100,7 +196,7 @@ namespace Insurance.Controllers
                     model.AgeList = uiRepository.GetAgeList();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.Error(ex);
             }
@@ -196,9 +292,9 @@ namespace Insurance.Controllers
             VehicleInsuranceModels model = new VehicleInsuranceModels();
             try
             {
-                model.InsuraceList = uiRepository.GetPolicyTypeList();
+                model.CaptchaImage = CaptchaImage();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.Error(ex);
             }
@@ -212,19 +308,19 @@ namespace Insurance.Controllers
                 uiRepository.AddVehicleInsuranceQuote(model);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.Error(ex);
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
-            
+
         }
 
         public ActionResult Medical()
         {
             MedicalInsuranceModels model = new MedicalInsuranceModels();
-            model.InsuraceList = uiRepository.GetPolicyTypeList();
-            model.GenderList = uiRepository.GetGenderList();
+            model.InsuranceCoverageList = uiRepository.GetTypeOfInsuranceCoverage();
+            model.CaptchaImage = CaptchaImage();
             return View(model);
         }
         [Authorize]
@@ -245,6 +341,9 @@ namespace Insurance.Controllers
         public ActionResult MedicalMalpractice()
         {
             MedicalMalpracticeInsuranceModels model = new MedicalMalpracticeInsuranceModels();
+            model.CaptchaImage = CaptchaImage();
+            model.SpecialityList = uiRepository.GetSpeciality();
+            model.LimitOfLiabilityList = uiRepository.GetLimitLiability();
             return View(model);
         }
         [Authorize]
@@ -266,7 +365,7 @@ namespace Insurance.Controllers
         public ActionResult Travel()
         {
             TravelInsuranceModels model = new TravelInsuranceModels();
-            model.GenderList = uiRepository.GetGenderList();
+            model.CaptchaImage = CaptchaImage();
             return View(model);
         }
         [Authorize]
@@ -287,8 +386,7 @@ namespace Insurance.Controllers
         public ActionResult LifeAndSavings()
         {
             LifeSavingsInsuranceModels model = new LifeSavingsInsuranceModels();
-            model.GenderList = uiRepository.GetGenderList();
-            model.TobbacoList = uiRepository.GetTobbacoNicotineList();
+            model.CaptchaImage = CaptchaImage();
             return View(model);
         }
         [Authorize]
@@ -304,12 +402,15 @@ namespace Insurance.Controllers
                 logger.Error(ex);
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
-
         }
+
+
+
         public ActionResult HouseHold()
         {
             HouseHoldInsuranceModels model = new HouseHoldInsuranceModels();
-            model.InsuraceList = uiRepository.GetPolicyTypeList();
+            model.TypeOfCoverageList = uiRepository.GetTypeOfCoverage();
+            model.CaptchaImage = CaptchaImage();
             return View(model);
         }
         [Authorize]
@@ -334,11 +435,77 @@ namespace Insurance.Controllers
             return PartialView("~/Views/Home/_Login.cshtml", model);
         }
 
-    #endregion
+        #region Cpatcha Code
+        public string CaptchaImage()
+        {
+            string[] strArray = new string[36];
+            strArray = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-    #region IDisposable Members
+            Random autoRand = new Random();
+            string strCaptcha = string.Empty;
+            for (int i = 0; i < 6; i++)
+            {
+                int j = Convert.ToInt32(autoRand.Next(0, 62));
+                strCaptcha += strArray[j].ToString();
+            }
+            Session["Captcha"] = strCaptcha;
+            ImageConverter converter = new ImageConverter();
+            // Response.BinaryWrite((byte[])converter.ConvertTo(CaptchaGeneration(strCaptcha), typeof(byte[])));
+            return Convert.ToBase64String((byte[])converter.ConvertTo(CaptchaGeneration(strCaptcha), typeof(byte[])));
+        }
+        public ActionResult CaptchaImageReload()
+        {
+            string[] strArray = new string[36];
+            strArray = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-    private bool disposed = false;
+            Random autoRand = new Random();
+            string strCaptcha = string.Empty;
+            for (int i = 0; i < 6; i++)
+            {
+                int j = Convert.ToInt32(autoRand.Next(0, 62));
+                strCaptcha += strArray[j].ToString();
+            }
+            Session["Captcha"] = strCaptcha;
+            ImageConverter converter = new ImageConverter();
+            // Response.BinaryWrite((byte[])converter.ConvertTo(CaptchaGeneration(strCaptcha), typeof(byte[])));
+            return Json(Convert.ToBase64String((byte[])converter.ConvertTo(CaptchaGeneration(strCaptcha), typeof(byte[]))), JsonRequestBehavior.AllowGet);
+        }
+        public Bitmap CaptchaGeneration(string captchatxt)
+        {
+            Bitmap bmp = new Bitmap(133, 48);
+            using (Graphics graphics = Graphics.FromImage(bmp))
+            {
+                Font font = new Font("Tahoma", 14);
+                graphics.FillRectangle(new SolidBrush(Color.Gray), 0, 0, bmp.Width, bmp.Height);
+                graphics.DrawString(captchatxt, font, new SolidBrush(Color.Gold), 25, 10);
+                graphics.Flush();
+                font.Dispose();
+                graphics.Dispose();
+            }
+            return bmp;
+        }
+        public string ValidateCaptcha(string Code)
+        {
+            try
+            {
+                if (Session["Captcha"].ToString() == Code)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            catch { return "0"; }
+        }
+        #endregion
+
+        #endregion
+
+        #region IDisposable Members
+
+        private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
         {

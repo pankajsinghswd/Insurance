@@ -12,6 +12,15 @@ namespace Insurance.Utils
         public const string Admin = "Admin";
         public const string User = "User";
     }
+    public static class InsuranceType
+    {
+        public const string HouseHold = "household";
+        public const string LifeSavings = "lifesaving";
+        public const string Medical = "medical";
+        public const string MedicalMalpractice = "medicalmalpractice";
+        public const string Travel = "travel";
+        public const string VehicleInsurance = "vehicle";
+    }
     public enum PageType
     {
         None = 0,
@@ -149,7 +158,6 @@ namespace Insurance.Utils
         public const int Days = 23;
         public const int therapistList = 24;
         public const int UpdateProfileByTherapist = 25;
-        
     }
 
     public static class QueryTypeFrontendUI

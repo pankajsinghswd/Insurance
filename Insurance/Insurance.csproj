@@ -619,6 +619,7 @@
     <Content Include="Content\frontendjs\lang.en.js" />
     <Content Include="Content\frontenten\css\aboutus.css" />
     <Content Include="Content\frontenten\css\bootstrap.min.css" />
+    <Content Include="Content\frontenten\css\CustomCss.css" />
     <Content Include="Content\frontenten\css\main.css" />
     <Content Include="Content\frontenten\css\pages\fonts.css" />
     <Content Include="Content\frontenten\css\pages\header.css" />
@@ -634,6 +635,7 @@
     <Content Include="Content\frontenten\images\Buildings.png" />
     <Content Include="Content\frontenten\images\bullet.png" />
     <Content Include="Content\frontenten\images\button_bg.png" />
+    <Content Include="Content\frontenten\images\captcha.png" />
     <Content Include="Content\frontenten\images\claim-hover.png" />
     <Content Include="Content\frontenten\images\claim.png" />
     <Content Include="Content\frontenten\images\Color Pallet.png" />
@@ -677,6 +679,7 @@
     <Content Include="Content\frontenten\images\points\points %284%29.png" />
     <Content Include="Content\frontenten\images\points\points %285%29.png" />
     <Content Include="Content\frontenten\images\points\points %286%29.png" />
+    <Content Include="Content\frontenten\images\refress_icon.png" />
     <Content Include="Content\frontenten\images\sedan-car-front-hover.png" />
     <Content Include="Content\frontenten\images\sedan-car-front.png" />
     <Content Include="Content\frontenten\images\SignupBg.png" />
@@ -727,7 +730,9 @@
     <Content Include="Content\frontenten\js\jquery.js" />
     <Content Include="Content\frontenten\js\script.js" />
     <Content Include="Content\images\about-img.png" />
+    <Content Include="Content\images\About.png" />
     <Content Include="Content\images\alert.png" />
+    <Content Include="Content\images\banner-about.png" />
     <Content Include="Content\images\doctor.png" />
     <Content Include="Content\images\feedback-btn.png" />
     <Content Include="Content\images\feedback-btn1.png" />
@@ -755,13 +760,24 @@
     <Content Include="EmailTemplate\forgotpassword_ar.html" />
     <Content Include="EmailTemplate\ForgotPassword_en.html" />
     <Content Include="EmailTemplate\ContactUs_en.html" />
-    <Content Include="EmailTemplate\InsuranceQuote_en.html" />
+    <Content Include="EmailTemplate\VehicleQuote_ar.html" />
+    <Content Include="EmailTemplate\TravelQuote_ar.html" />
+    <Content Include="EmailTemplate\VehicleQuote_en.html" />
+    <Content Include="EmailTemplate\TravelQuote_en.html" />
+    <Content Include="EmailTemplate\MedicalMalPracticeQuote_ar.html" />
+    <Content Include="EmailTemplate\MedicalMalPracticeQuote_en.html" />
+    <Content Include="EmailTemplate\MedicalQuote_ar.html" />
+    <Content Include="EmailTemplate\MedicalQuote_en.html" />
+    <Content Include="EmailTemplate\LifeSavingQuote_ar.html" />
+    <Content Include="EmailTemplate\LifeSavingQuote_en.html" />
+    <Content Include="EmailTemplate\HouseHoldQuote_en.html" />
     <Content Include="EmailTemplate\MailPasswordReset.html" />
-    <Content Include="EmailTemplate\InsuranceQuote_ar.html" />
+    <Content Include="EmailTemplate\HouseHoldQuote_ar.html" />
     <Content Include="EmailTemplate\WelcomeEmail.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\ui-icons_777777_256x240.png" />
     <Content Include="privacy_policy.html" />
     <Content Include="Scripts\adminlte\components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
     <Content Include="Scripts\adminlte\components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
@@ -4840,6 +4856,12 @@
     <Content Include="Views\Home\VehicleInsurance.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Reports\_DetailHistory.cshtml" />
+    <Content Include="Views\Home\_household.cshtml" />
+    <Content Include="Views\Home\_lifesaving.cshtml" />
+    <Content Include="Views\Home\_medicalinsurance.cshtml" />
+    <Content Include="Views\Home\_medicalmalparctice.cshtml" />
+    <Content Include="Views\Home\_travelinsurance.cshtml" />
+    <Content Include="Views\Home\_vehicleInsurance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

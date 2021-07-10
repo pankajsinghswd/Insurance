@@ -123,6 +123,9 @@
   <data name="AgeList" xml:space="preserve">
     <value>الرجاء تحديد العمر</value>
   </data>
+  <data name="AgreeCheckBox" xml:space="preserve">
+    <value>يرجى تحديد خانة الاختيار</value>
+  </data>
   <data name="AllRightsReserved" xml:space="preserve">
     <value>كل الحقوق محفوظة.</value>
   </data>
@@ -207,8 +210,29 @@
   <data name="HouseHold_Condo" xml:space="preserve">
     <value>شقة</value>
   </data>
+  <data name="HouseHold_EnterID" xml:space="preserve">
+    <value>أدخل المعرف</value>
+  </data>
+  <data name="HouseHold_EnterLocation" xml:space="preserve">
+    <value>أدخل موقعك</value>
+  </data>
+  <data name="HouseHold_EnterSumAssured" xml:space="preserve">
+    <value>أدخل مبلغ التأمين</value>
+  </data>
+  <data name="HouseHold_GetQuotation" xml:space="preserve">
+    <value>إرسال الاقتباسات</value>
+  </data>
   <data name="HouseHold_House" xml:space="preserve">
     <value>منزل</value>
+  </data>
+  <data name="HouseHold_IAgreeToGrant" xml:space="preserve">
+    <value>أوافق على منح الحق في الاستفسار</value>
+  </data>
+  <data name="HouseHold_Id" xml:space="preserve">
+    <value>بطاقة تعريف</value>
+  </data>
+  <data name="HouseHold_Location" xml:space="preserve">
+    <value>موقع</value>
   </data>
   <data name="HouseHold_Other" xml:space="preserve">
     <value>آخر</value>
@@ -216,11 +240,20 @@
   <data name="HouseHold_Rental" xml:space="preserve">
     <value>تأجير</value>
   </data>
+  <data name="HouseHold_StartDate" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
   <data name="HouseHold_State" xml:space="preserve">
     <value>حالة</value>
   </data>
+  <data name="HouseHold_SumInsured" xml:space="preserve">
+    <value>مبلغ التأمين</value>
+  </data>
   <data name="HouseHold_TellUsAboutYourHome" xml:space="preserve">
     <value>أخبرنا عن منزلك</value>
+  </data>
+  <data name="HouseHold_TypeOfCoverage" xml:space="preserve">
+    <value>نوع التغطية</value>
   </data>
   <data name="HouseHold_WhatTheaddressYouLikeToEnsure" xml:space="preserve">
     <value>ما هو العنوان الذي تود التأكد منه؟</value>
@@ -230,6 +263,9 @@
   </data>
   <data name="IAgreeToTheTerms" xml:space="preserve">
     <value>أوافق على شروط وأحكام الشركة</value>
+  </data>
+  <data name="IDNumber" xml:space="preserve">
+    <value>الهوية الوطنية / الاقامة / الشركة</value>
   </data>
   <data name="InProgress" xml:space="preserve">
     <value>في تقدم</value>
@@ -276,8 +312,14 @@
   <data name="Life_AnualIncome" xml:space="preserve">
     <value>الدخل السنوي</value>
   </data>
+  <data name="Life_LimitOfCoverage" xml:space="preserve">
+    <value>حد التغطية</value>
+  </data>
   <data name="Life_SelectTobaccoNicotine" xml:space="preserve">
     <value>اختر التبغ / النيكوتين</value>
+  </data>
+  <data name="LIfe_StartDateofInsurance" xml:space="preserve">
+    <value>تاريخ بدء التأمين</value>
   </data>
   <data name="Life_TellUsAboutYourself" xml:space="preserve">
     <value>أخبرنا عن نفسك</value>
@@ -287,6 +329,15 @@
   </data>
   <data name="Male" xml:space="preserve">
     <value>ذكر</value>
+  </data>
+  <data name="Medical_SelectTypeOfInsuranceCoverage" xml:space="preserve">
+    <value>حدد التغطية التأمينية</value>
+  </data>
+  <data name="Medical_TypeOfInsuranceCoverage" xml:space="preserve">
+    <value>نوع التغطية التأمينية</value>
+  </data>
+  <data name="MedicleMalpractice_LimitOfLiability" xml:space="preserve">
+    <value>حدود المسؤولية</value>
   </data>
   <data name="MedicleMalpractice_MyFamily" xml:space="preserve">
     <value>عائلتي</value>
@@ -299,6 +350,18 @@
   </data>
   <data name="MedicleMalPractice_NeedInsuranceFor" xml:space="preserve">
     <value>بحاجة للتأمين</value>
+  </data>
+  <data name="MedicleMalpractice_SelectLimitOfLiability" xml:space="preserve">
+    <value>حدد حد المسؤولية</value>
+  </data>
+  <data name="MedicleMalpractice_SelectSpeciality" xml:space="preserve">
+    <value>حدد التخصص</value>
+  </data>
+  <data name="MedicleMalpractice_Speciality" xml:space="preserve">
+    <value>تخصص</value>
+  </data>
+  <data name="MedicleMalpractice_StartDateofInsurance" xml:space="preserve">
+    <value>تاريخ بدء التأمين</value>
   </data>
   <data name="MedicleMalPractice_WhattheaddressYouLikeToEnsure" xml:space="preserve">
     <value>ما هو العنوان الذي تود التأكد منه؟</value>
@@ -411,6 +474,9 @@
   <data name="ReuiredField" xml:space="preserve">
     <value>الحقل مطلوب</value>
   </data>
+  <data name="SelectDropdownlist" xml:space="preserve">
+    <value>--يختار--</value>
+  </data>
   <data name="Step1" xml:space="preserve">
     <value>الخطوة 1</value>
   </data>
@@ -426,11 +492,29 @@
   <data name="TransferOfOwnership" xml:space="preserve">
     <value>نقل ملكية</value>
   </data>
+  <data name="Travel_Destination" xml:space="preserve">
+    <value>وجهة</value>
+  </data>
   <data name="Travel_DestinationCountry" xml:space="preserve">
     <value>بلد المقصد</value>
   </data>
+  <data name="Travel_Duration" xml:space="preserve">
+    <value>مدة</value>
+  </data>
+  <data name="Travel_EnterDestination" xml:space="preserve">
+    <value>أدخل الوجهة</value>
+  </data>
+  <data name="Travel_EnterDuration" xml:space="preserve">
+    <value>أدخل المدة</value>
+  </data>
+  <data name="Travel_EnterPassportNumber" xml:space="preserve">
+    <value>أدخل رقم جواز سفرك</value>
+  </data>
   <data name="Travel_Gender" xml:space="preserve">
     <value>حدد نوع الجنس</value>
+  </data>
+  <data name="Travel_PassportNumber" xml:space="preserve">
+    <value>رقم جواز السفر</value>
   </data>
   <data name="Travel_PersonalDetails" xml:space="preserve">
     <value>تفاصيل شخصية</value>
@@ -471,14 +555,35 @@
   <data name="UserLogin_Username" xml:space="preserve">
     <value>اسم المستخدم</value>
   </data>
+  <data name="Vechicle_CustomCard" xml:space="preserve">
+    <value>بطاقة مخصصة</value>
+  </data>
+  <data name="Vechicle_SequenceNumber" xml:space="preserve">
+    <value>رقم التسلسل</value>
+  </data>
   <data name="Vehicle_DoYouAlreadyHaveAnInsurance" xml:space="preserve">
     <value>هل لديك بالفعل تأمين؟</value>
+  </data>
+  <data name="Vehicle_EnterRegistrationType" xml:space="preserve">
+    <value>Enter registration type number</value>
+  </data>
+  <data name="Vehicle_NewInsurance" xml:space="preserve">
+    <value>تأمين جديد</value>
   </data>
   <data name="Vehicle_PersonalInformation" xml:space="preserve">
     <value>معلومات شخصية</value>
   </data>
+  <data name="Vehicle_PuposeOfInsurance" xml:space="preserve">
+    <value>الغرض من التأمين</value>
+  </data>
+  <data name="Vehicle_RegistrationType" xml:space="preserve">
+    <value>نوع التسجيل</value>
+  </data>
   <data name="Vehicle_TellUsAboutYourVehicle" xml:space="preserve">
     <value>أخبرنا عن سيارتك</value>
+  </data>
+  <data name="Vehicle_TransferOwnership" xml:space="preserve">
+    <value>نقل الملكية</value>
   </data>
   <data name="Vehicle_VehicleBrand" xml:space="preserve">
     <value>ماركة السيارة</value>

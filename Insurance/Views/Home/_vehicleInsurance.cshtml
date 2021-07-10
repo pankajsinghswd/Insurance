@@ -1,0 +1,61 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.VehicleInsuranceModels
+@Html.HiddenFor(m => m.SelectedInsurance)
+@Html.HiddenFor(m => m.SelectedDate)
+@Html.HiddenFor(m => m.PurposeOfInsurance)
+@Html.HiddenFor(m => m.RegistrationType)
+<div class="form_control form_control comnBox comnfld">
+    <h3>@Master_en.Vehicle_PuposeOfInsurance</h3>
+</div>
+
+<div class="form_control form_control-50 comnBox comnfld">
+    <div class="form_control-radio">
+        <input type="radio" id="f-option-1" checked value="@Master_en.Vehicle_NewInsurance" name="rbpurpose1" onclick="CheckPupposeType('rbpurpose1')">
+
+        <div class="check"></div>
+        <label for="f-option-1">@Master_en.Vehicle_NewInsurance&nbsp;&nbsp;&nbsp;</label>
+    </div>
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <div class="form_control-radio">
+        <input type="radio" id="f-option-2" value="@Master_en.Vehicle_TransferOwnership" name="rbpurpose2" onclick="CheckPupposeType('rbpurpose2')">
+        <div class="check"></div>
+        <label for="f-option-2">@Master_en.Vehicle_TransferOwnership</label>
+    </div>
+</div>
+<div class="form_control form_control comnBox comnfld">
+    @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
+</div>
+
+<div class="form_control form_control comnBox comnfld">
+    <h3>@Master_en.Vehicle_RegistrationType</h3>
+</div>
+
+<div class="form_control form_control-50 comnBox comnfld">
+    <div class="form_control-radio">
+        <input type="radio" id="fr-option-1" checked value="@Master_en.Vechicle_SequenceNumber" name="rbreg1" onclick="CheckRegistrationType('rbreg1')">
+
+        <div class="check"></div>
+        <label for="fr-option-1">@Master_en.Vechicle_SequenceNumber</label>
+    </div>
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <div class="form_control-radio">
+        <input type="radio" id="fr-option-2" value="@Master_en.Vechicle_CustomCard" name="rbreg2" onclick="CheckRegistrationType('rbreg2')">
+        <div class="check"></div>
+        <label for="fr-option-2">@Master_en.Vechicle_CustomCard</label>
+
+    </div>
+</div>
+<div class="form_control form_control comnBox comnfld">
+    @Html.TextBoxFor(m => m.RegistrationTypeNo, new { @class = "inputtext", @placeholder = Master_en.Vehicle_EnterRegistrationType, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.RegistrationTypeNo, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_StartDate</h3>
+    @Html.TextBoxFor(m => m.StartDate, new { @class = "inputtext", @type = "date" })
+    @Html.ValidationMessageFor(a => a.StartDate, string.Empty, new { @class = "text-danger" })
+</div>
+
+

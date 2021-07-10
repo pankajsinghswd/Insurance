@@ -96,5 +96,10 @@ namespace Insurance.Utils
             }
             return obj;
         }
+        public static string GetSelectedDate(string date)
+        {
+            string []formatDate = date.Split('-');
+            return formatDate[2] + "-" + formatDate[1] + "-" + formatDate[0];
+        }
     }
 }

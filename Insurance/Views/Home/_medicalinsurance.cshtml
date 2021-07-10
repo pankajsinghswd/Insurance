@@ -1,0 +1,20 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.MedicalInsuranceModels
+@Html.HiddenFor(m => m.SelectedInsurance)
+@Html.HiddenFor(m => m.SelectedDate)
+<div class="form_control  form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_Id</h3>
+    @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.MedicleMalpractice_StartDateofInsurance</h3>
+    @Html.TextBoxFor(m => m.StartDateInsurance, new { @class = "inputtext", @type = "date" })
+    @Html.ValidationMessageFor(a => a.StartDateInsurance, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control medicalinsurance comnBox comnfld">
+    <h3>@Master_en.Medical_TypeOfInsuranceCoverage</h3>
+    @Html.DropDownListFor(m => m.InsuranceCoverage, Model.InsuranceCoverageList, Master_en.Medical_SelectTypeOfInsuranceCoverage, new { @class = "select" })
+    @Html.ValidationMessageFor(a => a.InsuranceCoverage, string.Empty, new { @class = "text-danger" })
+</div>
+

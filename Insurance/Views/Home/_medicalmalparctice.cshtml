@@ -1,0 +1,30 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.MedicalMalpracticeInsuranceModels
+@Html.HiddenFor(m => m.SelectedInsurance)
+@Html.HiddenFor(m => m.SelectedDate)
+<div class="form_control  form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_Id</h3>
+    @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.MedicleMalpractice_StartDateofInsurance</h3>
+    @Html.TextBoxFor(m => m.StartDateInsurance, new { @class = "inputtext", @type = "date" })
+    @Html.ValidationMessageFor(a => a.StartDateInsurance, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.MedicleMalpractice_Speciality</h3>
+    @Html.DropDownListFor(m => m.Speciality, Model.SpecialityList, Master_en.MedicleMalpractice_SelectSpeciality, new { @class = "select" })
+    @Html.ValidationMessageFor(a => a.Speciality, string.Empty, new { @class = "text-danger" })
+</div>
+
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.MedicleMalpractice_LimitOfLiability</h3>
+    @Html.DropDownListFor(m => m.LimitOfLiability, Model.LimitOfLiabilityList, Master_en.MedicleMalpractice_SelectLimitOfLiability, new { @class = "select" })
+    @Html.ValidationMessageFor(a => a.LimitOfLiability, string.Empty, new { @class = "text-danger" })
+</div>
+
+
+
+
+

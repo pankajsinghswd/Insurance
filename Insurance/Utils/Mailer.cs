@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Net;
 using Insurance.Models;
 using Insurance.Resources;
+using System.Globalization;
 
 namespace Insurance.Utils
 {
@@ -377,36 +378,89 @@ namespace Insurance.Utils
             return templateText;
         }
 
-        public bool SendEmailInsuracneQuote(InsuranceQuoteModel model, bool IsEnglish)
+        public bool SendEmailInsuracneQuote<T>(T model, bool IsEnglish,string insuranceTye)
         {
             try
             {
+                string body = string.Empty;
                 if (model != null)
                 {
-
-                    if (model.PurposeofInsurance == "New Insurance" && IsEnglish == false)
+                    //house hold
+                    if (insuranceTye == InsuranceType.HouseHold) 
                     {
-                        model.PurposeofInsurance = "تأمين جديد";
+                        HouseHoldInsuranceModels _model = model as HouseHoldInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%",_model.SelectedInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%SumAssured%", _model.SumAssured);
+                        mailParam.Add("%Location%", _model.Location);
+                        mailParam.Add("%TypeOfCoverage%", _model.TypeOfCoverage);
+                        mailParam.Add("%StartDate%", CommonFunctions.GetSelectedDate(_model.SelectedDate));
+                        body = PrepareMailBodyForSync(IsEnglish ? "HouseHoldQuote_en.html" : "HouseHoldQuote_ar.html", mailParam);
                     }
-                    if (model.PurposeofInsurance == "Transfer of ownership" && IsEnglish == false)
+                    //Life & Savings
+                    if (insuranceTye == InsuranceType.LifeSavings)
                     {
-                        model.PurposeofInsurance = "نقل ملكية";
+                        LifeSavingsInsuranceModels _model = model as LifeSavingsInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%", _model.SelectedInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%LimitOfCoverage%", _model.LimitOfCoverage);
+                        mailParam.Add("%StartDate%", CommonFunctions.GetSelectedDate(_model.SelectedDate));
+                        body = PrepareMailBodyForSync(IsEnglish ? "LifeSavingQuote_en.html" : "LifeSavingQuote_ar.html", mailParam);
                     }
-                    Dictionary<string, string> mailParam = new Dictionary<string, string>();
-                    mailParam.Add("%PurposeofInsurance%", model.PurposeofInsurance);
-                    mailParam.Add("%InsuranceType%", model.SelectedInsurance);
-                    mailParam.Add("%FirstName%", model.FirstName);
-                    mailParam.Add("%LastName%", model.LastName);
-                    mailParam.Add("%Email%", model.EmailAddress);
-                    mailParam.Add("%PhoneNumber%", model.PhoneNumber);
-                    mailParam.Add("%Age%", model.Age);
-
-                    string body = PrepareMailBodyForSync(IsEnglish ? "InsuranceQuote_en.html" : "InsuranceQuote_ar.html", mailParam);
-
+                    //Medical
+                    if (insuranceTye == InsuranceType.Medical)
+                    {
+                        MedicalInsuranceModels _model = model as MedicalInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%", _model.SelectedInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%TypeOfCoverage%", _model.InsuranceCoverage);
+                        mailParam.Add("%StartDateInsurance%", CommonFunctions.GetSelectedDate(_model.SelectedDate));
+                        body = PrepareMailBodyForSync(IsEnglish ? "MedicalQuote_en.html" : "MedicalQuote_ar.html", mailParam);
+                    }
+                    //Medical Malpractice
+                    if (insuranceTye == InsuranceType.MedicalMalpractice)
+                    {
+                        MedicalMalpracticeInsuranceModels _model = model as MedicalMalpracticeInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%", _model.SelectedInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%Speciality%", _model.Speciality);
+                        mailParam.Add("%LimitOfLiability%", _model.LimitOfLiability);
+                        mailParam.Add("%StartDateInsurance%", CommonFunctions.GetSelectedDate(_model.SelectedDate));
+                        body = PrepareMailBodyForSync(IsEnglish ? "MedicalMalPracticeQuote_en.html" : "MedicalMalPracticeQuote_ar.html", mailParam);
+                    }
+                    //Travel
+                    if (insuranceTye == InsuranceType.Travel)
+                    {
+                        TravelInsuranceModels _model = model as TravelInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%", _model.SelectedInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%Duration%", _model.Duration);
+                        mailParam.Add("%PassportNumber%", _model.PassportNumber);
+                        mailParam.Add("%Destination%", _model.Destination);
+                        body = PrepareMailBodyForSync(IsEnglish ? "TravelQuote_en.html" : "TravelQuote_ar.html", mailParam);
+                    }
+                    //Vehicle Insurance
+                    if (insuranceTye == InsuranceType.VehicleInsurance)
+                    {
+                        VehicleInsuranceModels _model = model as VehicleInsuranceModels;
+                        Dictionary<string, string> mailParam = new Dictionary<string, string>();
+                        mailParam.Add("%InsuranceType%", _model.SelectedInsurance);
+                        mailParam.Add("%PurposeOfInsurance%", _model.PurposeOfInsurance);
+                        mailParam.Add("%ID%", _model.ID);
+                        mailParam.Add("%RegistrationType%", _model.RegistrationType);
+                        mailParam.Add("%RegistrationTypeNo%", _model.RegistrationTypeNo);
+                        mailParam.Add("%StartDate%", CommonFunctions.GetSelectedDate(_model.SelectedDate));
+                        body = PrepareMailBodyForSync(IsEnglish ? "VehicleQuote_en.html" : "VehicleQuote_ar.html", mailParam);
+                    }
+                    
                     MailMessage mailMessage = new MailMessage();
                     mailMessage.To.Add(ConfigurationManager.AppSettings["contactusemail"]);
                     mailMessage.Subject = Master_en.GetaFreeInsuranceQuote;
-
                     AlternateView altView = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
                     mailMessage.AlternateViews.Add(altView);
                     mailMessage.IsBodyHtml = true;

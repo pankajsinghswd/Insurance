@@ -1,0 +1,26 @@
+﻿@using Insurance.Resources
+@model Insurance.Models.TravelInsuranceModels
+@Html.HiddenFor(m => m.SelectedInsurance)
+<div class="form_control  form_control-50 comnBox comnfld">
+    <h3>@Master_en.HouseHold_Id</h3>
+    @Html.TextBoxFor(m => m.ID, new { @class = "inputtext", @placeholder = Master_en.IDNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.ID, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50  comnBox comnfld">
+    <h3>@Master_en.Travel_Duration</h3>
+    @Html.TextBoxFor(m => m.Duration, new { @class = "inputtext", @placeholder = @Master_en.Travel_Duration, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.Duration, string.Empty, new { @class = "text-danger" })
+</div>
+
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.Travel_PassportNumber</h3>
+    @Html.TextBoxFor(m => m.PassportNumber, new { @class = "inputtext", @placeholder = @Master_en.Travel_EnterPassportNumber, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.PassportNumber, string.Empty, new { @class = "text-danger" })
+</div>
+<div class="form_control form_control-50 comnBox comnfld">
+    <h3>@Master_en.Travel_Destination</h3>
+    @Html.TextBoxFor(m => m.Destination, new { @class = "inputtext", @placeholder = @Master_en.Travel_Destination, @autocomplete = "off" })
+    @Html.ValidationMessageFor(a => a.Destination, string.Empty, new { @class = "text-danger" })
+</div>
+
+

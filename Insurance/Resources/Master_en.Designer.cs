@@ -79,6 +79,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check the checkbox.
+        /// </summary>
+        public static string AgreeCheckBox {
+            get {
+                return ResourceManager.GetString("AgreeCheckBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Rights Reserved..
         /// </summary>
         public static string AllRightsReserved {
@@ -331,11 +340,74 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter ID.
+        /// </summary>
+        public static string HouseHold_EnterID {
+            get {
+                return ResourceManager.GetString("HouseHold_EnterID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your location.
+        /// </summary>
+        public static string HouseHold_EnterLocation {
+            get {
+                return ResourceManager.GetString("HouseHold_EnterLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter sum insured.
+        /// </summary>
+        public static string HouseHold_EnterSumAssured {
+            get {
+                return ResourceManager.GetString("HouseHold_EnterSumAssured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit Quotations.
+        /// </summary>
+        public static string HouseHold_GetQuotation {
+            get {
+                return ResourceManager.GetString("HouseHold_GetQuotation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to House.
         /// </summary>
         public static string HouseHold_House {
             get {
                 return ResourceManager.GetString("HouseHold_House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I agree to grant the right to inquire.
+        /// </summary>
+        public static string HouseHold_IAgreeToGrant {
+            get {
+                return ResourceManager.GetString("HouseHold_IAgreeToGrant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        public static string HouseHold_Id {
+            get {
+                return ResourceManager.GetString("HouseHold_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string HouseHold_Location {
+            get {
+                return ResourceManager.GetString("HouseHold_Location", resourceCulture);
             }
         }
         
@@ -358,6 +430,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string HouseHold_StartDate {
+            get {
+                return ResourceManager.GetString("HouseHold_StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         public static string HouseHold_State {
@@ -367,11 +448,29 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sum Insured.
+        /// </summary>
+        public static string HouseHold_SumInsured {
+            get {
+                return ResourceManager.GetString("HouseHold_SumInsured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tell us about your home.
         /// </summary>
         public static string HouseHold_TellUsAboutYourHome {
             get {
                 return ResourceManager.GetString("HouseHold_TellUsAboutYourHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of coverage.
+        /// </summary>
+        public static string HouseHold_TypeOfCoverage {
+            get {
+                return ResourceManager.GetString("HouseHold_TypeOfCoverage", resourceCulture);
             }
         }
         
@@ -399,6 +498,15 @@ namespace Insurance.Resources {
         public static string IAgreeToTheTerms {
             get {
                 return ResourceManager.GetString("IAgreeToTheTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insured national ID/Iqama/company.
+        /// </summary>
+        public static string IDNumber {
+            get {
+                return ResourceManager.GetString("IDNumber", resourceCulture);
             }
         }
         
@@ -538,11 +646,29 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Limit of Coverage.
+        /// </summary>
+        public static string Life_LimitOfCoverage {
+            get {
+                return ResourceManager.GetString("Life_LimitOfCoverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Tobacco/Nicotine.
         /// </summary>
         public static string Life_SelectTobaccoNicotine {
             get {
                 return ResourceManager.GetString("Life_SelectTobaccoNicotine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date of Insurance.
+        /// </summary>
+        public static string LIfe_StartDateofInsurance {
+            get {
+                return ResourceManager.GetString("LIfe_StartDateofInsurance", resourceCulture);
             }
         }
         
@@ -574,6 +700,24 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Insurance Coverage.
+        /// </summary>
+        public static string Medical_SelectTypeOfInsuranceCoverage {
+            get {
+                return ResourceManager.GetString("Medical_SelectTypeOfInsuranceCoverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Insurance Coverage.
+        /// </summary>
+        public static string Medical_TypeOfInsuranceCoverage {
+            get {
+                return ResourceManager.GetString("Medical_TypeOfInsuranceCoverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Age.
         /// </summary>
         public static string Medicle_Age {
@@ -597,6 +741,15 @@ namespace Insurance.Resources {
         public static string Medicle_TellUsAboutYourself {
             get {
                 return ResourceManager.GetString("Medicle_TellUsAboutYourself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit of Liability.
+        /// </summary>
+        public static string MedicleMalpractice_LimitOfLiability {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_LimitOfLiability", resourceCulture);
             }
         }
         
@@ -633,6 +786,42 @@ namespace Insurance.Resources {
         public static string MedicleMalPractice_NeedInsuranceFor {
             get {
                 return ResourceManager.GetString("MedicleMalPractice_NeedInsuranceFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Limit of Liability.
+        /// </summary>
+        public static string MedicleMalpractice_SelectLimitOfLiability {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_SelectLimitOfLiability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Speciality.
+        /// </summary>
+        public static string MedicleMalpractice_SelectSpeciality {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_SelectSpeciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speciality.
+        /// </summary>
+        public static string MedicleMalpractice_Speciality {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_Speciality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date of Insurance.
+        /// </summary>
+        public static string MedicleMalpractice_StartDateofInsurance {
+            get {
+                return ResourceManager.GetString("MedicleMalpractice_StartDateofInsurance", resourceCulture);
             }
         }
         
@@ -943,6 +1132,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to --Select--.
+        /// </summary>
+        public static string SelectDropdownlist {
+            get {
+                return ResourceManager.GetString("SelectDropdownlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to STEP 1.
         /// </summary>
         public static string Step1 {
@@ -988,6 +1186,15 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Destination.
+        /// </summary>
+        public static string Travel_Destination {
+            get {
+                return ResourceManager.GetString("Travel_Destination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Destination Country.
         /// </summary>
         public static string Travel_DestinationCountry {
@@ -997,11 +1204,56 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string Travel_Duration {
+            get {
+                return ResourceManager.GetString("Travel_Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter destination.
+        /// </summary>
+        public static string Travel_EnterDestination {
+            get {
+                return ResourceManager.GetString("Travel_EnterDestination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Duration.
+        /// </summary>
+        public static string Travel_EnterDuration {
+            get {
+                return ResourceManager.GetString("Travel_EnterDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your passport number.
+        /// </summary>
+        public static string Travel_EnterPassportNumber {
+            get {
+                return ResourceManager.GetString("Travel_EnterPassportNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Gender.
         /// </summary>
         public static string Travel_Gender {
             get {
                 return ResourceManager.GetString("Travel_Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passport Number.
+        /// </summary>
+        public static string Travel_PassportNumber {
+            get {
+                return ResourceManager.GetString("Travel_PassportNumber", resourceCulture);
             }
         }
         
@@ -1123,11 +1375,47 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Card.
+        /// </summary>
+        public static string Vechicle_CustomCard {
+            get {
+                return ResourceManager.GetString("Vechicle_CustomCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence Number.
+        /// </summary>
+        public static string Vechicle_SequenceNumber {
+            get {
+                return ResourceManager.GetString("Vechicle_SequenceNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you already have an insurance?.
         /// </summary>
         public static string Vehicle_DoYouAlreadyHaveAnInsurance {
             get {
                 return ResourceManager.GetString("Vehicle_DoYouAlreadyHaveAnInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter registration type number.
+        /// </summary>
+        public static string Vehicle_EnterRegistrationType {
+            get {
+                return ResourceManager.GetString("Vehicle_EnterRegistrationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Insurance.
+        /// </summary>
+        public static string Vehicle_NewInsurance {
+            get {
+                return ResourceManager.GetString("Vehicle_NewInsurance", resourceCulture);
             }
         }
         
@@ -1141,11 +1429,38 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Purpose Of Insurance.
+        /// </summary>
+        public static string Vehicle_PuposeOfInsurance {
+            get {
+                return ResourceManager.GetString("Vehicle_PuposeOfInsurance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Type.
+        /// </summary>
+        public static string Vehicle_RegistrationType {
+            get {
+                return ResourceManager.GetString("Vehicle_RegistrationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tell Us about your Vehicle.
         /// </summary>
         public static string Vehicle_TellUsAboutYourVehicle {
             get {
                 return ResourceManager.GetString("Vehicle_TellUsAboutYourVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer Ownership.
+        /// </summary>
+        public static string Vehicle_TransferOwnership {
+            get {
+                return ResourceManager.GetString("Vehicle_TransferOwnership", resourceCulture);
             }
         }
         
