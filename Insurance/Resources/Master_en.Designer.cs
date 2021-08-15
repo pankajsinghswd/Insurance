@@ -97,7 +97,7 @@ namespace Insurance.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get Quotes.
+        ///   Looks up a localized string similar to Send Quote.
         /// </summary>
         public static string BtnGetQuotes {
             get {
