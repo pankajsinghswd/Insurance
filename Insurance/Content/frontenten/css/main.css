@@ -2111,3 +2111,37 @@ margin: 10px 0 5px;}
 
 
 
+/**  15 aug new css */
+.stepForm_mn {display: block;}
+
+
+.stepForm_5 { font-size: 14px; align-items: end;}
+.stepForm_item:nth-child(2) {float: right; width: 18%; padding: 0 0 0 10px;}
+.stepForm_item:nth-child(1) {float: left; width: 82%;}
+.newForm {height: 174px; padding: 9px 0 0;}
+.stepForm_2 {display: block;}
+.stepForm_2 .form_control {width: 37.333%; padding: 0 10px; display: block; flex-wrap: unset; float: left;}
+.stepForm_2 .form-group .form_control-radio {display: block; float: left; width: 50%;}
+.stepForm_2 .form_control-radio .check {float: left;}
+.stepForm_2 .form_control label {    float: left; padding: 0 0 0 6px;}
+.stepForm_2 .form-group {    overflow: hidden;}
+.stepForm_2 .form-group .form-group {margin: 0;} 
+.stepForm_2 .form_control:last-child {width: 25%; float: right; position: relative; height: 113px;}
+.stepForm_item:nth-child(1) {margin: 0;}
+.clsvehicle .stepForm_2 .form_control:last-child .inputtext {margin: 39px 0 0;}
+.clsmalparctice .stepForm_2 .form_control { width: 25%; height: auto; }
+.clstravel .stepForm_2 .form_control {width: 25%;}
+.clshousehold .stepForm_2 .form_control {width: 20%;} 
+
+
+
+
+
+
+
+
+
+
+
+
+

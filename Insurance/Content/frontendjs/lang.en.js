@@ -37,24 +37,9 @@
     InvalidCaptcha: "Invalid captcha answer.",
     InsuranceSubmittedQuote: "Your quotes submitted successfully. We will reach you soon.",
 };
-
-function countOffer() {
-    var URLPATH = $("#URLPATH").val();
-    //var offerid = offerid;
-    //var itemname = ItemName;
-    $.ajax({
-        url: URLPATH + "/Home/GetUserOfferCount",
-        type: "POST",
-        //data: JSON.stringify(model),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        async: false,
-        success: function (response) {
-            $('#CounttotalOffer').text('(' + response + ')');
-        },
-        error: function (er) {
-            alert(lang.Error);
-            return false;
-        }
-    });
+var wind = $(window).width();
+if (wind <= 767) {
+    var hdr = $('.banner_1 .header_tabinner').clone();
+    $(hdr).insertBefore('.newForm').addClass('cln');
+    $('.banner_1 .header_tabinner').hide();
 }

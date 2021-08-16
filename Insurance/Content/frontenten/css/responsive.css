@@ -259,7 +259,33 @@
     .banner_1 .header_tabinner{
         position: absolute;
         top: 25px;
-    }
+}
 
 }
 
+
+
+@media (min-width:320px) and (max-width:767px) { 
+.banner_1 .header_tabinner.cln { display: block !important; position: static; text-align: center; padding: 6px 0 0 0; }
+.header_tab {display: inline-block; padding: 0; height: 73px; width: 56px;}
+.stepForm_2 .form_control {width: 100%;}
+.stepForm_2 .form_control:last-child {width: 100%;}
+.clsvehicle .stepForm_2 .form_control:last-child .inputtext {margin: 0;}
+.stepForm_item:nth-child(2) {width: 100%;}
+.stepForm_2 .form_control:last-child {height: auto;}
+.banner_1 {display: block; padding: 0; height: auto;}
+.newForm {padding: 15px 0 27px; background: rgb(224 224 224 / 60%); position: static; height: auto;}
+.stepForm_item:nth-child(2) {padding: 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+}
