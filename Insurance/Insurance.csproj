@@ -777,6 +777,11 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\lifesaving.jpeg" />
+    <Content Include="images\household.jpeg" />
+    <Content Include="images\travel.jpeg" />
+    <Content Include="images\vehicle.jpeg" />
+    <Content Include="images\medical.jpeg" />
     <Content Include="images\ui-icons_777777_256x240.png" />
     <Content Include="privacy_policy.html" />
     <Content Include="Scripts\adminlte\components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
