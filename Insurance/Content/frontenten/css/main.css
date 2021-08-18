@@ -2116,8 +2116,8 @@ margin: 10px 0 5px;}
 
 
 .stepForm_5 { font-size: 14px; align-items: end;}
-.stepForm_item:nth-child(2) {float: right; width: 18%; padding: 0 0 0 10px;}
-.stepForm_item:nth-child(1) {float: left; width: 82%;}
+.stepForm_item:nth-child(2) {float: right; width: 24%; padding: 0 0 0 10px;}
+.stepForm_item:nth-child(1) {float: left; width: 76%;}
 .newForm {height: 174px; padding: 9px 0 0;}
 .stepForm_2 {display: block;}
 .stepForm_2 .form_control {width: 37.333%; padding: 0 10px; display: block; flex-wrap: unset; float: left;}
@@ -2134,6 +2134,7 @@ margin: 10px 0 5px;}
 .clshousehold .stepForm_2 .form_control {width: 20%;} 
 
 
+#div1 {background-size: cover !important;}
 
 
 
