@@ -2096,6 +2096,7 @@ flex-direction: row-reverse;
     transform: rotate(180deg); 
     left: unset;
 }
+
 .arabic  ul.vm_list{
 padding-left: 0;
 padding-right: 30px;
@@ -2134,7 +2135,7 @@ margin: 10px 0 5px;}
 .clshousehold .stepForm_2 .form_control {width: 20%;} 
 
 
-#div1 {background-size: cover !important;}
+body #div1 {background-size: cover !important;}
 
 
 
